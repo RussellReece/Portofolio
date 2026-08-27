@@ -1,0 +1,60 @@
+{
+  "nav": {
+    "about": "About",
+    "projects": "Projects",
+    "experience": "Experience",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Crafting",
+    "gradientText": "Logical Systems",
+    "subtitle": "& Interactive Web Experiences",
+    "description": "System Analyst & Front-End Developer dedicated to translating complex business processes into seamless, high-performance digital solutions.",
+    "viewProjects": "View Projects",
+    "downloadCv": "Download CV"
+  },
+  "about": {
+    "title": "About Me",
+    "p1": "I merge analytical thinking with technical execution. My philosophy is rooted in understanding the core business processes before writing a single line of code. This dual approach as a System Analyst and Front-End Developer allows me to build solutions that are not just visually stunning, but functionally robust.",
+    "p2": "Whether it's streamlining supply chains with UML or crafting zero-latency interfaces with Next.js, I strive for excellence in every layer of the stack.",
+    "techTitle": "Tech Stack & Tools"
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "subtitle": "A selection of my recent work across system analysis and front-end development."
+  },
+  "experience": {
+    "title": "Experience & Leadership",
+    "items": [
+      {
+        "role": "Promotional Strategist & Technical Implementer",
+        "organization": "Campus Promotion Team • Satu University",
+        "year": "Oct 2025 – Present",
+        "description": "Developed an automated follow-up mini-website using HTML, Google Apps Script, and AI integration to streamline communication with prospective high school students. Managed a spreadsheet database of student contacts, significantly reducing manual follow-up time."
+      },
+      {
+        "role": "President (Previously: Academic Division & Project Coordinator)",
+        "organization": "Onelish English Club • Satu University",
+        "year": "Oct 2024 – Present",
+        "description": "Operations Management: Trusted PIC for weekly gatherings, ensuring timely and seamless execution. Curriculum Innovation: Designed interactive English games to boost member confidence. Event Management: Headed preparations for the 'Introduction to English Job Interviews' seminar."
+      },
+      {
+        "role": "Head of Academic Division",
+        "organization": "Information Systems Student Association (HIMASIF)",
+        "year": "Apr 2026 – Present",
+        "description": "Direct academic-focused programs and bridge communication between students and faculty members to support student competence development."
+      },
+      {
+        "role": "Master of Ceremonies & Key Speaker",
+        "organization": "International Benchmarking and Cultural Exchange with UP Manila",
+        "year": "Feb 2026",
+        "description": "Hosted an international benchmarking session, facilitating cross-cultural academic discussions. Delivered a comprehensive presentation on 'Student organization & Leadership'."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Let's Connect",
+    "description": "I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.",
+    "rights": "All rights reserved."
+  }
+}

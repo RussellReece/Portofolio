@@ -1,21 +1,21 @@
 ---
-title: 'ClevaGO'
+title: 'ClevaGO - Laundry Service External Division'
 category: 'System Analysis'
-summary: 'A gamified platform for environmental awareness and sustainability.'
-techStack: ['Figma', 'System Analysis']
+summary: 'System Analyst case study for a laundry external service division including business process reports, UML modeling, and Figma UI/UX designs.'
+techStack: ['Figma', 'UML', 'System Analysis']
 image: '/projects/clevago.png'
 link: '#'
 ---
 
-# ClevaGO
+# ClevaGO - Laundry Service External Division
 
 ## Overview
-ClevaGO is a "System Analysis" project focused on designing a gamified app for sustainability. It incorporates game mechanics to encourage users to adopt eco-friendly habits.
+Acted as the System Analyst for a laundry service case study focusing on the external service division. Produced a comprehensive business process report, structured multiple UML diagrams to model the system, and designed UI/UX prototypes using Figma, completed during Semester 2.
 
 ## Key Features
-- Designed high-fidelity prototypes and user flows in Figma.
-- Analyzed user behavior to implement engaging gamification elements.
-- Outlined system requirements and architecture.
+- Conducted business process analysis and mapped workflows for external laundry services.
+- Constructed comprehensive UML diagrams (Use Case, Class, Activity) to define system structure.
+- Developed interactive high-fidelity UI/UX prototypes in Figma for manager and staff roles.
 
-## Impact
-Created a compelling concept that received positive feedback for its innovative approach to environmental education.
+## Role
+- **System Analyst**

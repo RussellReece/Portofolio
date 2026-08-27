@@ -1,16 +1,44 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #0a0a0a;
-  --color-foreground: #ededed;
+  --color-background: var(--bg-color);
+  --color-foreground: var(--fg-color);
   --color-primary: #8b5cf6; /* violet-500 */
   --color-primary-hover: #7c3aed; /* violet-600 */
-  --color-secondary: #1f2937; /* gray-800 */
-  --color-card: rgba(255, 255, 255, 0.05);
-  --color-card-hover: rgba(255, 255, 255, 0.1);
+  --color-secondary: var(--sec-color);
+  --color-card: var(--card-bg);
+  --color-card-hover: var(--card-hover);
+  --color-glass-bg: var(--glass-bg);
+  --color-glass-border: var(--glass-border);
+  --color-glass-hover-bg: var(--glass-hover-bg);
+  --color-glass-hover-border: var(--glass-hover-border);
 }
 
 @layer base {
+  :root {
+    --bg-color: #f8fafc; /* slate-50 */
+    --fg-color: #0f172a; /* slate-900 */
+    --sec-color: #e2e8f0; /* slate-200 */
+    --card-bg: rgba(0, 0, 0, 0.03);
+    --card-hover: rgba(0, 0, 0, 0.08);
+    --glass-bg: rgba(255, 255, 255, 0.6);
+    --glass-border: rgba(0, 0, 0, 0.1);
+    --glass-hover-bg: rgba(255, 255, 255, 0.8);
+    --glass-hover-border: rgba(0, 0, 0, 0.2);
+  }
+
+  .dark {
+    --bg-color: #0a0a0a;
+    --fg-color: #ededed;
+    --sec-color: #1f2937;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --card-hover: rgba(255, 255, 255, 0.1);
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.05);
+    --glass-hover-bg: rgba(255, 255, 255, 0.08);
+    --glass-hover-border: rgba(255, 255, 255, 0.15);
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
@@ -20,16 +48,16 @@
 
 @layer utilities {
   .glass {
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--color-glass-bg);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--color-glass-border);
   }
   .glass-hover {
     transition: all 0.3s ease;
   }
   .glass-hover:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.15);
+    background: var(--color-glass-hover-bg);
+    border-color: var(--color-glass-hover-border);
   }
   .text-gradient {
     background-clip: text;

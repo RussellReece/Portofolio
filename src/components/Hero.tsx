@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowRight, Download } from 'lucide-react';
 
-export default function Hero() {
+export default function Hero({ dict }: { dict: any }) {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background gradients */}
@@ -10,19 +10,19 @@ export default function Hero() {
       
       <div className="container mx-auto px-6 relative z-10 text-center">
         <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
-          Crafting <span className="text-gradient">Logical Systems</span> <br className="hidden md:block" />
-          & Interactive Web Experiences
+          {dict.title} <span className="text-gradient">{dict.gradientText}</span> <br className="hidden md:block" />
+          {dict.subtitle}
         </h1>
-        <p className="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
-          System Analyst & Front-End Developer dedicated to translating complex business processes into seamless, high-performance digital solutions.
+        <p className="text-lg md:text-xl text-gray-500 dark:text-gray-400 mb-10 max-w-2xl mx-auto">
+          {dict.description}
         </p>
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="#projects" className="flex items-center gap-2 px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-gray-200 transition-colors">
-            View Projects <ArrowRight className="w-5 h-5" />
+          <a href="#projects" className="flex items-center gap-2 px-8 py-4 bg-gray-900 dark:bg-white text-white dark:text-black font-semibold rounded-full hover:opacity-80 transition-colors">
+            {dict.viewProjects} <ArrowRight className="w-5 h-5" />
           </a>
-          <a href="#" className="flex items-center gap-2 px-8 py-4 glass glass-hover font-semibold rounded-full text-white">
-            <Download className="w-5 h-5" /> Download CV
+          <a href="#" className="flex items-center gap-2 px-8 py-4 glass glass-hover font-semibold rounded-full text-gray-900 dark:text-white">
+            <Download className="w-5 h-5" /> {dict.downloadCv}
           </a>
         </div>
       </div>

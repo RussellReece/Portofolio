@@ -1,21 +1,21 @@
 ---
-title: 'Universal LMS'
+title: 'Universal Learning Management System'
 category: 'Front-End'
-summary: 'A scalable Learning Management System for educational institutions.'
-techStack: ['React', 'CSS', 'HTML']
+summary: 'A large-scale, multi-role LMS front-end template built using HTML, CSS, and JavaScript, adaptive for K-12 to university.'
+techStack: ['HTML', 'CSS', 'JavaScript']
 image: '/projects/universal-lms.png'
-link: '#'
+link: 'https://lms-russell.vercel.app/'
 ---
 
-# Universal LMS
+# Universal Learning Management System
 
 ## Overview
-Universal LMS is a learning management system designed to provide a cohesive and interactive learning environment for students and educators.
+Developed the front-end for a large-scale Learning Management System (LMS) platform using HTML, CSS, and JavaScript. The system is designed as a versatile template adaptive for various educational levels (Elementary to University) and supports multi-role interactions, including students and teachers. Ongoing project developed over 2 months in Semester 4.
 
 ## Key Features
-- Designed an intuitive dashboard for course management and progress tracking.
-- Ensured cross-browser compatibility and responsive design.
-- Implemented real-time notifications for assignments and grades.
+- Designed adaptive and customizable LMS templates using clean HTML, CSS, and JavaScript.
+- Built multi-role user dashboards (for students, teachers, and admins).
+- Created interactive interfaces for course content, grading, and scheduling.
 
-## Impact
-Enhanced the digital learning experience, making it more accessible and user-friendly.
+## Role
+- **Front-End Developer**

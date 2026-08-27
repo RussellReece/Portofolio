@@ -1,0 +1,60 @@
+{
+  "nav": {
+    "about": "Tentang",
+    "projects": "Proyek",
+    "experience": "Pengalaman",
+    "contact": "Kontak"
+  },
+  "hero": {
+    "title": "Membangun",
+    "gradientText": "Sistem Logis",
+    "subtitle": "& Pengalaman Web Interaktif",
+    "description": "System Analyst & Front-End Developer yang berdedikasi untuk menerjemahkan proses bisnis yang kompleks menjadi solusi digital berkinerja tinggi yang mulus.",
+    "viewProjects": "Lihat Proyek",
+    "downloadCv": "Unduh CV"
+  },
+  "about": {
+    "title": "Tentang Saya",
+    "p1": "Saya menggabungkan pemikiran analitis dengan eksekusi teknis. Filosofi saya berakar pada pemahaman proses bisnis inti sebelum menulis satu baris kode pun. Pendekatan ganda ini sebagai System Analyst dan Front-End Developer memungkinkan saya membangun solusi yang tidak hanya memukau secara visual, tetapi juga kuat secara fungsional.",
+    "p2": "Baik itu mengoptimalkan rantai pasokan dengan UML atau membuat antarmuka tanpa latensi dengan Next.js, saya selalu mengupayakan yang terbaik di setiap lapisan pengembangan.",
+    "techTitle": "Keahlian & Alat"
+  },
+  "projects": {
+    "title": "Proyek Pilihan",
+    "subtitle": "Pilihan dari pekerjaan terbaru saya di bidang system analysis dan front-end development."
+  },
+  "experience": {
+    "title": "Pengalaman & Kepemimpinan",
+    "items": [
+      {
+        "role": "Promotional Strategist & Technical Implementer",
+        "organization": "Campus Promotion Team • Satu University",
+        "year": "Okt 2025 – Sekarang",
+        "description": "Mengembangkan mini-website tindak lanjut otomatis menggunakan HTML, Google Apps Script, dan integrasi AI untuk menyederhanakan komunikasi dengan calon siswa SMA. Mengelola database spreadsheet kontak siswa, mengurangi waktu tindak lanjut secara signifikan."
+      },
+      {
+        "role": "President (Sebelumnya: Divisi Akademik & Koordinator Proyek)",
+        "organization": "Onelish English Club • Satu University",
+        "year": "Okt 2024 – Sekarang",
+        "description": "Manajemen Operasional: Dipercaya sebagai PIC berkala pertemuan mingguan untuk memastikan kelancaran sesi. Inovasi Kurikulum: Merancang game interaktif untuk meningkatkan kepercayaan diri berbicara. Manajemen Acara: Memimpin persiapan seminar 'Introduction to English Job Interviews'."
+      },
+      {
+        "role": "Ketua Divisi Akademik",
+        "organization": "Himpunan Mahasiswa Sistem Informasi (HIMASIF)",
+        "year": "Apr 2026 – Sekarang",
+        "description": "Mengarahkan program-program akademik dan menjembatani komunikasi antara mahasiswa dan dosen untuk mendukung pengembangan kompetensi mahasiswa."
+      },
+      {
+        "role": "Master of Ceremonies & Key Speaker",
+        "organization": "International Benchmarking and Cultural Exchange dengan UP Manila",
+        "year": "Feb 2026",
+        "description": "Menjadi pembawa acara sesi benchmarking internasional lintas budaya. Menyampaikan presentasi komprehensif bertema 'Student organization & Leadership'."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Mari Terhubung",
+    "description": "Saya selalu terbuka untuk mendiskusikan proyek baru, ide kreatif, atau peluang untuk menjadi bagian dari visi Anda.",
+    "rights": "Hak cipta dilindungi."
+  }
+}

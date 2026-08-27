@@ -1,21 +1,22 @@
 ---
-title: 'KS FOOD Dashboard'
+title: 'KSFOOD - Manufacturing ERP & E-commerce'
 category: 'System Analysis'
-summary: 'An ERP dashboard and UML design for a food supply chain company.'
-techStack: ['UML', 'Figma', 'System Analysis']
+summary: 'ERP and E-commerce prototype for a sauce manufacturer involving business process modeling, UML design, Next.js, and MySQL.'
+techStack: ['UML', 'Figma', 'System Analysis', 'Next.js', 'MySQL']
 image: '/projects/ks-food.png'
 link: '#'
 ---
 
-# KS FOOD Dashboard
+# KSFOOD - Manufacturing ERP & E-commerce
 
 ## Overview
-KS FOOD is a supply chain management project where I focused on System Analysis. I created comprehensive UML diagrams and a Figma prototype for their ERP dashboard.
+Served as a System Analyst for a case study project on a real sauce manufacturing factory. The project involved creating business process reports, designing UML diagrams, and developing an E-commerce and ERP web prototype using Next.js during Semester 3, followed by a comprehensive MySQL database architecture design in Semester 4.
 
 ## Key Features
-- Designed Use Case, Activity, and Sequence diagrams.
-- Created a high-fidelity prototype in Figma.
-- Analyzed and streamlined their core business processes.
+- Analyzed and mapped business workflows for a manufacturing factory.
+- Designed comprehensive UML diagrams (Use Case, Activity, Sequence).
+- Created interactive Figma prototypes for the ERP dashboard and E-commerce interfaces.
+- Designed and structured the MySQL database architecture.
 
-## Impact
-Improved operational efficiency by providing a clear blueprint for the development team.
+## Role
+- **System Analyst & Front-End Developer**

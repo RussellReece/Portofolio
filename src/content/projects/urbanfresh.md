@@ -1,21 +1,21 @@
 ---
-title: 'UrbanFresh'
+title: 'UrbanFresh - Automated Laundry Web App'
 category: 'Full-Stack'
-summary: 'An e-commerce platform for locally sourced organic produce.'
-techStack: ['Next.js', 'MySQL', 'Google Apps Script']
+summary: 'A self-service laundry ordering platform built with HTML, CSS, JavaScript, Google Sheets backend, and Apps Script automation.'
+techStack: ['HTML', 'CSS', 'JavaScript', 'Google Apps Script', 'Google Spreadsheet']
 image: '/projects/urbanfresh.png'
-link: '#'
+link: 'https://urbanfresh-laundry.vercel.app/'
 ---
 
-# UrbanFresh
+# UrbanFresh - Automated Laundry Web App
 
 ## Overview
-UrbanFresh is a comprehensive e-commerce platform that connects local farmers with urban consumers, ensuring fresh produce delivery.
+My first web development project, focusing on a laundry service case study. It involved building a self-service ordering platform that supports both individual and corporate clients without requiring an active administrator. The backend database and processing workflows were built using Google Sheets and Google Apps Script, completed in 2 months at the end of Semester 3.
 
 ## Key Features
-- Built a robust backend to handle inventory and order processing.
-- Developed an intuitive front-end shopping experience.
-- Automated WhatsApp follow-ups using Google Apps Script for the campus promotion team.
+- Developed a self-service laundry ordering system using HTML, CSS, and vanilla JavaScript.
+- Engineered a lightweight database and admin system utilizing Google Spreadsheets.
+- Programmed Google Apps Script to handle order status updates and automated customer communications.
 
-## Impact
-Streamlined the ordering process, resulting in higher sales and improved customer satisfaction.
+## Role
+- **Full-Stack Developer**

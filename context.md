@@ -26,7 +26,16 @@ Develop a high-performance, comprehensive master portfolio website for a System 
     *   *Body Content:* The detailed description and case study of the project.
 *   **Data Fetching:** Use Node.js `fs` (File System) and `gray-matter` or `next-mdx-remote` to parse and render the Markdown content statically at build time.
 
-## 5. Development Directives for AI Agent
+## 5. Data Management & MDX Architecture
+*   **Implementation Strategy:** Local MDX (.mdx files) using `next-mdx-remote` or `@next/mdx` to allow rich media embedding (like videos and iframes) alongside standard markdown.
+*   **Data Structure:** Each project is stored in `/content/projects/`.
+    *   *Frontmatter Schema:* `Title`, `Category`, `Summary`, `Tech Stack (Array)`, `Image URL`, `Live/GitHub Link`, and an optional `VideoUrl` (for hero video backgrounds or top-level embeds).
+    *   *Body Content:* The detailed case study written in MDX.
+*   **Custom MDX Components:**
+    *   The AI Agent MUST create a custom `<VideoEmbed />` or `<YouTubeEmbed />` React component.
+    *   Map this component in the MDX provider so the user can easily call `<VideoEmbed src="..." />` directly within the markdown body content.
+
+## 6. Development Directives for AI Agent
 *   Prioritize responsive design (Mobile-first approach).
 *   Implement lazy loading for assets below the fold.
 *   Ensure the routing is clean and semantic.

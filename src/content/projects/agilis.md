@@ -1,21 +1,21 @@
 ---
-title: 'Agilis'
+title: 'Agilis (Gamified Health App)'
 category: 'Full-Stack'
-summary: 'A game development and research project exploring unique mechanics.'
-techStack: ['Unity', 'C#', 'Research']
+summary: 'A gamified health and wellness application recognized as a Semi-Finalist in the BPC Logicodix 2025 competition.'
+techStack: ['React Native', 'Figma', 'Gamification']
 image: '/projects/agilis.png'
 link: '#'
 ---
 
-# Agilis
+# Agilis (Gamified Health App)
 
 ## Overview
-Agilis is a specialized project exploring unique game mechanics. It involves both research and full-stack development to create an engaging experience.
+Agilis is a gamified health and fitness tracking application designed to encourage healthy user habits through gamified interactions. The project was recognized as a Semi-Finalist in the Logicodix 2025 Business Plan Competition (BPC) in November 2025.
 
 ## Key Features
-- Developed core gameplay mechanics using Unity and C#.
-- Conducted user research to refine the game loop.
-- Implemented a custom backend for player progression tracking.
+- Designed health habit tracking features integrated with gamification principles (points, levels, and badges).
+- Built interactive and engaging UI mockups for mobile platforms.
+- Prepared business plans and technical specifications for scaling the app.
 
-## Impact
-Pushed the boundaries of traditional gameplay, resulting in a highly acclaimed research paper and prototype.
+## Achievements
+- **Semi-Finalist** in the BPC Logicodix 2025 Competition.

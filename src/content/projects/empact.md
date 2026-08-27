@@ -1,21 +1,21 @@
 ---
-title: 'Empact'
+title: 'Empact - Community Profile Website'
 category: 'Front-End'
-summary: 'A web platform for community engagement and social impact.'
-techStack: ['Next.js', 'React', 'Tailwind CSS']
+summary: 'An interactive community profile website converted from Figma UI designs using React.js and deployed for a real client.'
+techStack: ['React.js', 'Figma', 'JavaScript', 'CSS']
 image: '/projects/empact.png'
-link: '#'
+link: 'https://empact-community.vercel.app/'
 ---
 
-# Empact
+# Empact - Community Profile Website
 
 ## Overview
-Empact is a front-end development project aimed at connecting volunteers with social impact initiatives.
+Joined the Front-End Developer team at UKM Coding to convert a Figma UI design into a fully functional, interactive, and hosted website using React.js. The project was created for a community client in need of a professional digital identity, successfully completed and deployed within one month.
 
 ## Key Features
-- Developed responsive user interfaces using Next.js and Tailwind CSS.
-- Implemented accessible design patterns for diverse user groups.
-- Integrated interactive maps and event calendars.
+- Converted high-fidelity Figma designs into responsive React.js web pages.
+- Implemented clean and interactive UI components.
+- Deployed and hosted the website for production use.
 
-## Impact
-Created a seamless and engaging experience that boosted user retention and volunteer sign-ups.
+## Role
+- **Front-End Developer**
