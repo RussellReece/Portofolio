@@ -2,6 +2,7 @@
   "nav": {
     "about": "About",
     "projects": "Projects",
+    "awards": "Awards",
     "experience": "Experience",
     "contact": "Contact"
   },
@@ -22,6 +23,26 @@
   "projects": {
     "title": "Featured Projects",
     "subtitle": "A selection of my recent work across system analysis and front-end development."
+  },
+  "awards": {
+    "title": "Awards & Achievements",
+    "items": [
+      {
+        "title": "Semi-Finalist | BPC Logicodix 2025",
+        "project": "Agilis (Gamified Health App)",
+        "year": "November 2025"
+      },
+      {
+        "title": "Semi-Finalist | Business Plan Competition GEM 2025",
+        "project": "Eatventory (App for forecasting food stock needs)",
+        "year": "February 2025"
+      },
+      {
+        "title": "Semi-Finalist | Business Case Competition DIGCOFEST 2024",
+        "project": "Strategy and additional features to increase CIS PDAM Surabaya brand awareness",
+        "year": "November 2024"
+      }
+    ]
   },
   "experience": {
     "title": "Experience & Leadership",
