@@ -10,6 +10,7 @@ export interface ProjectData {
   id: string;
   title: string;
   category: string;
+  year?: string;
   summary: string;
   techStack: string[];
   image: string;
@@ -32,6 +33,7 @@ export function getSortedProjectsData(): ProjectData[] {
       id,
       title: matterResult.data.title,
       category: matterResult.data.category,
+      year: matterResult.data.year || '',
       summary: matterResult.data.summary,
       techStack: matterResult.data.techStack || [],
       image: matterResult.data.image || '',
@@ -58,6 +60,7 @@ export async function getProjectData(id: string): Promise<ProjectData> {
     contentHtml,
     title: matterResult.data.title,
     category: matterResult.data.category,
+    year: matterResult.data.year || '',
     summary: matterResult.data.summary,
     techStack: matterResult.data.techStack || [],
     image: matterResult.data.image || '',

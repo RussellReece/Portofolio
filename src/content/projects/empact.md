@@ -1,6 +1,7 @@
 ---
 title: 'Empact - Community Profile Website'
 category: 'Front-End'
+year: '2026'
 summary: 'An interactive community profile website converted from Figma UI designs using React.js and deployed for a real client.'
 techStack: ['React.js', 'Figma', 'JavaScript', 'CSS']
 image: '/projects/empact.png'

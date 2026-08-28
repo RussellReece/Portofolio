@@ -1,6 +1,7 @@
 ---
 title: 'UrbanFresh - Automated Laundry Web App'
 category: 'Full-Stack'
+year: '2025'
 summary: 'A self-service laundry ordering platform built with HTML, CSS, JavaScript, Google Sheets backend, and Apps Script automation.'
 techStack: ['HTML', 'CSS', 'JavaScript', 'Google Apps Script', 'Google Spreadsheet']
 image: '/projects/urbanfresh.png'

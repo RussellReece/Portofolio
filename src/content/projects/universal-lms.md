@@ -1,6 +1,7 @@
 ---
 title: 'Universal Learning Management System'
 category: 'Front-End'
+year: '2026'
 summary: 'A large-scale, multi-role LMS front-end template built using HTML, CSS, and JavaScript, adaptive for K-12 to university.'
 techStack: ['HTML', 'CSS', 'JavaScript']
 image: '/projects/universal-lms.png'

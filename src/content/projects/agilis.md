@@ -1,6 +1,7 @@
 ---
 title: 'Agilis (Gamified Health App)'
 category: 'Full-Stack'
+year: '2025'
 summary: 'A gamified health and wellness application recognized as a Semi-Finalist in the BPC Logicodix 2025 competition.'
 techStack: ['React Native', 'Figma', 'Gamification']
 image: '/projects/agilis.png'

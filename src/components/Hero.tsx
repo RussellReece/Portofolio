@@ -18,7 +18,7 @@ export default function Hero({ dict }: { dict: any }) {
         </p>
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="#projects" className="flex items-center gap-2 px-8 py-4 bg-gray-900 dark:bg-white text-white dark:text-black font-semibold rounded-full hover:opacity-80 transition-colors">
+          <a href="#projects" className="flex items-center gap-2 px-8 py-4 bg-primary text-white font-semibold rounded-full shadow-lg shadow-primary/30 hover:shadow-primary/50 hover:-translate-y-1 transition-all duration-300">
             {dict.viewProjects} <ArrowRight className="w-5 h-5" />
           </a>
           <a href="#" className="flex items-center gap-2 px-8 py-4 glass glass-hover font-semibold rounded-full text-gray-900 dark:text-white">

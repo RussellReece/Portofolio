@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @theme {
   --color-background: var(--bg-color);
@@ -16,15 +17,15 @@
 
 @layer base {
   :root {
-    --bg-color: #f8fafc; /* slate-50 */
-    --fg-color: #0f172a; /* slate-900 */
-    --sec-color: #e2e8f0; /* slate-200 */
-    --card-bg: rgba(0, 0, 0, 0.03);
-    --card-hover: rgba(0, 0, 0, 0.08);
+    --bg-color: #fbfbfc;
+    --fg-color: #334155; 
+    --sec-color: #f1f5f9;
+    --card-bg: rgba(255, 255, 255, 0.7);
+    --card-hover: rgba(255, 255, 255, 0.9);
     --glass-bg: rgba(255, 255, 255, 0.6);
-    --glass-border: rgba(0, 0, 0, 0.1);
-    --glass-hover-bg: rgba(255, 255, 255, 0.8);
-    --glass-hover-border: rgba(0, 0, 0, 0.2);
+    --glass-border: rgba(226, 232, 240, 0.6);
+    --glass-hover-bg: rgba(255, 255, 255, 0.9);
+    --glass-hover-border: rgba(203, 213, 225, 0.8);
   }
 
   .dark {
