@@ -2,7 +2,7 @@
   "nav": {
     "about": "Tentang",
     "projects": "Proyek",
-    "awards": "Penghargaan",
+    "awards": "Kompetisi",
     "experience": "Pengalaman",
     "contact": "Kontak"
   },
@@ -25,22 +25,49 @@
     "subtitle": "Pilihan dari pekerjaan terbaru saya di bidang system analysis dan front-end development."
   },
   "awards": {
-    "title": "Penghargaan & Prestasi",
+    "title": "Kompetisi & Hackathon",
     "items": [
       {
+        "slug": "logicodix-2025",
         "title": "Semi-Finalis | BPC Logicodix 2025",
         "project": "Agilis (Aplikasi Kesehatan Gamifikasi)",
         "year": "November 2025"
       },
       {
+        "slug": "gem-2025",
         "title": "Semi-Finalis | Business Plan Competition GEM 2025",
         "project": "Eatventory (Aplikasi peramalan kebutuhan stok makanan)",
         "year": "Februari 2025"
       },
       {
-        "title": "Semi-Finalis | Business Case Competition DIGCOFEST 2024",
+        "slug": "digicofest-2024",
+        "title": "Semi-Finalis | Business Case Competition DIGICOFEST 2024",
         "project": "Strategi dan fitur tambahan untuk meningkatkan kesadaran merek CIS PDAM Surabaya",
         "year": "November 2024"
+      },
+      {
+        "slug": "nbpc-2026",
+        "title": "Peserta | National Business Plan Competition (NBPC) 2 2026",
+        "project": "Pioneering Strategists - Agilis",
+        "year": "2026"
+      },
+      {
+        "slug": "pkm-kc-2025",
+        "title": "Peserta | PKM-KC 2025",
+        "project": "Program Kreativitas Mahasiswa Karsa Cipta",
+        "year": "2025"
+      },
+      {
+        "slug": "pkm-kc-2026",
+        "title": "Peserta | PKM-KC 2026",
+        "project": "Perancangan Aplikasi Manajemen Stok Pangan Berbasis Sistem Pakar",
+        "year": "2026"
+      },
+      {
+        "slug": "ict-recursion-2025",
+        "title": "Peserta | ICT Recursion 2025",
+        "project": "Pioneering Strategists",
+        "year": "2025"
       }
     ]
   },

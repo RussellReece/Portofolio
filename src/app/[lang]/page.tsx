@@ -40,7 +40,7 @@ export default async function Home({ params }: { params: { lang: 'en' | 'id' } }
       <Hero dict={dict.hero} />
       <About dict={dict.about} />
       <ProjectsGallery projects={projects} dict={dict.projects} />
-      <Awards dict={dict.awards} />
+      <Awards dict={dict.awards} lang={lang} />
       <Experience dict={dict.experience} />
       <Contact dict={dict.contact} />
     </main>
