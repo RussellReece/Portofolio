@@ -6,7 +6,7 @@ export default function Contact({ dict }: { dict: any }) {
     <section id="contact" className="py-24 relative">
       <div className="container mx-auto px-6 max-w-3xl text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-6">{dict.title}</h2>
-        <p className="text-gray-600 dark:text-gray-400 mb-12">
+        <p className="text-gray-900 dark:text-gray-300 mb-12 font-medium">
           {dict.description}
         </p>
         

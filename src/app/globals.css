@@ -47,6 +47,11 @@
     color: var(--color-foreground);
     font-family: Arial, Helvetica, sans-serif;
   }
+
+  ::selection, *::selection {
+    background-color: var(--color-primary);
+    color: #ffffff !important;
+  }
 }
 
 @layer utilities {

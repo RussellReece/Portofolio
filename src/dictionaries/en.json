@@ -78,25 +78,39 @@
         "role": "Promotional Strategist & Technical Implementer",
         "organization": "Campus Promotion Team • Satu University",
         "year": "Oct 2025 – Present",
-        "description": "Developed an automated follow-up mini-website using HTML, Google Apps Script, and AI integration to streamline communication with prospective high school students. Managed a spreadsheet database of student contacts, significantly reducing manual follow-up time."
+        "description": [
+          "Developed an automated follow-up mini-website using HTML, Google Apps Script, and AI.",
+          "Streamlined communication with prospective high school students.",
+          "Managed student contact databases, significantly reducing manual follow-up time."
+        ]
       },
       {
         "role": "President (Previously: Academic Division & Project Coordinator)",
         "organization": "Onelish English Club • Satu University",
         "year": "Oct 2024 – Present",
-        "description": "Operations Management: Trusted PIC for weekly gatherings, ensuring timely and seamless execution. Curriculum Innovation: Designed interactive English games to boost member confidence. Event Management: Headed preparations for the 'Introduction to English Job Interviews' seminar."
+        "description": [
+          "Trusted PIC for weekly gatherings, ensuring seamless execution.",
+          "Designed interactive English games to boost member confidence.",
+          "Headed event management for the 'Introduction to English Job Interviews' seminar."
+        ]
       },
       {
         "role": "Head of Academic Division",
         "organization": "Information Systems Student Association (HIMASIF)",
         "year": "Apr 2026 – Present",
-        "description": "Direct academic-focused programs and bridge communication between students and faculty members to support student competence development."
+        "description": [
+          "Directed academic-focused programs to support student competence development.",
+          "Bridged communication and collaboration between students and faculty members."
+        ]
       },
       {
         "role": "Master of Ceremonies & Key Speaker",
         "organization": "International Benchmarking and Cultural Exchange with UP Manila",
         "year": "Feb 2026",
-        "description": "Hosted an international benchmarking session, facilitating cross-cultural academic discussions. Delivered a comprehensive presentation on 'Student organization & Leadership'."
+        "description": [
+          "Hosted an international benchmarking session for cross-cultural academic discussions.",
+          "Delivered a comprehensive presentation on 'Student organization & Leadership'."
+        ]
       }
     ]
   },

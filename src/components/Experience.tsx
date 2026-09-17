@@ -23,7 +23,11 @@ export default function Experience({ dict }: { dict: any }) {
                   <span className="text-sm font-medium text-primary mt-1 sm:mt-0">{exp.year}</span>
                 </div>
                 <h4 className="text-gray-700 dark:text-gray-300 font-medium mb-3">{exp.organization}</h4>
-                <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{exp.description}</p>
+                <ul className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed list-disc list-outside ml-4 space-y-1.5">
+                  {(Array.isArray(exp.description) ? exp.description : [exp.description]).map((desc: string, i: number) => (
+                    <li key={i}>{desc}</li>
+                  ))}
+                </ul>
               </div>
             </div>
           ))}

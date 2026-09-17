@@ -78,25 +78,39 @@
         "role": "Promotional Strategist & Technical Implementer",
         "organization": "Campus Promotion Team • Satu University",
         "year": "Okt 2025 – Sekarang",
-        "description": "Mengembangkan mini-website tindak lanjut otomatis menggunakan HTML, Google Apps Script, dan integrasi AI untuk menyederhanakan komunikasi dengan calon siswa SMA. Mengelola database spreadsheet kontak siswa, mengurangi waktu tindak lanjut secara signifikan."
+        "description": [
+          "Mengembangkan mini-website tindak lanjut otomatis menggunakan HTML, Google Apps Script, dan AI.",
+          "Menyederhanakan komunikasi dan proses rekrutmen dengan calon siswa SMA.",
+          "Mengelola database kontak siswa untuk mengurangi waktu tindak lanjut manual secara signifikan."
+        ]
       },
       {
         "role": "President (Sebelumnya: Divisi Akademik & Koordinator Proyek)",
         "organization": "Onelish English Club • Satu University",
         "year": "Okt 2024 – Sekarang",
-        "description": "Manajemen Operasional: Dipercaya sebagai PIC berkala pertemuan mingguan untuk memastikan kelancaran sesi. Inovasi Kurikulum: Merancang game interaktif untuk meningkatkan kepercayaan diri berbicara. Manajemen Acara: Memimpin persiapan seminar 'Introduction to English Job Interviews'."
+        "description": [
+          "Dipercaya sebagai PIC utama untuk memastikan kelancaran pertemuan mingguan.",
+          "Merancang game interaktif untuk meningkatkan kepercayaan diri berbicara anggota.",
+          "Memimpin persiapan dan manajemen acara seminar 'Introduction to English Job Interviews'."
+        ]
       },
       {
         "role": "Ketua Divisi Akademik",
         "organization": "Himpunan Mahasiswa Sistem Informasi (HIMASIF)",
         "year": "Apr 2026 – Sekarang",
-        "description": "Mengarahkan program-program akademik dan menjembatani komunikasi antara mahasiswa dan dosen untuk mendukung pengembangan kompetensi mahasiswa."
+        "description": [
+          "Mengarahkan program-program akademik untuk mendukung pengembangan kompetensi mahasiswa.",
+          "Menjembatani komunikasi dan kolaborasi antara mahasiswa dan dosen fakultas."
+        ]
       },
       {
         "role": "Master of Ceremonies & Key Speaker",
         "organization": "International Benchmarking and Cultural Exchange dengan UP Manila",
         "year": "Feb 2026",
-        "description": "Menjadi pembawa acara sesi benchmarking internasional lintas budaya. Menyampaikan presentasi komprehensif bertema 'Student organization & Leadership'."
+        "description": [
+          "Menjadi pembawa acara sesi benchmarking internasional lintas budaya.",
+          "Menyampaikan presentasi komprehensif bertema 'Student organization & Leadership'."
+        ]
       }
     ]
   },
