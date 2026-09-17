@@ -2,10 +2,17 @@
 title: 'Empact - Community Profile Website'
 category: 'Front-End'
 year: '2026'
+role: 'Front-End Developer'
+duration: '1 month'
+team: 'UKM Coding'
 summary: 'An interactive community profile website converted from Figma UI designs using React.js and deployed for a real client.'
 techStack: ['React.js', 'Figma', 'JavaScript', 'CSS']
 image: '/projects/empact.png'
 link: 'https://empact-community.vercel.app/'
+links:
+  - label: 'Live Website'
+    url: 'https://empact-community.vercel.app/'
+    type: 'live'
 ---
 
 # Empact — Community Profile Website

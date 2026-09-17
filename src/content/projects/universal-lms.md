@@ -2,10 +2,19 @@
 title: 'Universal Learning Management System'
 category: 'Front-End'
 year: '2026'
+role: 'Front-End Developer (Solo)'
+duration: '2+ months, Semester 4'
 summary: 'A large-scale, multi-role LMS front-end template built using HTML, CSS, and JavaScript, adaptive for K-12 to university.'
 techStack: ['HTML', 'CSS', 'JavaScript']
 image: '/projects/universal-lms.png'
 link: 'https://lms-russell.vercel.app/'
+links:
+  - label: 'Live Website'
+    url: 'https://lms-russell.vercel.app/'
+    type: 'live'
+  - label: 'Guidebook & Readme'
+    url: '#'
+    type: 'document'
 ---
 
 # Universal Learning Management System

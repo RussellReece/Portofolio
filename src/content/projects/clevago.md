@@ -2,10 +2,22 @@
 title: 'ClevaGO - Laundry Service External Division'
 category: 'System Analysis'
 year: '2025'
+role: 'System Analyst'
+duration: 'Semester 2'
 summary: 'System Analyst case study for a laundry external service division including business process reports, UML modeling, and Figma UI/UX designs.'
 techStack: ['Figma', 'UML', 'System Analysis']
 image: '/projects/clevago.png'
 link: '#'
+links:
+  - label: 'Figma: Manajer'
+    url: '#'
+    type: 'prototype'
+  - label: 'Figma: Pegawai'
+    url: '#'
+    type: 'prototype'
+  - label: 'Laporan & UML'
+    url: '#'
+    type: 'document'
 ---
 
 # ClevaGO — Laundry Service External Division

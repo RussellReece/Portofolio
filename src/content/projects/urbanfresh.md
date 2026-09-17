@@ -2,10 +2,19 @@
 title: 'UrbanFresh - Automated Laundry Web App'
 category: 'Full-Stack'
 year: '2025'
+role: 'Full-Stack Developer'
+duration: '2 months'
 summary: 'A self-service laundry ordering platform built with HTML, CSS, JavaScript, Google Sheets backend, and Apps Script automation.'
 techStack: ['HTML', 'CSS', 'JavaScript', 'Google Apps Script', 'Google Spreadsheet']
 image: '/projects/urbanfresh.png'
 link: 'https://urbanfresh-laundry.vercel.app/'
+links:
+  - label: 'Admin Dashboard'
+    url: '#'
+    type: 'prototype'
+  - label: 'GDrive Tutorial'
+    url: '#'
+    type: 'document'
 ---
 
 # UrbanFresh — Automated Laundry Web App
@@ -13,7 +22,8 @@ link: 'https://urbanfresh-laundry.vercel.app/'
 **Category:** Full-Stack Development  
 **Duration:** 2 months, end of Semester 3 (2025)  
 **Role:** Full-Stack Developer  
-**Live:** [urbanfresh-laundry.vercel.app](https://urbanfresh-laundry.vercel.app/)
+**Live:** [urbanfresh-laundry](https://urbanfresh-laundry.vercel.app/)
+**Admin:** [urbanfresh-laundry-admin](https://urbanfresh-laundry.vercel.app/admin.html) User: admin | Pass: UrbanFresh123
 
 ---
 

@@ -2,10 +2,21 @@
 title: 'KSFOOD - Manufacturing ERP & E-commerce'
 category: 'System Analysis'
 year: '2025 - 2026'
+role: 'System Analyst & Front-End Developer'
+duration: 'Semester 3 – Semester 4'
 summary: 'ERP and E-commerce prototype for a sauce manufacturer involving business process modeling, UML design, Next.js, and MySQL.'
 techStack: ['UML', 'Figma', 'System Analysis', 'Next.js', 'MySQL']
 image: '/projects/ks-food.png'
-link: '#'
+links:
+  - label: 'E-Commerce UI'
+    url: '#'
+    type: 'prototype'
+  - label: 'ERP UI'
+    url: '#'
+    type: 'prototype'
+  - label: 'Presentation'
+    url: '#'
+    type: 'document'
 ---
 
 # KSFOOD — Manufacturing ERP & E-commerce
