@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Download, Mail, Github, Linkedin, ChevronDown } from 'lucide-react';
+import { ArrowRight, Download, Mail, Code2, Globe, ChevronDown } from 'lucide-react';
 
 /* ─── Animation helpers ──────────────────────────────────── */
 const fadeUp = (delay = 0) => ({
@@ -165,7 +165,7 @@ export default function Hero({ dict }: { dict: any }) {
                          transition-all duration-200"
                 aria-label="GitHub"
               >
-                <Github className="w-[18px] h-[18px]" />
+                <Code2 className="w-[18px] h-[18px]" />
               </a>
               <a
                 href="https://linkedin.com/in/russell-reece-625650364"
@@ -177,7 +177,7 @@ export default function Hero({ dict }: { dict: any }) {
                          transition-all duration-200"
                 aria-label="LinkedIn"
               >
-                <Linkedin className="w-[18px] h-[18px]" />
+                <Globe className="w-[18px] h-[18px]" />
               </a>
             </div>
             <div className="w-px h-16 bg-gradient-to-b from-gray-300 dark:from-gray-600 to-transparent" />
