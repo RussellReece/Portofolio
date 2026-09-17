@@ -16,7 +16,7 @@ export default async function Home({ params }: { params: Promise<{ lang: 'en' | 
   const dict = await getDictionary(lang);
 
   return (
-    <main className="min-h-screen font-[family-name:var(--font-geist-sans)] transition-colors duration-300 relative z-0">
+    <main className="min-h-screen font-[family-name:var(--font-inter)] transition-colors duration-300 relative z-0">
       <ClientCosmosBackground />
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-black/80 backdrop-blur-xl border-b border-gray-200 dark:border-gray-800 shadow-sm dark:shadow-none transition-all duration-300">
         <div className="container mx-auto px-6 h-20 flex items-center justify-between">

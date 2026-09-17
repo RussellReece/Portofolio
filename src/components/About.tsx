@@ -4,7 +4,16 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 /** Unified tech stack data — each item carries its icon, colours, and label. */
-const TECH_ITEMS = [
+type TechItem = {
+  label: string;
+  bg: string;
+  svg?: string;
+  text?: string;
+  fit?: string;
+  invert?: boolean;
+};
+
+const TECH_ITEMS: TechItem[] = [
   { label: 'Next.js',   svg: 'nextjs_icon_dark', bg: '#000000', invert: true },
   { label: 'React',     svg: 'react',             bg: '#282C34' },
   { label: 'TypeScript', svg: 'typescript',        bg: '#3178C6' },
@@ -16,7 +25,7 @@ const TECH_ITEMS = [
   { label: 'Figma',      svg: 'figma',             bg: '#FFFFFF', fit: 'w-[46%] h-[46%]' },
   { label: 'Google Apps Script', text: 'GAS', bg: '#0F9D58' },
   { label: 'UML',        text: 'UML',  bg: '#EFA500' },
-] as const;
+];
 
 /** Container-level stagger animation. */
 const gridVariants = {
@@ -31,11 +40,11 @@ const itemVariants = {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
   },
 };
 
-function TechIcon({ item }: { item: (typeof TECH_ITEMS)[number] }) {
+function TechIcon({ item }: { item: TechItem }) {
   const hasImage = 'svg' in item && item.svg;
   return (
     <div
