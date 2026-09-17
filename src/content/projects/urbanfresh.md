@@ -10,10 +10,10 @@ image: '/projects/urbanfresh.png'
 link: 'https://urbanfresh-laundry.vercel.app/'
 links:
   - label: 'Admin Dashboard'
-    url: '#'
+    url: 'https://urbanfresh-laundry.vercel.app/admin.html'
     type: 'prototype'
   - label: 'GDrive Tutorial'
-    url: '#'
+    url: 'https://drive.google.com/drive/folders/1h8aZV1VOtjZfPBcHDHxQ_s2qisYCPnuy?usp=sharing'
     type: 'document'
 ---
 
@@ -22,7 +22,7 @@ links:
 **Category:** Full-Stack Development  
 **Duration:** 2 months, end of Semester 3 (2025)  
 **Role:** Full-Stack Developer  
-**Live:** [urbanfresh-laundry](https://urbanfresh-laundry.vercel.app/)
+**Live:** [urbanfresh-laundry](https://urbanfresh-laundry.vercel.app/)  
 **Admin:** [urbanfresh-laundry-admin](https://urbanfresh-laundry.vercel.app/admin.html) User: admin | Pass: UrbanFresh123
 
 ---

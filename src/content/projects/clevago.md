@@ -10,13 +10,13 @@ image: '/projects/clevago.png'
 link: '#'
 links:
   - label: 'Figma: Manajer'
-    url: '#'
+    url: 'https://www.figma.com/proto/HREgR2Db2ynzLPd6sYMK1v/UI-UX-Design---SU?node-id=2360-8868&p=f&t=eeDoGcEQAJ3Hf4FA-1&scaling=contain&content-scaling=fixed&page-id=176%3A200&starting-point-node-id=2360%3A8868&show-proto-sidebar=1'
     type: 'prototype'
   - label: 'Figma: Pegawai'
-    url: '#'
+    url: 'https://www.figma.com/proto/HREgR2Db2ynzLPd6sYMK1v/UI-UX-Design---SU?node-id=2117-19981&p=f&t=CDkxIFZLjCkk28Oa-1&scaling=scale-down&content-scaling=fixed&page-id=1913%3A22971&starting-point-node-id=2117%3A19981'
     type: 'prototype'
   - label: 'Laporan & UML'
-    url: '#'
+    url: 'https://binusianorg-my.sharepoint.com/personal/wn_binus_edu/_layouts/15/guestaccess.aspx?share=IgCzMap9ER1oT46GpSMHvynvAZc4XW-b6fW2bqv2Ovlw8Uc&e=6DpxXU'
     type: 'document'
 ---
 

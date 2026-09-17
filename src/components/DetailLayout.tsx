@@ -1,6 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import { ArrowLeft, ExternalLink, FileText, Calendar, Briefcase, Users, Clock, Tag, Trophy } from 'lucide-react';
+import { ThemeToggle } from './ThemeToggle';
+import { LangToggle } from './LangToggle';
 
 /* ─── Types ──────────────────────────────────── */
 interface DetailLink {
@@ -59,14 +61,23 @@ export default function DetailLayout({ lang, backHref, backLabel, kind, meta, ch
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTTAgMzBMMzAgMCA2MCAzMCAzMCA2MHoiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+')] opacity-50" />
 
         <div className="relative max-w-5xl mx-auto px-6 pt-28 pb-12 md:pt-32 md:pb-16">
-          {/* Back button */}
-          <Link
-            href={backHref}
-            className="inline-flex items-center gap-2 text-sm font-medium text-white/70 hover:text-white transition-colors mb-8 group"
-          >
-            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-            {backLabel}
-          </Link>
+          {/* Top navigation row */}
+          <div className="flex justify-between items-center mb-8">
+            {/* Back button */}
+            <Link
+              href={backHref}
+              className="inline-flex items-center gap-2 text-sm font-medium text-white/70 hover:text-white transition-colors group"
+            >
+              <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+              {backLabel}
+            </Link>
+
+            {/* Toggles */}
+            <div className="flex items-center gap-3">
+              <ThemeToggle />
+              <LangToggle currentLang={lang} />
+            </div>
+          </div>
 
           {/* Result badge (competitions) */}
           {isCompetition && meta.result && (

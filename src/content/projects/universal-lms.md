@@ -13,7 +13,7 @@ links:
     url: 'https://lms-russell.vercel.app/'
     type: 'live'
   - label: 'Guidebook & Readme'
-    url: '#'
+    url: 'https://drive.google.com/drive/folders/1Cy2jzMcrgMjpsmgg1OEiXBnGFL37OaVr?usp=sharing'
     type: 'document'
 ---
 

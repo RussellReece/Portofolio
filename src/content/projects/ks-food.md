@@ -9,13 +9,13 @@ techStack: ['UML', 'Figma', 'System Analysis', 'Next.js', 'MySQL']
 image: '/projects/ks-food.png'
 links:
   - label: 'E-Commerce UI'
-    url: '#'
+    url: 'https://ks-food.vercel.app/'
     type: 'prototype'
   - label: 'ERP UI'
-    url: '#'
+    url: 'https://ks-food.vercel.app/internal/login'
     type: 'prototype'
   - label: 'Presentation'
-    url: '#'
+    url: 'https://raflimaulanayh.github.io/ks-food/presentation'
     type: 'document'
 ---
 
