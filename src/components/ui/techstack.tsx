@@ -375,13 +375,17 @@ function logo(
   tile: string,
   { fit = "size-[54%]", tone = "" } = {},
 ): ToolDockItem {
+  const imgSrc = file.startsWith("http") 
+    ? file 
+    : `https://svgl.app/library/${file}.svg`;
+
   return {
     label,
     icon: (
       <ToolDockTile className={tile}>
         <img
-          src={`https://svgl.app/library/${file}.svg`}
-          alt=""
+          src={imgSrc}
+          alt={label}
           draggable={false}
           className={`${fit} object-contain ${tone}`}
         />
@@ -394,13 +398,13 @@ const items: ToolDockItem[] = [
   logo("Next.js", "nextjs_icon_dark", "bg-[#000000]", {
     tone: "brightness-0 invert",
   }),
-  logo("React", "react", "bg-[#282C34]"),
+  logo("React", "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg", "bg-[#282C34]"),
   logo("TypeScript", "typescript", "bg-[#3178C6]"),
   logo("Tailwind CSS", "tailwindcss", "bg-[#0B1120]"),
   logo("HTML", "html5", "bg-[#E34F26]"),
   logo("CSS", "css", "bg-[#1572B6]"),
   logo("JavaScript", "javascript", "bg-[#F7DF1E]"),
-  logo("MySQL", "mysql", "bg-white"),
+  logo("MySQL", "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg", "bg-white"),
   logo("Figma", "figma", "bg-white", { fit: "size-[46%]" }),
   { 
     label: "Google Apps Script", 
