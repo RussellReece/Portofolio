@@ -1,5 +1,5 @@
 import React from 'react';
-import { Trophy, ChevronRight } from 'lucide-react';
+import { Trophy, ChevronRight, Medal } from 'lucide-react';
 import Link from 'next/link';
 
 // Map competition title prefix to slug
@@ -20,7 +20,10 @@ const titleToSlug: Record<string, string> = {
   'Peserta | ICT Recursion 2025': 'ict-recursion-2025',
 };
 
-export default function Awards({ dict, lang }: { dict: any; lang: string }) {
+type AwardItem = { title: string; project: string; year: string };
+type AwardsDictionary = { title: string; details: string; items: AwardItem[] };
+
+export default function Awards({ dict, lang }: { dict: AwardsDictionary; lang: string }) {
   return (
     <section id="awards" className="py-24 relative bg-gray-50 dark:bg-zinc-900/50">
       <div className="container mx-auto px-6 max-w-5xl">
@@ -32,14 +35,15 @@ export default function Awards({ dict, lang }: { dict: any; lang: string }) {
         </div>
 
         <div className="space-y-6">
-          {dict.items.map((item: any, index: number) => {
+          {dict.items.map((item, index) => {
             const slug = titleToSlug[item.title];
             const CardContent = (
               <>
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                    {item.title}
-                  </h3>
+                  <div className="mb-2 flex items-start gap-3">
+                    {item.title.includes('Semi-') ? <Medal className="mt-1 h-5 w-5 shrink-0 text-amber-500" /> : <Trophy className="mt-1 h-5 w-5 shrink-0 text-slate-400" />}
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white">{item.title}</h3>
+                  </div>
                   <p className="text-primary font-medium">{item.project}</p>
                 </div>
                 <div className="flex items-center gap-3">
@@ -48,7 +52,7 @@ export default function Awards({ dict, lang }: { dict: any; lang: string }) {
                   </span>
                   {slug && (
                     <span className="flex items-center gap-1 text-xs font-semibold text-violet-600 dark:text-violet-400 whitespace-nowrap">
-                      Details <ChevronRight className="w-3 h-3" />
+                      {dict.details} <ChevronRight className="w-3 h-3" />
                     </span>
                   )}
                 </div>

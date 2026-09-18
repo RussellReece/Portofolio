@@ -12,7 +12,12 @@
     "subtitle": "& Pengalaman Web Interaktif",
     "description": "System Analyst & Front-End Developer yang berdedikasi untuk menerjemahkan proses bisnis yang kompleks menjadi solusi digital berkinerja tinggi yang mulus.",
     "viewProjects": "Lihat Proyek",
-    "downloadCv": "Unduh CV"
+    "downloadCv": "Unduh CV",
+    "portfolioLabel": "Portofolio",
+    "name": "Russell Reece",
+    "availability": "Terbuka untuk peluang baru",
+    "scroll": "Gulir",
+    "metrics": { "projects": "Proyek", "competitions": "Kompetisi", "leadership": "Peran Kepemimpinan" }
   },
   "about": {
     "title": "Tentang Saya",
@@ -22,10 +27,13 @@
   },
   "projects": {
     "title": "Proyek Pilihan",
-    "subtitle": "Pilihan dari pekerjaan terbaru saya di bidang system analysis dan front-end development."
+    "subtitle": "Pilihan dari pekerjaan terbaru saya di bidang system analysis dan front-end development.",
+    "filters": { "all": "Semua", "frontEnd": "Front-End", "systemAnalysis": "System Analysis", "fullStack": "Full-Stack" },
+    "viewProject": "Lihat Proyek"
   },
   "awards": {
     "title": "Kompetisi & Hackathon",
+    "details": "Selengkapnya",
     "items": [
       {
         "slug": "logicodix-2025",
@@ -73,6 +81,7 @@
   },
   "experience": {
     "title": "Pengalaman & Kepemimpinan",
+    "details": "Lihat Detail",
     "items": [
       {
         "slug": "tim-promosi",
@@ -118,6 +127,7 @@
   "contact": {
     "title": "Mari Terhubung",
     "description": "Saya selalu terbuka untuk mendiskusikan proyek baru, ide kreatif, atau peluang untuk menjadi bagian dari visi Anda.",
+    "cta": "Mulai percakapan",
     "rights": "Hak cipta dilindungi."
   }
 }

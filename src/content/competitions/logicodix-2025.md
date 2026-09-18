@@ -37,6 +37,7 @@ Agilis follows a **Freemium + B2B Partnership** model:
 
 ## Documents & Assets
 
+- [📄 Full Business Plan Proposal — Agilis](/assets/lomba/Proposal_Pioneering%20Strategists_Logicodix2025.pdf)
 - [📄 Business Model Canvas (BMC)](/assets/lomba/Logicodix%202025_BMC_Pioneering%20Strategists_Ari%20Okta%20Pratama.pdf)
 - [📘 Competition Guidebook](/assets/lomba/Logicodix%202025_Guidebook%20BPC.pdf)
 

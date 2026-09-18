@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Download, Mail, Code2, Globe, ChevronDown } from 'lucide-react';
+import { ArrowRight, Download } from 'lucide-react';
 
 /* ─── Animation helpers ──────────────────────────────────── */
 const fadeUp = (delay = 0) => ({
@@ -13,12 +13,6 @@ const fadeUp = (delay = 0) => ({
     delay,
     ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
   },
-});
-
-const fadeIn = (delay = 0) => ({
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
-  transition: { duration: 0.8, delay },
 });
 
 const staggerContainer = {
@@ -37,38 +31,40 @@ const staggerItem = {
   },
 };
 
+type HeroDictionary = {
+  portfolioLabel: string;
+  name: string;
+  title: string;
+  gradientText: string;
+  subtitle: string;
+  description: string;
+  viewProjects: string;
+  downloadCv: string;
+  metrics: { projects: string; competitions: string; leadership: string };
+};
+
 /* ─── Component ──────────────────────────────────────────── */
-export default function Hero({ dict }: { dict: any }) {
+export default function Hero({ dict }: { dict: HeroDictionary }) {
   return (
-    <section className="relative min-h-screen flex items-end pb-16 md:pb-24 overflow-hidden pt-28 md:pt-20">
+    <section className="relative flex min-h-screen items-end overflow-hidden pb-16 pt-36 md:pb-24 md:pt-28">
       {/* Subtle ambient glow */}
       <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[160px] pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/3 w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="container mx-auto px-6 md:px-10 relative z-10 max-w-6xl">
-        <div className="grid lg:grid-cols-[1fr,auto] gap-12 lg:gap-20 items-end">
+        <div className="mx-auto max-w-4xl">
 
           {/* ─── Left: Main content ───────────────────── */}
           <div>
-            {/* Status badge */}
-            <motion.div {...fadeUp(0.1)} className="mb-8">
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full
-                             bg-emerald-500/10 dark:bg-emerald-500/10
-                             border border-emerald-500/20 dark:border-emerald-500/20
-                             text-emerald-700 dark:text-emerald-400 text-sm font-medium">
-                <span className="relative flex h-2.5 w-2.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
-                </span>
-                Available for opportunities
-              </span>
-            </motion.div>
-
             {/* Title block */}
+            <motion.p {...fadeUp(0.1)} className="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-gray-800 dark:text-white">
+              {dict.portfolioLabel}
+            </motion.p>
             <motion.h1
-              {...fadeUp(0.25)}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.08] mb-6"
+              {...fadeUp(0.15)}
+              className="mb-6 text-3xl font-extrabold leading-[1.08] tracking-tight sm:text-4xl md:text-5xl lg:text-6xl"
             >
+              <span className="block text-gray-900 dark:text-white">{dict.name}</span>
               <span className="text-gray-900 dark:text-white">{dict.title}</span>{' '}
               <span className="text-gradient">{dict.gradientText}</span>
               <br className="hidden sm:block" />
@@ -77,7 +73,7 @@ export default function Hero({ dict }: { dict: any }) {
 
             {/* Description */}
             <motion.p
-              {...fadeUp(0.4)}
+              {...fadeUp(0.3)}
               className="text-lg md:text-xl text-gray-500 dark:text-gray-400 leading-relaxed max-w-2xl mb-10"
             >
               {dict.description}
@@ -85,7 +81,7 @@ export default function Hero({ dict }: { dict: any }) {
 
             {/* CTA Buttons */}
             <motion.div
-              {...fadeUp(0.55)}
+              {...fadeUp(0.45)}
               className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-12"
             >
               <a
@@ -120,9 +116,9 @@ export default function Hero({ dict }: { dict: any }) {
               className="flex flex-wrap gap-3"
             >
               {[
-                { value: '5+', label: 'Projects' },
-                { value: '7+', label: 'Competitions' },
-                { value: '4+', label: 'Leadership Roles' },
+                { value: '5+', label: dict.metrics.projects },
+                { value: '7+', label: dict.metrics.competitions },
+                { value: '4+', label: dict.metrics.leadership },
               ].map((stat) => (
                 <motion.div
                   key={stat.label}
@@ -139,61 +135,8 @@ export default function Hero({ dict }: { dict: any }) {
             </motion.div>
           </div>
 
-          {/* ─── Right: Social links (vertical) ──────── */}
-          <motion.div
-            {...fadeIn(0.8)}
-            className="hidden lg:flex flex-col items-center gap-5 pb-4"
-          >
-            <div className="flex flex-col gap-3">
-              <a
-                href="mailto:rafaelrussellreece12@gmail.com"
-                className="w-11 h-11 rounded-full glass flex items-center justify-center
-                         text-gray-500 dark:text-gray-400
-                         hover:text-primary hover:bg-primary/10 hover:border-primary/30
-                         transition-all duration-200"
-                aria-label="Email"
-              >
-                <Mail className="w-[18px] h-[18px]" />
-              </a>
-              <a
-                href="https://github.com/RussellReece"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-11 h-11 rounded-full glass flex items-center justify-center
-                         text-gray-500 dark:text-gray-400
-                         hover:text-primary hover:bg-primary/10 hover:border-primary/30
-                         transition-all duration-200"
-                aria-label="GitHub"
-              >
-                <Code2 className="w-[18px] h-[18px]" />
-              </a>
-              <a
-                href="https://linkedin.com/in/russell-reece-625650364"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-11 h-11 rounded-full glass flex items-center justify-center
-                         text-gray-500 dark:text-gray-400
-                         hover:text-primary hover:bg-primary/10 hover:border-primary/30
-                         transition-all duration-200"
-                aria-label="LinkedIn"
-              >
-                <Globe className="w-[18px] h-[18px]" />
-              </a>
-            </div>
-            <div className="w-px h-16 bg-gradient-to-b from-gray-300 dark:from-gray-600 to-transparent" />
-          </motion.div>
         </div>
 
-        {/* ─── Scroll indicator ──────────────────────── */}
-        <motion.div
-          {...fadeIn(1.2)}
-          className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-        >
-          <span className="text-xs font-medium tracking-widest uppercase text-gray-400 dark:text-gray-500">
-            Scroll
-          </span>
-          <ChevronDown className="w-4 h-4 text-gray-400 dark:text-gray-500 animate-bounce" />
-        </motion.div>
       </div>
     </section>
   );

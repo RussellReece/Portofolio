@@ -25,7 +25,7 @@ export default async function ExperiencePage({
   let source;
   try {
     source = getExperienceBySlug(slug, lang);
-  } catch (error) {
+  } catch {
     notFound();
   }
 
@@ -36,7 +36,7 @@ export default async function ExperiencePage({
       lang={lang}
       backHref={`/${lang}#experience`}
       backLabel={lang === 'id' ? 'Kembali ke Pengalaman' : 'Back to Experience'}
-      kind="project"
+      kind="experience"
       meta={{
         title: frontmatter.title,
         category: frontmatter.category,

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 /** Unified tech stack data — each item carries its icon, colours, and label. */
 type TechItem = {
@@ -14,12 +15,12 @@ type TechItem = {
 };
 
 const TECH_ITEMS: TechItem[] = [
-  { label: 'Next.js',   svg: 'nextjs_icon_dark', bg: '#000000', invert: true },
+  { label: 'Next.js',   svg: 'nextjs',            bg: '#000000', invert: true },
   { label: 'React',     svg: 'react',             bg: '#282C34' },
   { label: 'TypeScript', svg: 'typescript',        bg: '#3178C6' },
   { label: 'Tailwind CSS', svg: 'tailwindcss',     bg: '#0B1120' },
   { label: 'HTML',       svg: 'html5',             bg: '#E34F26' },
-  { label: 'CSS',        svg: 'css',               bg: '#1572B6' },
+  { label: 'CSS',        svg: 'css3',              bg: '#1572B6' },
   { label: 'JavaScript', svg: 'javascript',        bg: '#F7DF1E' },
   { label: 'MySQL',      svg: 'mysql',             bg: '#FFFFFF' },
   { label: 'Figma',      svg: 'figma',             bg: '#FFFFFF', fit: 'w-[46%] h-[46%]' },
@@ -56,7 +57,7 @@ function TechIcon({ item }: { item: TechItem }) {
       <div className="pointer-events-none absolute inset-0 rounded-xl bg-gradient-to-b from-white/20 to-transparent" />
       {hasImage ? (
         <img
-          src={`https://svgl.app/library/${item.svg}.svg`}
+          src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${item.svg}/${item.svg}-original.svg`}
           alt=""
           draggable={false}
           className={`object-contain ${item.fit ?? 'w-[54%] h-[54%]'} ${item.invert ? 'brightness-0 invert' : ''}`}
@@ -70,14 +71,19 @@ function TechIcon({ item }: { item: TechItem }) {
   );
 }
 
-export default function About({ dict }: { dict: any }) {
+type AboutDictionary = { title: string; p1: string; p2: string; techTitle: string };
+
+export default function About({ dict }: { dict: AboutDictionary }) {
   return (
     <section id="about" className="py-24 relative z-10">
       <div className="container mx-auto px-6 max-w-5xl">
         <div className="glass rounded-3xl p-8 md:p-12">
           {/* ── About text ─────────────────────────────── */}
           <div className="grid md:grid-cols-2 gap-12 items-start">
-            <div>
+            <div className="flex flex-col gap-8">
+              <div className="relative order-first grid aspect-[4/3] w-full place-items-center overflow-hidden rounded-3xl border border-primary/20 bg-gradient-to-br from-primary/15 via-white/50 to-cyan-400/15 shadow-xl shadow-primary/10 dark:via-white/5 md:hidden">
+                <Image src="/assets/russell.png" alt="Russell Reece" fill className="object-cover object-top" />
+              </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">{dict.title}</h2>
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
                 {dict.p1}
@@ -89,6 +95,9 @@ export default function About({ dict }: { dict: any }) {
 
             {/* ── Unified Tech Stack Grid ──────────────── */}
             <div className="flex flex-col items-center md:items-start">
+              <div className="relative mb-10 hidden aspect-[4/3] w-full place-items-center overflow-hidden rounded-3xl border border-primary/20 bg-gradient-to-br from-primary/15 via-white/50 to-cyan-400/15 shadow-xl shadow-primary/10 dark:via-white/5 md:grid">
+                <Image src="/assets/russell.png" alt="Russell Reece" fill className="object-cover object-top" />
+              </div>
               <h3 className="text-xl font-semibold mb-5 text-center md:text-left w-full">
                 {dict.techTitle}
               </h3>

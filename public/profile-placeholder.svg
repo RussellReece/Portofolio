@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Profile photo placeholder</title>
+  <desc id="desc">A placeholder that can be replaced with Russell Reece's profile photo.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8b5cf6" stop-opacity=".2"/>
+      <stop offset=".55" stop-color="#ffffff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#22d3ee" stop-opacity=".22"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" rx="56" fill="url(#background)"/>
+  <rect x="48" y="48" width="704" height="904" rx="40" fill="none" stroke="#8b5cf6" stroke-opacity=".4" stroke-dasharray="14 14" stroke-width="3"/>
+  <circle cx="400" cy="410" r="126" fill="#8b5cf6" fill-opacity=".16"/>
+  <path d="M180 770c22-146 106-218 220-218s198 72 220 218" fill="#8b5cf6" fill-opacity=".16"/>
+  <text x="400" y="880" text-anchor="middle" fill="#6d45d8" fill-opacity=".8" font-family="sans-serif" font-size="54" font-weight="800">YOUR PHOTO</text>
+</svg>

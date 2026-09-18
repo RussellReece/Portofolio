@@ -12,7 +12,12 @@
     "subtitle": "& Interactive Web Experiences",
     "description": "System Analyst & Front-End Developer dedicated to translating complex business processes into seamless, high-performance digital solutions.",
     "viewProjects": "View Projects",
-    "downloadCv": "Download CV"
+    "downloadCv": "Download CV",
+    "portfolioLabel": "Portfolio",
+    "name": "Russell Reece",
+    "availability": "Available for opportunities",
+    "scroll": "Scroll",
+    "metrics": { "projects": "Projects", "competitions": "Competitions", "leadership": "Leadership Roles" }
   },
   "about": {
     "title": "About Me",
@@ -22,10 +27,13 @@
   },
   "projects": {
     "title": "Featured Projects",
-    "subtitle": "A selection of my recent work across system analysis and front-end development."
+    "subtitle": "A selection of my recent work across system analysis and front-end development.",
+    "filters": { "all": "All", "frontEnd": "Front-End", "systemAnalysis": "System Analysis", "fullStack": "Full-Stack" },
+    "viewProject": "View Project"
   },
   "awards": {
     "title": "Competitions & Hackathons",
+    "details": "Details",
     "items": [
       {
         "slug": "logicodix-2025",
@@ -73,6 +81,7 @@
   },
   "experience": {
     "title": "Experience & Leadership",
+    "details": "View Details",
     "items": [
       {
         "slug": "tim-promosi",
@@ -118,6 +127,7 @@
   "contact": {
     "title": "Let's Connect",
     "description": "I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.",
+    "cta": "Start a conversation",
     "rights": "All rights reserved."
   }
 }

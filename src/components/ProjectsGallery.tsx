@@ -3,13 +3,15 @@ import React, { useState } from 'react';
 import { ProjectData } from '@/lib/markdown';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
+import { ArrowUpRight, Layers3 } from 'lucide-react';
+import Image from 'next/image';
 
 interface Props {
   projects: ProjectData[];
-  dict: any;
+  dict: { title: string; subtitle: string; filters: Record<string, string>; viewProject: string };
 }
 
-const CATEGORIES = ['All', 'Front-End', 'System Analysis', 'Full-Stack'];
+const CATEGORIES = [['All', 'all'], ['Front-End', 'frontEnd'], ['System Analysis', 'systemAnalysis'], ['Full-Stack', 'fullStack']] as const;
 
 export default function ProjectsGallery({ projects, dict }: Props) {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -30,7 +32,7 @@ export default function ProjectsGallery({ projects, dict }: Props) {
 
         {/* Filters */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {CATEGORIES.map((category) => (
+          {CATEGORIES.map(([category, key]) => (
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
@@ -40,21 +42,23 @@ export default function ProjectsGallery({ projects, dict }: Props) {
                   : 'bg-gray-200 dark:bg-gray-800/50 text-gray-700 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white'
               }`}
             >
-              {category}
+              {dict.filters[key]}
             </button>
           ))}
         </div>
 
         {/* Gallery */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project) => (
-            <Link href={`/${lang}/projects/${project.id}`} key={project.id} className="glass rounded-2xl overflow-hidden group hover:-translate-y-2 transition-transform duration-300 block">
-              <div className="h-48 bg-gray-200 dark:bg-gray-800 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-100 dark:from-gray-900 to-transparent z-10" />
-                {/* Fallback pattern */}
-                <div className="w-full h-full object-cover opacity-30 dark:opacity-50 group-hover:opacity-100 transition-opacity bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] bg-primary/20" />
+          {filteredProjects.map((project, index) => (
+            <Link href={`/${lang}/projects/${project.id}`} key={project.id} style={{ animationDelay: `${index * 80}ms` }} className="group block overflow-hidden rounded-2xl border border-gray-200/70 bg-white/60 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/15 dark:border-white/10 dark:bg-white/[0.04] animate-[rise-in_600ms_ease-out_both]">
+              <div className="relative h-52 overflow-hidden bg-gradient-to-br from-primary/80 via-indigo-500 to-cyan-400">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,.32),transparent_30%),linear-gradient(135deg,transparent_45%,rgba(0,0,0,.28))] transition-transform duration-700 group-hover:scale-110" />
+                {project.image && <Image src={project.image} alt={project.title} fill sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw" onError={(event) => { event.currentTarget.style.display = 'none'; }} className="object-cover opacity-90 mix-blend-multiply transition-transform duration-700 group-hover:scale-110 dark:mix-blend-normal" />}
+                <Layers3 className="absolute bottom-6 left-6 h-12 w-12 text-white/85 transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110" />
+                <span className="absolute right-5 top-5 rounded-full border border-white/30 bg-black/15 px-3 py-1 text-xs font-semibold text-white backdrop-blur">{project.category}</span>
+                <span className="absolute bottom-5 right-5 flex translate-y-3 items-center gap-1 text-sm font-semibold text-white opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">{dict.viewProject}<ArrowUpRight className="h-4 w-4" /></span>
               </div>
-              <div className="p-6 relative z-20 -mt-8">
+              <div className="relative z-20 p-6">
                 <div className="flex justify-between items-center mb-3">
                   <span className="inline-block px-3 py-1 bg-white dark:bg-gray-900 text-xs font-semibold rounded-full border border-gray-200 dark:border-gray-700 text-primary">
                     {project.category}

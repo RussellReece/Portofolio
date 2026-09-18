@@ -111,4 +111,3 @@ Here are some of the promotional contents on Instagram that I participated in:
   <blockquote className="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DXCDfLsD9bJ/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style={{ background:'#FFF', border:0, borderRadius:'3px', boxShadow:'0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)', margin: '1px', maxWidth:'540px', minWidth:'326px', padding:0, width:'99.375%' }}></blockquote>
   <blockquote className="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DW8935yD5Km/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style={{ background:'#FFF', border:0, borderRadius:'3px', boxShadow:'0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)', margin: '1px', maxWidth:'540px', minWidth:'326px', padding:0, width:'99.375%' }}></blockquote>
 </div>
-<script async src="//www.instagram.com/embed.js"></script>
