@@ -7,22 +7,27 @@ export function getProjectSlugs() {
   if (!fs.existsSync(contentDir)) {
     return [];
   }
-  return fs.readdirSync(contentDir)
-    .filter((file) => /\.mdx?$/.test(file))
-    .map((file) => file.replace(/\.mdx?$/, ''));
+  const files = fs.readdirSync(contentDir).filter((file) => /\.mdx?$/.test(file));
+  const slugs = new Set(files.map((file) => file.replace(/\.(en|id)\.mdx?$/, '').replace(/\.mdx?$/, '')));
+  return Array.from(slugs);
 }
 
-export function getProjectBySlug(slug: string) {
-  const fullPath = path.join(contentDir, `${slug}.mdx`);
-  if (!fs.existsSync(fullPath)) {
-    // Fallback to .md if .mdx doesn't exist
-    const mdPath = path.join(contentDir, `${slug}.md`);
-    if (!fs.existsSync(mdPath)) {
-      throw new Error(`Project ${slug} not found`);
-    }
-    return fs.readFileSync(mdPath, 'utf8');
+export function getProjectBySlug(slug: string, lang?: string) {
+  const tryPaths = [];
+  if (lang) {
+    tryPaths.push(path.join(contentDir, `${slug}.${lang}.mdx`));
+    tryPaths.push(path.join(contentDir, `${slug}.${lang}.md`));
   }
-  return fs.readFileSync(fullPath, 'utf8');
+  tryPaths.push(path.join(contentDir, `${slug}.mdx`));
+  tryPaths.push(path.join(contentDir, `${slug}.md`));
+
+  for (const p of tryPaths) {
+    if (fs.existsSync(p)) {
+      return fs.readFileSync(p, 'utf8');
+    }
+  }
+  
+  throw new Error(`Project ${slug} not found`);
 }
 
 const competitionsDir = path.join(process.cwd(), 'src', 'content', 'competitions');
@@ -31,19 +36,54 @@ export function getCompetitionSlugs() {
   if (!fs.existsSync(competitionsDir)) {
     return [];
   }
-  return fs.readdirSync(competitionsDir)
-    .filter((file) => /\.mdx?$/.test(file))
-    .map((file) => file.replace(/\.mdx?$/, ''));
+  const files = fs.readdirSync(competitionsDir).filter((file) => /\.mdx?$/.test(file));
+  const slugs = new Set(files.map((file) => file.replace(/\.(en|id)\.mdx?$/, '').replace(/\.mdx?$/, '')));
+  return Array.from(slugs);
 }
 
-export function getCompetitionBySlug(slug: string) {
-  const fullPath = path.join(competitionsDir, `${slug}.mdx`);
-  if (!fs.existsSync(fullPath)) {
-    const mdPath = path.join(competitionsDir, `${slug}.md`);
-    if (!fs.existsSync(mdPath)) {
-      throw new Error(`Competition ${slug} not found`);
-    }
-    return fs.readFileSync(mdPath, 'utf8');
+export function getCompetitionBySlug(slug: string, lang?: string) {
+  const tryPaths = [];
+  if (lang) {
+    tryPaths.push(path.join(competitionsDir, `${slug}.${lang}.mdx`));
+    tryPaths.push(path.join(competitionsDir, `${slug}.${lang}.md`));
   }
-  return fs.readFileSync(fullPath, 'utf8');
+  tryPaths.push(path.join(competitionsDir, `${slug}.mdx`));
+  tryPaths.push(path.join(competitionsDir, `${slug}.md`));
+
+  for (const p of tryPaths) {
+    if (fs.existsSync(p)) {
+      return fs.readFileSync(p, 'utf8');
+    }
+  }
+  
+  throw new Error(`Competition ${slug} not found`);
+}
+
+const experienceDir = path.join(process.cwd(), 'src', 'content', 'experience');
+
+export function getExperienceSlugs() {
+  if (!fs.existsSync(experienceDir)) {
+    return [];
+  }
+  const files = fs.readdirSync(experienceDir).filter((file) => /\.mdx?$/.test(file));
+  const slugs = new Set(files.map((file) => file.replace(/\.(en|id)\.mdx?$/, '').replace(/\.mdx?$/, '')));
+  return Array.from(slugs);
+}
+
+export function getExperienceBySlug(slug: string, lang?: string) {
+  const tryPaths = [];
+  if (lang) {
+    tryPaths.push(path.join(experienceDir, `${slug}.${lang}.mdx`));
+    tryPaths.push(path.join(experienceDir, `${slug}.${lang}.md`));
+  }
+  tryPaths.push(path.join(experienceDir, `${slug}.mdx`));
+  tryPaths.push(path.join(experienceDir, `${slug}.md`));
+
+  for (const p of tryPaths) {
+    if (fs.existsSync(p)) {
+      return fs.readFileSync(p, 'utf8');
+    }
+  }
+
+  throw new Error(`Experience ${slug} not found`);
 }

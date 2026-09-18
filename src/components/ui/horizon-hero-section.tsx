@@ -80,7 +80,7 @@ export const Component = () => {
       refs.renderer.setSize(window.innerWidth, window.innerHeight);
       refs.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       refs.renderer.toneMapping = THREE.ACESFilmicToneMapping;
-      refs.renderer.toneMappingExposure = 0.5;
+      refs.renderer.toneMappingExposure = 0.4;
 
       // Post-processing
       refs.composer = new EffectComposer(refs.renderer);
@@ -89,7 +89,7 @@ export const Component = () => {
 
       const bloomPass = new UnrealBloomPass(
         new THREE.Vector2(window.innerWidth, window.innerHeight),
-        0.8,
+        0.5,
         0.4,
         0.85
       );
@@ -207,7 +207,7 @@ export const Component = () => {
           time: { value: 0 },
           color1: { value: new THREE.Color(0x0033ff) },
           color2: { value: new THREE.Color(0xff0066) },
-          opacity: { value: 0.3 },
+          opacity: { value: 0.15 },
         },
         vertexShader: `
           varying vec2 vUv;
@@ -392,7 +392,17 @@ export const Component = () => {
       refs.mountains.forEach((mountain, i) => {
         const parallaxFactor = 1 + i * 0.5;
         mountain.position.x = Math.sin(time * 0.1) * 2 * parallaxFactor;
-        mountain.position.y = 50 + Math.cos(time * 0.15) * 1 * parallaxFactor;
+        
+        // Base floating animation
+        const floatY = Math.cos(time * 0.15) * 1 * parallaxFactor;
+        const baseY = mountain.userData.targetY !== undefined ? mountain.userData.targetY : 50;
+        
+        // Smoothly interpolate towards target positions
+        mountain.position.y += (baseY + floatY - mountain.position.y) * 0.05;
+        
+        if (mountain.userData.targetZ !== undefined) {
+          mountain.position.z += (mountain.userData.targetZ - mountain.position.z) * 0.05;
+        }
       });
 
       if (refs.composer) {
@@ -580,14 +590,19 @@ export const Component = () => {
           refs.nebula.position.z = targetZ + progress * speed * 0.01 - 100;
         }
 
-        // Use the same smoothing approach
-        mountain.userData.targetZ = targetZ;
-        if (progress > 0.7) {
-          mountain.position.z = 600000;
+        // When scrolling down, smoothly move mountains away and down instead of hiding them
+        let finalTargetZ = refs.locations && refs.locations[i] !== undefined ? refs.locations[i] : targetZ;
+        let finalTargetY = 50;
+        
+        if (progress > 0.5) {
+          const sinkFactor = Math.pow((progress - 0.5) * 2, 2);
+          finalTargetY -= sinkFactor * 200; // Sink down
+          finalTargetZ -= sinkFactor * 1000; // Move away
         }
-        if (progress < 0.7 && refs.locations) {
-          mountain.position.z = refs.locations[i];
-        }
+
+        // Use the smoothing approach in animate loop
+        mountain.userData.targetZ = finalTargetZ;
+        mountain.userData.targetY = finalTargetY;
       });
 
       if (refs.nebula && refs.mountains[3]) {
@@ -612,6 +627,7 @@ export const Component = () => {
   return (
     <div ref={containerRef} className="hero-container cosmos-style">
       <canvas ref={canvasRef} className="hero-canvas" />
+      <div className="canvas-overlay" />
 
       {/* Side menu */}
       <div ref={menuRef} className="side-menu" style={{ visibility: 'hidden' }}>

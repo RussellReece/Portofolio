@@ -43,7 +43,7 @@ export default async function Home({ params }: { params: Promise<{ lang: 'en' | 
       <About dict={dict.about} />
       <ProjectsGallery projects={projects} dict={dict.projects} />
       <Awards dict={dict.awards} lang={lang} />
-      <Experience dict={dict.experience} />
+      <Experience dict={dict.experience} lang={lang} />
       <Contact dict={dict.contact} />
     </main>
   );

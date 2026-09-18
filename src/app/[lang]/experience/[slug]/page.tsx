@@ -1,26 +1,31 @@
 import { MDXRemote } from 'next-mdx-remote/rsc';
-import { getCompetitionBySlug, getCompetitionSlugs } from '@/lib/mdx';
+import { getExperienceBySlug, getExperienceSlugs } from '@/lib/mdx';
+import VideoEmbed from '@/components/VideoEmbed';
 import DetailLayout from '@/components/DetailLayout';
 import { notFound } from 'next/navigation';
 import remarkGfm from 'remark-gfm';
 import matter from 'gray-matter';
 
+const components = {
+  VideoEmbed,
+};
+
 export async function generateStaticParams() {
-  const slugs = getCompetitionSlugs();
+  const slugs = getExperienceSlugs();
   return slugs.map((slug) => ({ slug }));
 }
 
-export default async function CompetitionPage({
+export default async function ExperiencePage({
   params,
 }: {
   params: Promise<{ slug: string; lang: string }>;
 }) {
   const { slug, lang } = await params;
-
-  let source: string;
+  
+  let source;
   try {
-    source = getCompetitionBySlug(slug, lang);
-  } catch {
+    source = getExperienceBySlug(slug, lang);
+  } catch (error) {
     notFound();
   }
 
@@ -29,24 +34,25 @@ export default async function CompetitionPage({
   return (
     <DetailLayout
       lang={lang}
-      backHref={`/${lang}#awards`}
-      backLabel={lang === 'id' ? 'Kembali ke Kompetisi' : 'Back to Competitions'}
-      kind="competition"
+      backHref={`/${lang}#experience`}
+      backLabel={lang === 'id' ? 'Kembali ke Pengalaman' : 'Back to Experience'}
+      kind="project"
       meta={{
         title: frontmatter.title,
+        category: frontmatter.category,
         year: frontmatter.year,
+        role: frontmatter.role,
+        duration: frontmatter.duration,
         team: frontmatter.team,
         summary: frontmatter.summary,
-        result: frontmatter.result,
-        event: frontmatter.event,
-        organizer: frontmatter.organizer,
-        product: frontmatter.product,
+        techStack: frontmatter.techStack,
         links: frontmatter.links,
         link: frontmatter.link,
       }}
     >
       <MDXRemote
         source={content}
+        components={components}
         options={{
           mdxOptions: {
             remarkPlugins: [remarkGfm],

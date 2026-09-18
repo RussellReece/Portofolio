@@ -140,7 +140,7 @@ export default function DetailLayout({ lang, backHref, backLabel, kind, meta, ch
             {isCompetition && meta.product && (
               <div className="flex items-center gap-2 text-white/80">
                 <Tag className="w-4 h-4 text-white/50" />
-                <span className="font-medium">Product: {meta.product}</span>
+                <span className="font-medium">{lang === 'id' ? 'Produk:' : 'Product:'} {meta.product}</span>
               </div>
             )}
           </div>
@@ -174,7 +174,7 @@ export default function DetailLayout({ lang, backHref, backLabel, kind, meta, ch
                            hover:bg-white/90 transition-colors shadow-lg shadow-black/10"
                 >
                   <ExternalLink className="w-4 h-4" />
-                  Live Website
+                  {lang === 'id' ? 'Kunjungi Situs' : 'Live Website'}
                 </a>
               )}
               {meta.links?.map((link) => (

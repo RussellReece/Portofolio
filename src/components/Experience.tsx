@@ -1,6 +1,8 @@
 import React from 'react';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 
-export default function Experience({ dict }: { dict: any }) {
+export default function Experience({ dict, lang = 'en' }: { dict: any, lang?: string }) {
   const experiences = dict.items || [];
 
   return (
@@ -23,11 +25,20 @@ export default function Experience({ dict }: { dict: any }) {
                   <span className="text-sm font-medium text-primary mt-1 sm:mt-0">{exp.year}</span>
                 </div>
                 <h4 className="text-gray-700 dark:text-gray-300 font-medium mb-3">{exp.organization}</h4>
-                <ul className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed list-disc list-outside ml-4 space-y-1.5">
+                <ul className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed list-disc list-outside ml-4 space-y-1.5 mb-4">
                   {(Array.isArray(exp.description) ? exp.description : [exp.description]).map((desc: string, i: number) => (
                     <li key={i}>{desc}</li>
                   ))}
                 </ul>
+                {exp.slug && (
+                  <Link 
+                    href={`/${lang}/experience/${exp.slug}`}
+                    className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors mt-2"
+                  >
+                    View Details
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                )}
               </div>
             </div>
           ))}

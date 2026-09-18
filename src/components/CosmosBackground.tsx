@@ -369,7 +369,17 @@ export default function CosmosBackground() {
       refs.mountains.forEach((mountain, i) => {
         const parallaxFactor = 1 + i * 0.5;
         mountain.position.x = Math.sin(time * 0.1) * 2 * parallaxFactor;
-        mountain.position.y = 50 + Math.cos(time * 0.15) * 1 * parallaxFactor;
+        
+        // Base floating animation
+        const floatY = Math.cos(time * 0.15) * 1 * parallaxFactor;
+        const targetY = mountain.userData.targetY !== undefined ? mountain.userData.targetY : 50;
+        
+        // Smoothly interpolate towards target positions (lerp)
+        mountain.position.y += (targetY + floatY - mountain.position.y) * 0.05;
+        
+        if (mountain.userData.targetZ !== undefined) {
+          mountain.position.z += (mountain.userData.targetZ - mountain.position.z) * 0.05;
+        }
       });
 
       if (refs.composer) {
@@ -438,15 +448,23 @@ export default function CosmosBackground() {
       refs.mountains.forEach((mountain, i) => {
         const speed = 1 + i * 0.9;
         const targetZ = mountain.userData.baseZ + scrollY * speed * 0.5;
-        if (refs.nebula) {
-          refs.nebula.position.z = targetZ + progress * speed * 0.01 - 100;
+        
+        let finalTargetZ = refs.locations && refs.locations[i] !== undefined ? refs.locations[i] : targetZ;
+        let finalTargetY = 50;
+
+        // Perlahan menjauh dan tenggelam secara natural seiring dengan progress scroll
+        if (progress > 0.4) {
+          const sinkFactor = Math.pow((progress - 0.4) * 2, 2);
+          finalTargetY -= sinkFactor * 250; // Tenggelam
+          finalTargetZ -= sinkFactor * 1200; // Menjauh
         }
 
-        // Fade out mountains when scrolling deep
-        if (progress > 0.8) {
-           mountain.position.z = 600000; // push far away
-        } else if (refs.locations) {
-           mountain.position.z = refs.locations[i];
+        // Simpan target untuk dilakuan lerp pada fungsi animate()
+        mountain.userData.targetZ = finalTargetZ;
+        mountain.userData.targetY = finalTargetY;
+
+        if (refs.nebula) {
+          refs.nebula.position.z = targetZ + progress * speed * 0.01 - 100;
         }
       });
 

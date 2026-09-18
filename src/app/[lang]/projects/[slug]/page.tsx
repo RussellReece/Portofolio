@@ -24,7 +24,7 @@ export default async function ProjectPage({
   
   let source;
   try {
-    source = getProjectBySlug(slug);
+    source = getProjectBySlug(slug, lang);
   } catch (error) {
     notFound();
   }
@@ -35,7 +35,7 @@ export default async function ProjectPage({
     <DetailLayout
       lang={lang}
       backHref={`/${lang}#projects`}
-      backLabel="Back to Portfolio"
+      backLabel={lang === 'id' ? 'Kembali ke Portofolio' : 'Back to Portfolio'}
       kind="project"
       meta={{
         title: frontmatter.title,
