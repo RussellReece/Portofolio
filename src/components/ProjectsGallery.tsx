@@ -22,6 +22,19 @@ export default function ProjectsGallery({ projects, dict }: Props) {
     (project) => activeCategory === 'All' || project.category === activeCategory
   );
 
+  const getThumbnailStyle = (projectId: string) => {
+    switch (projectId) {
+      case 'clevago':
+        return { objectPosition: 'center', transform: 'scale(1.18)' };
+      case 'ks-food':
+        return { objectPosition: 'center', transform: 'scale(2)' };
+      case 'universal-lms':
+        return { objectPosition: '25% center', transform: 'scale(1)' };
+      default:
+        return { objectPosition: 'center', transform: 'scale(1)' };
+    }
+  };
+
   return (
     <section id="projects" className="py-24 relative">
       <div className="container mx-auto px-6 max-w-6xl">
@@ -49,11 +62,14 @@ export default function ProjectsGallery({ projects, dict }: Props) {
 
         {/* Gallery */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, index) => (
+          {filteredProjects.map((project, index) => {
+            const thumbnailStyle = getThumbnailStyle(project.id);
+
+            return (
             <Link href={`/${lang}/projects/${project.id}`} key={project.id} style={{ animationDelay: `${index * 80}ms` }} className="group block overflow-hidden rounded-2xl border border-gray-200/70 bg-white/60 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/15 dark:border-white/10 dark:bg-white/[0.04] animate-[rise-in_600ms_ease-out_both]">
               <div className="relative h-52 overflow-hidden bg-gradient-to-br from-primary/80 via-indigo-500 to-cyan-400">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,.32),transparent_30%),linear-gradient(135deg,transparent_45%,rgba(0,0,0,.28))] transition-transform duration-700 group-hover:scale-110" />
-                {project.image && <Image src={project.image} alt={project.title} fill sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw" onError={(event) => { event.currentTarget.style.display = 'none'; }} className="object-cover opacity-90 mix-blend-multiply transition-transform duration-700 group-hover:scale-110 dark:mix-blend-normal" />}
+                {project.image && <Image src={project.image} alt={project.title} fill sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw" onError={(event) => { event.currentTarget.style.display = 'none'; }} style={{ objectPosition: thumbnailStyle.objectPosition, transform: thumbnailStyle.transform }} className="object-cover opacity-90 transition-transform duration-700 group-hover:scale-110" />}
                 <Layers3 className="absolute bottom-6 left-6 h-12 w-12 text-white/85 transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110" />
                 <span className="absolute right-5 top-5 rounded-full border border-white/30 bg-black/15 px-3 py-1 text-xs font-semibold text-white backdrop-blur">{project.category}</span>
                 <span className="absolute bottom-5 right-5 flex translate-y-3 items-center gap-1 text-sm font-semibold text-white opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">{dict.viewProject}<ArrowUpRight className="h-4 w-4" /></span>
@@ -80,7 +96,8 @@ export default function ProjectsGallery({ projects, dict }: Props) {
                 </div>
               </div>
             </Link>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

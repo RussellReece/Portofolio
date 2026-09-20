@@ -82,7 +82,7 @@ export default function About({ dict }: { dict: AboutDictionary }) {
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div className="flex flex-col gap-8">
               <div className="relative order-first grid aspect-[4/3] w-full place-items-center overflow-hidden rounded-3xl border border-primary/20 bg-gradient-to-br from-primary/15 via-white/50 to-cyan-400/15 shadow-xl shadow-primary/10 dark:via-white/5 md:hidden">
-                <Image src="/assets/russell.png" alt="Russell Reece" fill className="object-cover object-top" />
+                <Image src="/assets/russell-about.jpeg" alt="Russell Reece" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-contain object-center p-2" />
               </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">{dict.title}</h2>
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
@@ -96,7 +96,7 @@ export default function About({ dict }: { dict: AboutDictionary }) {
             {/* ── Unified Tech Stack Grid ──────────────── */}
             <div className="flex flex-col items-center md:items-start">
               <div className="relative mb-10 hidden aspect-[4/3] w-full place-items-center overflow-hidden rounded-3xl border border-primary/20 bg-gradient-to-br from-primary/15 via-white/50 to-cyan-400/15 shadow-xl shadow-primary/10 dark:via-white/5 md:grid">
-                <Image src="/assets/russell.png" alt="Russell Reece" fill className="object-cover object-top" />
+                <Image src="/assets/russell-about.jpeg" alt="Russell Reece" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-contain object-center p-3" />
               </div>
               <h3 className="text-xl font-semibold mb-5 text-center md:text-left w-full">
                 {dict.techTitle}

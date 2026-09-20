@@ -7,7 +7,7 @@ duration: '1 month'
 team: 'UKM Coding'
 summary: 'An interactive community profile website converted from Figma UI designs using React.js and deployed for a real client.'
 techStack: ['React.js', 'Figma', 'JavaScript', 'CSS']
-image: '/projects/empact.png'
+image: '/assets/empact-thumbnail.png'
 link: 'https://empact-community.vercel.app/'
 links:
   - label: 'Live Website'
@@ -89,8 +89,8 @@ As part of the 4-person front-end team:
 
 ## Project Documentation
 
-- 📄 [Project README (MD)](/assets/projects/empact-community_README.md)
-- 📄 [Agent Design Notes (MD)](/assets/projects/empact-community_AGENTS.md)
+- 📄 [Project README (MD)](/assets/projects/empact/documents/empact-community_README.md)
+- 📄 [Agent Design Notes (MD)](/assets/projects/empact/documents/empact-community_AGENTS.md)
 
 ---
 

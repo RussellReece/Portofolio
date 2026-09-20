@@ -6,7 +6,7 @@ role: 'Front-End Developer (Solo)'
 duration: '2+ months, Semester 4'
 summary: 'A large-scale, multi-role LMS front-end template built using HTML, CSS, and JavaScript, adaptive for K-12 to university.'
 techStack: ['HTML', 'CSS', 'JavaScript']
-image: '/projects/universal-lms.png'
+image: '/assets/LMS-russell-thumbnail.png'
 link: 'https://lms-russell.vercel.app/'
 links:
   - label: 'Live Website'
@@ -112,10 +112,10 @@ Most LMS platforms are built for a specific educational level, requiring institu
 
 The LMS was designed using a detailed specification process — see the design planning documents:
 
-- 📄 [Sentry Design Specification (MD)](/assets/projects/LMS-Russell_DESIGN-sentry.md)
-- 📄 [Notion Design Reference (MD)](/assets/projects/LMS-Russell_notionDesign.md)
-- 📄 [Lovable Design Reference (MD)](/assets/projects/LMS-Russell_lovableDesign.md)
-- 📄 [Zapier Integration Design (MD)](/assets/projects/LMS-Russell_zapierDesign.md)
+- 📄 [Sentry Design Specification (MD)](/assets/projects/universal-lms/documents/LMS-Russell_DESIGN-sentry.md)
+- 📄 [Notion Design Reference (MD)](/assets/projects/universal-lms/documents/LMS-Russell_notionDesign.md)
+- 📄 [Lovable Design Reference (MD)](/assets/projects/universal-lms/documents/LMS-Russell_lovableDesign.md)
+- 📄 [Zapier Integration Design (MD)](/assets/projects/universal-lms/documents/LMS-Russell_zapierDesign.md)
 
 ---
 

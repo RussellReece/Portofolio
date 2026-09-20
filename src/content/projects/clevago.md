@@ -6,7 +6,7 @@ role: 'System Analyst'
 duration: 'Semester 2'
 summary: 'System Analyst case study for a laundry external service division including business process reports, UML modeling, and Figma UI/UX designs.'
 techStack: ['Figma', 'UML', 'System Analysis']
-image: '/projects/clevago.png'
+image: '/assets/clevago-dashboard.png'
 link: '#'
 links:
   - label: 'Figma: Manajer'
@@ -83,19 +83,19 @@ Comprehensive actor-system interaction map covering all 7 business processes wit
 
 ## Key Documents
 
-- 📄 [Project Brief (PDF)](/assets/projects/ClevaGO-ExternalService_Project%20Brief.pdf)
-- 📄 [Use Case Diagram (PDF)](/assets/projects/ClevaGO-ExternalService_FINAL%20Use%20Case%20External%20Service.pdf)
-- 📄 [Class Diagram (PDF)](/assets/projects/ClevaGO-ExternalService_Class%20Diagram%20External%20Service.pdf)
-- 📄 [End-to-End Process (PDF)](/assets/projects/ClevaGO-ExternalService_Final%20End-to-end%20External%20Service.pdf)
-- 📄 [CRUD & RASCI (PDF)](/assets/projects/ClevaGO-ExternalService_FINAL%20CRUD%20%26%20RASCI%20External%20Service.pdf)
-- 📄 [System Sequence Diagram (PDF)](/assets/projects/ClevaGO-ExternalService_System%20Sequence%20Diagram%20External%20Service.pdf)
-- 📄 [Activity: Shift Scheduling (PDF)](/assets/projects/ClevaGO-ExternalService_Activity%20Diagram%20Final%20Penjadwalan%20Shift%20Tim%20Lapangan.pdf)
-- 📄 [Activity: Outsourcing Process (PDF)](/assets/projects/ClevaGO-ExternalService_Activity%20Diagram%20Final%20Pengelolaan%20dan%20Proses%20Outsourcing.pdf)
-- 📄 [Activity: Resource Allocation (PDF)](/assets/projects/ClevaGO-ExternalService_Activity%20Diagram%20Final%20Proses%20Alokasi%20Karyawan%2C%20Logistik%2C%20%26%20Fleet.pdf)
-- 📄 [Activity: On-Site Payment (PDF)](/assets/projects/ClevaGO-ExternalService_Activity%20Diagram%20Final%20Penyelesaian%20Pembayaran%20di%20Lokasi.pdf)
-- 📄 [Activity: Complaint Resolution (PDF)](/assets/projects/ClevaGO-ExternalService_Activity%20Diagram%20Final%20Penyelesaian%20Keluhan%20Pelanggan.pdf)
-- 📄 [Activity: Ad-hoc Requests (PDF)](/assets/projects/ClevaGO-ExternalService_Activity%20Diagram%20Final%20Penanganan%20Permintaan%20Tambahan%20di%20Lokasi.pdf)
-- 📄 [Activity: Performance Evaluation (PDF)](/assets/projects/ClevaGO-ExternalService_Activity%20Diagram%20Final%20Evaluasi%20Kinerja%20Tim%20Lapangan.pdf)
+- 📄 [Project Brief (PDF)](/assets/projects/clevago/documents/ClevaGO-ExternalService_Project%20Brief.pdf)
+- 📄 [Use Case Diagram (PDF)](/assets/projects/clevago/documents/ClevaGO-ExternalService_FINAL%20Use%20Case%20External%20Service.pdf)
+- 📄 [Class Diagram (PDF)](/assets/projects/clevago/documents/ClevaGO-ExternalService_Class%20Diagram%20External%20Service.pdf)
+- 📄 [End-to-End Process (PDF)](/assets/projects/clevago/documents/ClevaGO-ExternalService_Final%20End-to-end%20External%20Service.pdf)
+- 📄 [CRUD & RASCI (PDF)](/assets/projects/clevago/documents/ClevaGO-ExternalService_FINAL%20CRUD%20%26%20RASCI%20External%20Service.pdf)
+- 📄 [System Sequence Diagram (PDF)](/assets/projects/clevago/documents/ClevaGO-ExternalService_System%20Sequence%20Diagram%20External%20Service.pdf)
+- 📄 [Activity: Shift Scheduling (PDF)](/assets/projects/clevago/documents/ClevaGO-ExternalService_Activity%20Diagram%20Final%20Penjadwalan%20Shift%20Tim%20Lapangan.pdf)
+- 📄 [Activity: Outsourcing Process (PDF)](/assets/projects/clevago/documents/ClevaGO-ExternalService_Activity%20Diagram%20Final%20Pengelolaan%20dan%20Proses%20Outsourcing.pdf)
+- 📄 [Activity: Resource Allocation (PDF)](/assets/projects/clevago/documents/ClevaGO-ExternalService_Activity%20Diagram%20Final%20Proses%20Alokasi%20Karyawan%2C%20Logistik%2C%20%26%20Fleet.pdf)
+- 📄 [Activity: On-Site Payment (PDF)](/assets/projects/clevago/documents/ClevaGO-ExternalService_Activity%20Diagram%20Final%20Penyelesaian%20Pembayaran%20di%20Lokasi.pdf)
+- 📄 [Activity: Complaint Resolution (PDF)](/assets/projects/clevago/documents/ClevaGO-ExternalService_Activity%20Diagram%20Final%20Penyelesaian%20Keluhan%20Pelanggan.pdf)
+- 📄 [Activity: Ad-hoc Requests (PDF)](/assets/projects/clevago/documents/ClevaGO-ExternalService_Activity%20Diagram%20Final%20Penanganan%20Permintaan%20Tambahan%20di%20Lokasi.pdf)
+- 📄 [Activity: Performance Evaluation (PDF)](/assets/projects/clevago/documents/ClevaGO-ExternalService_Activity%20Diagram%20Final%20Evaluasi%20Kinerja%20Tim%20Lapangan.pdf)
 
 ---
 

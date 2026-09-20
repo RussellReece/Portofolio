@@ -6,7 +6,7 @@ role: 'Full-Stack Developer'
 duration: '2 months'
 summary: 'A self-service laundry ordering platform built with HTML, CSS, JavaScript, Google Sheets backend, and Apps Script automation.'
 techStack: ['HTML', 'CSS', 'JavaScript', 'Google Apps Script', 'Google Spreadsheet']
-image: '/projects/urbanfresh.png'
+image: '/assets/urbanfresh-thumbnail.png'
 link: 'https://urbanfresh-laundry.vercel.app/'
 links:
   - label: 'Admin Dashboard'
@@ -90,9 +90,8 @@ This was a deliberate constraint — the goal was to build a **production-ready 
 
 The project began with a thorough system analysis before any code was written:
 
-- 📄 [Software Requirements Specification — SRS UrbanFresh (PDF)](/assets/projects/UrbanFreshLaundry_SRS%20UrbanFresh.pdf)
-- 📄 [Business Process Flow (PDF)](/assets/projects/UrbanFreshLaundry_Alur%20Proses%20Bisnis%20ClevaGo%20Home%20Cleaning%20%26%20ClevaGo%20Pest%20Control.pdf)
-- 📄 [Final Project Report (DOCX)](/assets/projects/UrbanFreshLaundry_Tugas%20Minggu%2012%20Final%20project%20report%20submission%20.docx)
+- 📄 [Software Requirements Specification — SRS UrbanFresh (PDF)](/assets/projects/urbanfresh/documents/UrbanFreshLaundry_SRS%20UrbanFresh.pdf)
+- 📄 [Business Process Flow (PDF)](/assets/projects/urbanfresh/documents/UrbanFreshLaundry_Alur%20Proses%20Bisnis%20ClevaGo%20Home%20Cleaning%20%26%20ClevaGo%20Pest%20Control.pdf)
 
 ---
 

@@ -1,0 +1,12 @@
+*ASSETS - KS FOOD*
+Laporan : 
+    ADV ISAD : https://docs.google.com/document/d/1H4dQ4E765xxwHqHD0lr6oosdpxfXWD69zit1atqQsz0/edit?usp=sharing
+    KM : https://docs.google.com/document/d/1Rr7x6dHg0b7bLP14-Mvxcqaa1Tlptt9-o1jYZ4tkYh0/edit?usp=sharing
+DRIVE: https://drive.google.com/drive/folders/136ufHRFP3A9Hn1WJJcmYKGt6dF0CPElM?usp=sharing 
+JIRA/TODO: https://rafli.atlassian.net/jira/software/projects/KSF/summary?atlOrigin=eyJpIjoiYThjYTlmYzc1ZmRjNGVlZTkyYzU1ZTkyNDAzNmM0NDkiLCJwIjoiaiJ9  
+UML DIAGRAM: 
+    Visual Paradigmn : https://online.visual-paradigm.com/share.jsp?id=343234383731322d33 
+    Draw IO : https://drive.google.com/file/d/1bXv1R3XOgUbdm1G30PZcNwjCV_yzj-5W/view?usp=sharing
+    Spreadsheet : https://docs.google.com/spreadsheets/d/1acxNVygmgv1KrXp9i3daAfl3PR6WFU1oBRslMjABXys/edit?gid=0#gid=0
+UIUX (FIGMA): https://www.figma.com/design/xDj0yg2WhftsIEEDNUUueS/UI-UX---KS-FOOD?m=auto&t=YuxjuHfJnY6wK7dB-6
+PPT: https://www.figma.com/slides/hjWNYxbWRJeZgl9uz7bCh0/PPT---KS-FOOD-OVERVIEW?node-id=11-30&t=0PGigpyYtPwtqlv5-1
