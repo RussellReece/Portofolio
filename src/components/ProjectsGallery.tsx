@@ -51,8 +51,8 @@ export default function ProjectsGallery({ projects, dict }: Props) {
               onClick={() => setActiveCategory(category)}
               className={`px-6 py-2 rounded-full transition-all ${
                 activeCategory === category
-                  ? 'bg-primary text-white'
-                  : 'bg-gray-200 dark:bg-gray-800/50 text-gray-700 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white'
+                  ? 'border border-ink bg-ink text-sheet dark:border-white/40 dark:bg-gray-950 dark:text-white'
+                  : 'border border-rule bg-panel text-ink hover:border-ink hover:bg-sheet dark:border-white/25 dark:bg-gray-900/90 dark:text-white dark:hover:border-white/60 dark:hover:bg-gray-950 dark:hover:text-white'
               }`}
             >
               {dict.filters[key]}

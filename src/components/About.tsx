@@ -81,33 +81,86 @@ export default function About({ dict }: { dict: AboutDictionary }) {
           {/* ── About text ─────────────────────────────── */}
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div className="flex flex-col gap-8">
-              <div className="relative order-first grid aspect-[4/3] w-full place-items-center overflow-hidden rounded-3xl border border-primary/20 bg-gradient-to-br from-primary/15 via-white/50 to-cyan-400/15 shadow-xl shadow-primary/10 dark:via-white/5 md:hidden">
-                <Image src="/assets/russell-about.jpeg" alt="Russell Reece" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-contain object-center p-2" />
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">{dict.title}</h2>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8 }}
+                className="relative order-first flex w-full aspect-[4/3] items-center justify-center overflow-hidden rounded-3xl border-2 border-dashed border-gray-300 dark:border-gray-700 bg-gray-100/50 dark:bg-gray-900/50 text-gray-400 dark:text-gray-600 md:hidden"
+              >
+                <div className="text-center p-6">
+                  <div className="bg-gray-200 dark:bg-gray-800 rounded-full w-16 h-16 mx-auto flex items-center justify-center mb-4">
+                    <svg className="w-8 h-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <p className="font-medium text-sm">Replace with your photo</p>
+                </div>
+              </motion.div>
+              <motion.h2 
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.7 }}
+                className="text-3xl md:text-4xl font-extrabold mb-2"
+              >
+                {dict.title}
+              </motion.h2>
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.7, delay: 0.1 }}
+                className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed"
+              >
                 {dict.p1}
-              </p>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+              </motion.p>
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.7, delay: 0.2 }}
+                className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed"
+              >
                 {dict.p2}
-              </p>
+              </motion.p>
             </div>
 
             {/* ── Unified Tech Stack Grid ──────────────── */}
             <div className="flex flex-col items-center md:items-start">
-              <div className="relative mb-10 hidden aspect-[4/3] w-full place-items-center overflow-hidden rounded-3xl border border-primary/20 bg-gradient-to-br from-primary/15 via-white/50 to-cyan-400/15 shadow-xl shadow-primary/10 dark:via-white/5 md:grid">
-                <Image src="/assets/russell-about.jpeg" alt="Russell Reece" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-contain object-center p-3" />
-              </div>
-              <h3 className="text-xl font-semibold mb-5 text-center md:text-left w-full">
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8 }}
+                className="relative mb-10 hidden w-full aspect-[4/3] items-center justify-center overflow-hidden rounded-3xl border-2 border-dashed border-gray-300 dark:border-gray-700 bg-gray-100/50 dark:bg-gray-900/50 text-gray-400 dark:text-gray-600 md:flex flex-col"
+              >
+                <div className="text-center p-6">
+                  <div className="bg-gray-200 dark:bg-gray-800 rounded-full w-20 h-20 mx-auto flex items-center justify-center mb-4">
+                    <svg className="w-10 h-10 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <p className="font-medium text-sm">Replace with your photo</p>
+                  <p className="text-xs mt-2 opacity-70">Professional or casual portrait</p>
+                </div>
+              </motion.div>
+              <motion.h3 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6 }}
+                className="text-xl font-semibold mb-5 text-center md:text-left w-full"
+              >
                 {dict.techTitle}
-              </h3>
+              </motion.h3>
 
               <motion.div
                 className="flex flex-wrap gap-2.5 justify-center md:justify-start"
                 variants={gridVariants}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
+                viewport={{ once: true, margin: "-50px" }}
               >
                 {TECH_ITEMS.map((item) => (
                   <motion.div

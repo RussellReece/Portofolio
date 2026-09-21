@@ -9,6 +9,9 @@ techStack: ['HTML', 'CSS', 'JavaScript', 'Google Apps Script', 'Google Spreadshe
 image: '/assets/urbanfresh-thumbnail.png'
 link: 'https://urbanfresh-laundry.vercel.app/'
 links:
+  - label: 'Public Page'
+    url: 'https://urbanfresh-laundry.vercel.app'
+    type: 'prototype'
   - label: 'Admin Dashboard'
     url: 'https://urbanfresh-laundry.vercel.app/admin.html'
     type: 'prototype'

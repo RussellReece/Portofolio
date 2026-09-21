@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Redline — portfolio system for a systems analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Spectral:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sheet:#F1F3F2;
+  --panel:#E3E8E6;
+  --ink:#101C1F;
+  --graphite:#56656A;
+  --rule:#C6CFCD;
+  --analysis:#1D4E5A;
+  --frontend:#A32D22;
+  --fullstack:#2E6244;
+  --shade:rgba(16,28,31,.045);
+  color-scheme:light dark;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --sheet:#0E1618; --panel:#16201F; --ink:#E8EDEA; --graphite:#93A3A4; --rule:#2A3739;
+    --analysis:#7FC3D1; --frontend:#F08A72; --fullstack:#7FC79C; --shade:rgba(232,237,234,.05);
+  }
+}
+:root[data-theme="dark"]{
+  --sheet:#0E1618; --panel:#16201F; --ink:#E8EDEA; --graphite:#93A3A4; --rule:#2A3739;
+  --analysis:#7FC3D1; --frontend:#F08A72; --fullstack:#7FC79C; --shade:rgba(232,237,234,.05);
+}
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{scroll-padding-top:calc(72px + env(safe-area-inset-top,0px));-webkit-text-size-adjust:100%}
+*,*::before,*::after{box-sizing:inherit}
+body{
+  margin:0;background:var(--sheet);color:var(--ink);
+  font-family:Spectral,Georgia,"Times New Roman",serif;
+  font-size:17px;line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4,.ui,button,th,.tag,.field,.stat-n,.tabs a{font-family:Archivo,"Helvetica Neue",Arial,sans-serif}
+p{margin:0 0 1.05em;max-width:66ch}
+a{color:var(--frontend);text-underline-offset:3px;text-decoration-thickness:1px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--frontend);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+@media(max-width:640px){.wrap{padding:0 18px}}
+
+/* ---------- top bar ---------- */
+.bar{
+  position:sticky;top:env(safe-area-inset-top,0px);z-index:40;
+  background:color-mix(in srgb,var(--sheet) 88%,transparent);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--rule);
+}
+.bar-in{display:flex;align-items:center;gap:22px;height:64px}
+.mark{font-family:Archivo;font-weight:800;letter-spacing:-.03em;font-size:17px;white-space:nowrap}
+.mark span{display:block;font-weight:500;font-size:11px;letter-spacing:.01em;color:var(--graphite);margin-top:-2px}
+.tabs{display:flex;gap:2px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{
+  font-size:13px;font-weight:600;letter-spacing:-.01em;color:var(--graphite);
+  background:none;border:0;border-bottom:2px solid transparent;
+  padding:8px 11px;cursor:pointer;white-space:nowrap;
+}
+.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--frontend)}
+.themebtn{border:1px solid var(--rule);background:none;color:var(--graphite);border-radius:2px;
+  width:32px;height:32px;cursor:pointer;font-size:14px;line-height:1;flex:none}
+
+/* ---------- layout: title block + margin rail ---------- */
+.spread{display:grid;grid-template-columns:186px minmax(0,1fr);gap:46px;padding:38px 0;border-top:1px solid var(--rule)}
+.spread:first-of-type{border-top:0}
+.rail h2{font-size:15px;font-weight:600;letter-spacing:-.01em;margin:.15em 0 .5em;line-height:1.3}
+.rail .sub{font-family:Archivo;font-size:12px;color:var(--graphite);margin:0}
+.note{
+  font-style:italic;color:var(--frontend);font-size:14.5px;line-height:1.5;
+  margin:16px 0 0;padding-left:12px;border-left:2px solid var(--frontend);max-width:30ch;
+}
+.col>*:first-child{margin-top:0}
+@media(max-width:880px){
+  .spread{grid-template-columns:1fr;gap:16px;padding:30px 0}
+  .note{max-width:none}
+}
+h3{font-size:16px;font-weight:600;margin:28px 0 .5em;letter-spacing:-.01em}
+
+/* ---------- title block ---------- */
+.titleblock{border:1px solid var(--rule);border-left:4px solid var(--c,var(--analysis));background:var(--panel);margin:28px 0 0}
+.titleblock .top{padding:20px 22px 16px}
+.crumb{font-family:Archivo;font-size:12px;font-weight:500;color:var(--graphite);display:inline-block;margin-bottom:10px}
+.titleblock h1{font-size:clamp(1.9rem,4.4vw,2.75rem);font-weight:700;letter-spacing:-.035em;line-height:1.02;margin:0 0 10px}
+.titleblock .lede{font-size:17px;color:var(--graphite);margin:0;max-width:58ch}
+.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));border-top:1px solid var(--rule)}
+.field{padding:11px 22px;border-right:1px solid var(--rule);font-size:13.5px;font-weight:600}
+.field:last-child{border-right:0}
+.field b{display:block;font-weight:500;font-size:11px;color:var(--graphite);margin-bottom:2px;letter-spacing:.01em}
+.stamp{
+  display:inline-block;font-family:Archivo;font-size:12px;font-weight:700;letter-spacing:.02em;
+  border:1.5px solid var(--fullstack);color:var(--fullstack);padding:4px 9px;border-radius:2px;
+  transform:rotate(-1.6deg);
+}
+
+/* ---------- diagram frame (the hero) ---------- */
+.frame{border:1px solid var(--rule);background:var(--panel);margin:0 0 6px}
+.frame figcaption{
+  font-family:Archivo;font-size:12px;color:var(--graphite);
+  padding:9px 14px;border-top:1px solid var(--rule);display:flex;gap:14px;justify-content:space-between
+}
+.frame .plate{padding:20px 14px;overflow-x:auto}
+.frame svg{display:block;width:100%;height:auto;min-width:540px;margin:0 auto;max-width:820px}
+.dg-box{fill:var(--sheet);stroke:var(--ink);stroke-width:1.2}
+.dg-box.a{stroke:var(--analysis)}
+.dg-box.f{stroke:var(--frontend)}
+.dg-box.g{stroke:var(--fullstack)}
+.dg-t{font-family:Archivo;font-size:12.5px;font-weight:600;fill:var(--ink)}
+.dg-s{font-family:Archivo;font-size:10.5px;font-weight:500;fill:var(--graphite)}
+.dg-l{stroke:var(--graphite);stroke-width:1.1;fill:none}
+.dg-note{font-family:Spectral,serif;font-style:italic;font-size:11.5px;fill:var(--frontend)}
+
+/* ---------- figures / outcomes ---------- */
+.figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:22px 0}
+.fig{background:var(--sheet);padding:14px 16px}
+.stat-n{font-size:27px;font-weight:700;letter-spacing:-.03em;line-height:1.1;display:block}
+.fig span{font-family:Archivo;font-size:12px;color:var(--graphite);line-height:1.35;display:block;margin-top:3px}
+
+/* ---------- tags ---------- */
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px;padding:0;list-style:none}
+.tag{font-size:11.5px;font-weight:600;border:1px solid var(--rule);padding:3px 8px;border-radius:2px;color:var(--graphite)}
+.tag.a{color:var(--analysis);border-color:color-mix(in srgb,var(--analysis) 45%,transparent)}
+.tag.f{color:var(--frontend);border-color:color-mix(in srgb,var(--frontend) 45%,transparent)}
+.tag.g{color:var(--fullstack);border-color:color-mix(in srgb,var(--fullstack) 45%,transparent)}
+
+/* ---------- tables & evidence ---------- */
+table{border-collapse:collapse;width:100%;font-size:14.5px;margin:6px 0 20px}
+th{text-align:left;font-size:11.5px;font-weight:600;color:var(--graphite);border-bottom:1px solid var(--ink);padding:0 12px 7px 0}
+td{padding:9px 12px 9px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+td:first-child{font-family:Archivo;font-weight:600;font-size:13.5px;width:34%}
+details{border-top:1px solid var(--rule)}
+details:last-of-type{border-bottom:1px solid var(--rule)}
+summary{
+  cursor:pointer;list-style:none;padding:12px 0;display:flex;align-items:baseline;gap:10px;
+  font-family:Archivo;font-size:14px;font-weight:600
+}
+summary::-webkit-details-marker{display:none}
+summary .ph{color:var(--graphite);font-weight:500;font-size:12px;margin-left:auto}
+summary::before{content:"+";color:var(--frontend);font-weight:700;width:12px}
+details[open] summary::before{content:"–"}
+.docs{margin:0 0 16px;padding:0;list-style:none;font-size:14.5px}
+.docs li{display:flex;gap:12px;padding:7px 0;border-top:1px dotted var(--rule)}
+.docs li span{color:var(--graphite);font-size:13.5px;margin-left:auto;text-align:right;max-width:46%}
+
+/* ---------- home ---------- */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.92fr);gap:52px;align-items:center;padding:64px 0 54px}
+.hero h1{font-size:clamp(2.4rem,6vw,4rem);font-weight:800;letter-spacing:-.045em;line-height:.98;margin:0 0 20px}
+.hero p{font-size:18.5px;color:var(--graphite);max-width:40ch}
+.here{font-family:Archivo;font-size:12.5px;font-weight:600;color:var(--fullstack);margin-top:24px;display:flex;align-items:center;gap:8px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--fullstack);flex:none}
+@media(max-width:880px){.hero{grid-template-columns:1fr;gap:34px;padding:40px 0}}
+
+.matrix{border:1px solid var(--rule);background:var(--panel);font-family:Archivo}
+.matrix-h,.matrix-r{display:grid;grid-template-columns:minmax(96px,1.5fr) repeat(5,1fr)}
+.matrix-h div{font-size:10.5px;font-weight:600;color:var(--graphite);padding:10px 4px;text-align:center;line-height:1.2}
+.matrix-h div:first-child{text-align:left;padding-left:14px}
+.matrix-r{border-top:1px solid var(--rule)}
+.matrix-r>b{font-size:12px;font-weight:600;padding:11px 8px 11px 14px;align-self:center;line-height:1.2}
+.cell{display:flex;align-items:center;justify-content:center;border-left:1px solid var(--rule)}
+.cell i{width:13px;height:13px;border-radius:2px;background:var(--c);transform:scale(0);transform-origin:center}
+.cell.on i{animation:pop .34s cubic-bezier(.2,.9,.3,1.2) forwards;animation-delay:var(--d)}
+.cell.off i{background:none;border:1px solid var(--rule);transform:scale(1)}
+@keyframes pop{to{transform:scale(1)}}
+@media(prefers-reduced-motion:reduce){.cell i{transform:scale(1)!important;animation:none!important}}
+.matrix figcaption{font-size:11.5px;color:var(--graphite);padding:10px 14px;border-top:1px solid var(--rule)}
+
+.work{display:grid;grid-template-columns:repeat(12,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.card{background:var(--sheet);padding:22px 22px 20px;grid-column:span 6;display:flex;flex-direction:column}
+.card.lead{grid-column:span 12;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:34px;align-items:center}
+.card h3{margin:0 0 8px;font-size:20px;letter-spacing:-.025em}
+.card.lead h3{font-size:26px}
+.card p{font-size:15px;color:var(--graphite);margin-bottom:14px}
+.card .go{font-family:Archivo;font-size:13px;font-weight:600;margin-top:auto}
+.mini{border:1px solid var(--rule);background:var(--panel);padding:14px}
+.mini svg{width:100%;height:auto;display:block}
+@media(max-width:880px){.card,.card.lead{grid-column:span 12;grid-template-columns:1fr;gap:20px}}
+
+.rec{border-top:1px solid var(--rule)}
+.rec-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;padding:16px 0;border-bottom:1px solid var(--rule);align-items:baseline}
+.rec-row h4{margin:0 0 3px;font-size:16px;font-weight:600;letter-spacing:-.02em}
+.rec-row p{margin:0;font-size:14.5px;color:var(--graphite)}
+.rec-row .yr{font-family:Archivo;font-size:12.5px;color:var(--graphite)}
+.muted-line{font-size:14.5px;color:var(--graphite);padding:14px 0;border-bottom:1px solid var(--rule);margin:0}
+
+/* ---------- style guide bits ---------- */
+.sw{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:14px;margin:4px 0 24px}
+.sw>div{border:1px solid var(--rule)}
+.sw .chip{height:64px}
+.sw p{font-family:Archivo;font-size:12px;margin:0;padding:9px 11px;color:var(--graphite);line-height:1.45}
+.sw p b{display:block;color:var(--ink);font-size:13px;font-weight:600}
+.spec{border-top:1px solid var(--rule);padding:14px 0;display:grid;grid-template-columns:118px 1fr;gap:18px;align-items:baseline}
+.spec small{font-family:Archivo;font-size:11.5px;color:var(--graphite);line-height:1.4}
+.rules{margin:0;padding:0;list-style:none;font-size:15px}
+.rules li{padding:11px 0 11px 26px;border-bottom:1px solid var(--rule);position:relative;max-width:64ch}
+.rules li::before{content:"✓";position:absolute;left:0;color:var(--fullstack);font-family:Archivo;font-weight:700}
+.rules li.no::before{content:"✕";color:var(--frontend)}
+pre{
+  background:var(--panel);border:1px solid var(--rule);padding:14px 16px;overflow-x:auto;
+  font-size:12.5px;line-height:1.65;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;margin:0 0 18px
+}
+.foot{border-top:1px solid var(--rule);padding:34px 0 60px;font-size:14px;color:var(--graphite)}
+[hidden]{display:none!important}
+
+/* ---------- ruler (scroll position, drafting-tool motif) ---------- */
+.ruler{
+  position:fixed;left:0;top:0;bottom:0;width:26px;z-index:30;
+  border-right:1px solid var(--rule);background:var(--sheet);
+  display:flex;flex-direction:column;align-items:center;padding:64px 0 0;
+}
+.ruler .ticks{position:relative;flex:1;width:100%}
+.ruler .ticks i{position:absolute;left:0;width:100%;height:1px;background:var(--rule)}
+.ruler .ticks i.maj{background:var(--graphite)}
+.ruler .ticks span{position:absolute;left:8px;font-family:Archivo;font-size:9px;color:var(--graphite);
+  writing-mode:vertical-rl;transform:rotate(180deg);letter-spacing:.04em}
+.ruler .cursor{
+  position:absolute;left:0;width:100%;height:2px;background:var(--frontend);top:64px;
+  transition:top .08s linear;box-shadow:0 0 0 3px color-mix(in srgb,var(--frontend) 18%,transparent);
+}
+@media(max-width:1000px){.ruler{display:none}}
+body.has-ruler .wrap{max-width:1094px}
+body.has-ruler{padding-left:26px}
+@media(max-width:1000px){body.has-ruler{padding-left:0}}
+
+/* ---------- blueprint texture ---------- */
+.frame .plate,.titleblock,.matrix,.mini{
+  background-image:
+    linear-gradient(var(--shade) 1px,transparent 1px),
+    linear-gradient(90deg,var(--shade) 1px,transparent 1px);
+  background-size:24px 24px;
+}
+
+/* ---------- headline squiggle (signature load moment) ---------- */
+.und-wrap{position:relative;display:inline-block}
+.und-wrap svg{position:absolute;left:-2%;right:-2%;bottom:-.06em;width:104%;height:.3em;overflow:visible}
+.und-wrap path{fill:none;stroke:var(--frontend);stroke-width:5;stroke-linecap:round;
+  stroke-dasharray:340;stroke-dashoffset:340;animation:draw 1s 700ms cubic-bezier(.3,.7,.2,1) forwards}
+@media(prefers-reduced-motion:reduce){.und-wrap path{animation:none;stroke-dashoffset:0}}
+@keyframes draw{to{stroke-dashoffset:0}}
+
+/* ---------- diagrams that draft themselves in ---------- */
+.frame .dg-box{opacity:0;transform:scale(.9);transform-origin:center;transform-box:fill-box;
+  transition:opacity .5s ease var(--bd,0ms),transform .5s cubic-bezier(.2,.8,.2,1) var(--bd,0ms),
+  stroke-width .18s ease,fill .18s ease}
+.frame.inview .dg-box{opacity:1;transform:scale(1)}
+.frame .dg-l{transition:stroke-dashoffset .8s cubic-bezier(.3,.6,.2,1);transition-delay:var(--ld,150ms)}
+@media(prefers-reduced-motion:reduce){
+  .frame .dg-box{transition:none;opacity:1;transform:none}
+  .frame .dg-l{transition:none}
+}
+
+/* ---------- interactive nodes ---------- */
+.node{cursor:pointer}
+.node:hover .dg-box,.node:focus-visible .dg-box,.node.active .dg-box{
+  stroke-width:2.2;fill:color-mix(in srgb,var(--c,var(--frontend)) 12%,var(--sheet));
+  transform:scale(1.035);
+}
+.node:focus-visible{outline:none}
+.node:focus-visible .dg-box{stroke:var(--frontend)!important}
+.plate{cursor:crosshair}
+.callout{
+  min-height:1.4em;margin:0;padding:9px 14px;font-style:italic;font-size:13.5px;
+  color:var(--frontend);border-top:1px solid var(--rule);font-family:Spectral;
+  background:var(--sheet);
+}
+.callout.is-default{color:var(--graphite);font-style:normal;font-family:Archivo;font-size:12px}
+
+/* ---------- stamp lift ---------- */
+.stamp{transition:transform .25s cubic-bezier(.3,.7,.3,1),box-shadow .25s ease}
+.titleblock:hover .stamp{transform:rotate(-1.6deg) scale(1.06);box-shadow:2px 3px 0 var(--shade)}
+.crumb{position:relative}
+.crumb::after{content:"";display:inline-block}
+
+/* ---------- count-up numerals ---------- */
+.stat-n{transition:opacity .3s ease}
+.fig{position:relative;overflow:hidden}
+.fig::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--c,var(--fullstack));
+  transform:scaleY(0);transform-origin:bottom;transition:transform .6s cubic-bezier(.2,.8,.2,1);
+}
+.fig.inview::before{transform:scaleY(1)}
+
+/* ---------- mini diagram hover on home cards ---------- */
+.mini .node:hover .dg-box{transform:scale(1.06);fill:color-mix(in srgb,var(--c,var(--fullstack)) 14%,var(--sheet))}
+</style>
+</head>
+<body class="has-ruler">
+
+<div class="ruler" aria-hidden="true">
+  <div class="ticks" id="ticks"></div>
+  <div class="cursor" id="rulerCursor"></div>
+</div>
+
+<header class="bar">
+  <div class="wrap bar-in">
+    <div class="mark">Russell Reece<span>Systems analyst, front-end developer</span></div>
+    <nav class="tabs" role="tablist" aria-label="Template screens">
+      <button role="tab" aria-selected="true" data-v="guide">Style guide</button>
+      <button role="tab" aria-selected="false" data-v="home">Home</button>
+      <button role="tab" aria-selected="false" data-v="project">Project</button>
+      <button role="tab" aria-selected="false" data-v="comp">Competition</button>
+      <button role="tab" aria-selected="false" data-v="exp">Experience</button>
+    </nav>
+    <button class="themebtn ui" id="theme" aria-label="Switch colour theme">◐</button>
+  </div>
+</header>
+
+<!-- ======================= STYLE GUIDE ======================= -->
+<main id="guide" class="wrap">
+  <section class="spread">
+    <div class="rail">
+      <h2>The idea</h2>
+      <p class="sub">Redline — a portfolio identity</p>
+    </div>
+    <div class="col">
+      <p style="font-size:20px">A systems analyst's native language is notation: swimlanes, entity boxes, actors, cardinality, and the red pen that marks up a spec before it ships. This identity borrows that vocabulary instead of borrowing a SaaS landing page.</p>
+      <p>Three commitments hold it together. The diagram is the hero, not a placeholder image. Colour is a key, never a mood — each hue names a discipline and means the same thing on every screen. And the left margin carries a redline note in your own voice, so a reader always knows why a decision was made, not just what was built.</p>
+    </div>
+  </section>
+
+  <section class="spread">
+    <div class="rail"><h2>Colour</h2><p class="note">Six values total. If a colour doesn't encode something, it isn't in the palette.</p></div>
+    <div class="col">
+      <div class="sw">
+        <div><div class="chip" style="background:#F1F3F2;border-bottom:1px solid var(--rule)"></div><p><b>Sheet #F1F3F2</b>Page base. Cool paper, not cream.</p></div>
+        <div><div class="chip" style="background:#E3E8E6;border-bottom:1px solid var(--rule)"></div><p><b>Panel #E3E8E6</b>Diagram plates, title blocks.</p></div>
+        <div><div class="chip" style="background:#101C1F"></div><p><b>Ink #101C1F</b>Body text and diagram strokes.</p></div>
+        <div><div class="chip" style="background:#1D4E5A"></div><p><b>Analysis #1D4E5A</b>System analysis work.</p></div>
+        <div><div class="chip" style="background:#A32D22"></div><p><b>Redline #A32D22</b>Front-end work, links, margin notes.</p></div>
+        <div><div class="chip" style="background:#2E6244"></div><p><b>Stamp #2E6244</b>Full-stack work and results.</p></div>
+      </div>
+      <p>Dark mode inverts to ink #0E1618 and lifts the three discipline hues to #7FC3D1, #F08A72 and #7FC79C so they stay legible without changing meaning.</p>
+    </div>
+  </section>
+
+  <section class="spread">
+    <div class="rail"><h2>Type</h2><p class="sub">Archivo + Spectral</p></div>
+    <div class="col">
+      <div class="spec"><small>Archivo 800<br>−0.045em<br>clamp 2.4–4rem</small><div style="font-family:Archivo;font-weight:800;letter-spacing:-.045em;font-size:clamp(2rem,5vw,3.2rem);line-height:1">Business processes, drawn</div></div>
+      <div class="spec"><small>Archivo 700<br>title block</small><div style="font-family:Archivo;font-weight:700;letter-spacing:-.035em;font-size:1.9rem;line-height:1.05">KSFOOD — manufacturing ERP</div></div>
+      <div class="spec"><small>Archivo 600<br>15px, rail headings</small><div style="font-family:Archivo;font-weight:600;font-size:15px">System scope</div></div>
+      <div class="spec"><small>Spectral 400<br>17px / 1.62 / 66ch</small><div>Prose sits in Spectral because a serif reads as written argument rather than interface chrome. Line length is capped at 66 characters and the rail keeps it there.</div></div>
+      <div class="spec"><small>Spectral italic<br>redline note</small><div class="note" style="margin:0">Chose Google Sheets as the database deliberately — zero server cost was a hard constraint from the owner.</div></div>
+      <p style="margin-top:22px">No all-caps labels, no tracked-out eyebrows, no single accented word in a headline. A heading earns attention through size and weight alone.</p>
+    </div>
+  </section>
+
+  <section class="spread">
+    <div class="rail"><h2>Grid</h2><p class="note">The rail is the title block from a drawing sheet, rotated into the margin.</p></div>
+    <div class="col">
+<pre>┌──────────┬──────────────────────────────────────┐
+│ 186px    │  main column, max 66ch               │
+│ heading  │                                      │
+│ + note   │  prose, tables, diagrams, evidence   │
+└──────────┴──────────────────────────────────────┘
+   ▲ collapses above content below 880px</pre>
+      <p>Section headings live in the rail, not above the text. That frees the main column to open with content, and it gives margin notes somewhere to sit without interrupting the reading line.</p>
+    </div>
+  </section>
+
+  <section class="spread">
+    <div class="rail"><h2>Rules of the system</h2><p class="sub">What the template refuses to do</p></div>
+    <div class="col">
+      <ul class="rules">
+        <li>Every detail page opens with a real diagram, a real screenshot, or a real table. Never a placeholder.</li>
+        <li>Each project states one outcome figure above the fold.</li>
+        <li>Documents are grouped by phase and each one says what it is for.</li>
+        <li>A discipline colour appears on the title block edge and nowhere decorative.</li>
+        <li class="no">No title repeated twice on the same page.</li>
+        <li class="no">No two buttons with the same label.</li>
+        <li class="no">No credentials, no internal filenames, no "duplicate export".</li>
+        <li class="no">No card for an item that doesn't deserve one — weak entries go in a single line of text.</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<!-- ======================= HOME ======================= -->
+<main id="home" class="wrap" hidden>
+  <section class="hero">
+    <div>
+      <h1>Business processes,<br><span class="und-wrap">drawn<svg viewBox="0 0 170 14" preserveAspectRatio="none"><path d="M2 8.5C34 2 70 2 84 7C100 12.5 140 3 168 6.5"/></svg></span> then built</h1>
+      <p>I map how a business actually runs, then write the front-end that runs it. Five systems delivered across manufacturing, laundry services, education and community work.</p>
+      <div class="here"><span class="dot"></span>Open to internships from June 2026 · Bandung</div>
+    </div>
+    <figure class="matrix" id="matrix">
+      <div class="matrix-h"><div>Coverage</div><div>Discover</div><div>Model</div><div>Design</div><div>Build</div><div>Ship</div></div>
+      <figcaption>Where each project sat in the delivery lifecycle. Fill colour marks the discipline I worked in.</figcaption>
+    </figure>
+  </section>
+
+  <section class="spread">
+    <div class="rail"><h2>Selected work</h2><p class="note">Three that show range. The rest are indexed below, not carded.</p></div>
+    <div class="col">
+      <div class="work">
+        <article class="card lead">
+          <div>
+            <ul class="tags"><li class="tag a">System analysis</li><li class="tag g">Full-stack</li><li class="tag">2 semesters</li></ul>
+            <h3>KSFOOD — manufacturing ERP and storefront</h3>
+            <p>A real sauce factory running purchasing, production, inventory and two sales channels on paper. I modelled the end-to-end value chain, then designed a 30-table MySQL schema and an operational prototype against it.</p>
+            <div class="go"><a href="#project" data-go="project">Read the case study</a></div>
+          </div>
+          <div class="mini">
+            <svg viewBox="0 0 320 140" role="img" aria-label="Five domain modules feeding one ERP core">
+              <g class="node" tabindex="0" role="button" style="--c:var(--analysis)"><title>Purchasing — suppliers, POs, goods receipt</title><rect class="dg-box a" x="8" y="12" width="78" height="26" rx="2"/><text class="dg-s" x="47" y="29" text-anchor="middle">Purchasing</text></g>
+              <g class="node" tabindex="0" role="button" style="--c:var(--analysis)"><title>Production — raw material, batch output</title><rect class="dg-box a" x="8" y="57" width="78" height="26" rx="2"/><text class="dg-s" x="47" y="74" text-anchor="middle">Production</text></g>
+              <g class="node" tabindex="0" role="button" style="--c:var(--analysis)"><title>Inventory — stock, locations, opname</title><rect class="dg-box a" x="8" y="102" width="78" height="26" rx="2"/><text class="dg-s" x="47" y="119" text-anchor="middle">Inventory</text></g>
+              <g class="node" tabindex="0" role="button" style="--c:var(--fullstack)"><title>ERP core — 30+ tables, 3NF</title><rect class="dg-box g" x="124" y="47" width="72" height="46" rx="2"/><text class="dg-t" x="160" y="68" text-anchor="middle">ERP</text><text class="dg-s" x="160" y="82" text-anchor="middle">core</text></g>
+              <g class="node" tabindex="0" role="button" style="--c:var(--fullstack)"><title>Sales B2C — storefront, shipment</title><rect class="dg-box g" x="234" y="35" width="78" height="26" rx="2"/><text class="dg-s" x="273" y="52" text-anchor="middle">Sales B2C</text></g>
+              <g class="node" tabindex="0" role="button" style="--c:var(--fullstack)"><title>Sales B2B — wholesale, bulk orders</title><rect class="dg-box g" x="234" y="79" width="78" height="26" rx="2"/><text class="dg-s" x="273" y="96" text-anchor="middle">Sales B2B</text></g>
+              <path class="dg-l" d="M86 25 H105 V66 H124"/><path class="dg-l" d="M86 70 H124"/><path class="dg-l" d="M86 115 H105 V74 H124"/>
+              <path class="dg-l" d="M196 62 H215 V48 H234"/><path class="dg-l" d="M196 78 H215 V92 H234"/>
+            </svg>
+          </div>
+        </article>
+        <article class="card">
+          <ul class="tags"><li class="tag a">System analysis</li><li class="tag">Semester 2</li></ul>
+          <h3>ClevaGO — field service division</h3>
+          <p>Seven business processes for a cleaning and pest-control division, from dispatch through on-site payment to quarterly KPI review. Activity diagrams, a class model, and a CRUD matrix covering four roles.</p>
+          <div class="go"><a href="#project" data-go="project">Read the case study</a></div>
+        </article>
+        <article class="card">
+          <ul class="tags"><li class="tag f">Front-end</li><li class="tag">Client work</li></ul>
+          <h3>Empact — community profile site</h3>
+          <p>Seven pages converted from a Figma system into React and shipped in one month for a live client. I owned the home, about and partners pages plus the deployment pipeline.</p>
+          <div class="go"><a href="#project" data-go="project">Read the case study</a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="spread">
+    <div class="rail"><h2>Also built</h2><p class="sub">Indexed, not carded</p></div>
+    <div class="col">
+      <table>
+        <thead><tr><th>Project</th><th>What it is</th><th>Stack</th></tr></thead>
+        <tbody>
+          <tr><td>UrbanFresh</td><td>Self-service laundry ordering with an Apps Script order pipeline and WhatsApp status updates</td><td>JS, Apps Script, Sheets</td></tr>
+          <tr><td>Universal LMS</td><td>Multi-role learning platform template, zero dependencies, adaptive from primary school to university</td><td>HTML, CSS, JS</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="spread">
+    <div class="rail"><h2>Recognition</h2><p class="note">Three semi-finals carry real weight. Four participations get one line, because that is what they are worth.</p></div>
+    <div class="col">
+      <div class="rec">
+        <div class="rec-row"><div><h4>Semi-finalist, BPC Logicodix</h4><p>Agilis — gamified health app with a partner-funded reward loop</p></div><div class="yr">Nov 2025</div></div>
+        <div class="rec-row"><div><h4>Semi-finalist, Business Plan Competition GEM</h4><p>Eatventory — demand forecasting for restaurant inventory</p></div><div class="yr">Feb 2025</div></div>
+        <div class="rec-row"><div><h4>Semi-finalist, Business Case Competition DIGICOFEST</h4><p>Brand awareness strategy for CIS PDAM Surabaya</p></div><div class="yr">Nov 2024</div></div>
+        <p class="muted-line">Also entered NBPC 2 (2026), PKM-KC (2025 and 2026) and ICT Recursion 2025.</p>
+      </div>
+    </div>
+  </section>
+  <div class="foot">Template demonstration. Swap in your own copy, links and diagrams.</div>
+</main>
+
+<!-- ======================= PROJECT DETAIL ======================= -->
+<main id="project" class="wrap" hidden>
+  <div class="titleblock" style="--c:var(--analysis)">
+    <div class="top">
+      <span class="crumb">← All work</span>
+      <h1>KSFOOD — manufacturing ERP and storefront</h1>
+      <p class="lede">A sauce factory ran purchasing, production and two sales channels on paper and spreadsheets. Over two semesters I modelled the whole value chain, then designed the database and prototype that replaces it.</p>
+    </div>
+    <div class="fields">
+      <div class="field"><b>Role</b>Systems analyst, front-end</div>
+      <div class="field"><b>Span</b>Sem 3 – Sem 4, 2025–26</div>
+      <div class="field"><b>Client</b>Real sauce manufacturer</div>
+      <div class="field"><b>Output</b>Schema + prototype</div>
+    </div>
+  </div>
+
+  <figure class="frame" style="margin-top:22px">
+    <div class="plate">
+      <svg viewBox="0 0 760 250" role="img" aria-label="KSFOOD system map: purchasing, production and inventory feeding an ERP core that serves B2C and B2B sales">
+        <text class="dg-s" x="14" y="16">Supply side</text>
+        <text class="dg-s" x="318" y="16">System core</text>
+        <text class="dg-s" x="608" y="16">Demand side</text>
+        <line x1="14" y1="24" x2="746" y2="24" stroke="var(--rule)" stroke-width="1"/>
+
+        <g class="node" tabindex="0" role="button" style="--c:var(--analysis)" data-note="Purchasing — supplier records, PO issuance and goods-receipt matching. Feeds inventory the moment a delivery is logged.">
+        <rect class="dg-box a" x="14" y="46" width="150" height="46" rx="2"/>
+        <text class="dg-t" x="89" y="68" text-anchor="middle">Purchasing</text><text class="dg-s" x="89" y="83" text-anchor="middle">Suppliers, POs, receipts</text>
+        </g>
+        <g class="node" tabindex="0" role="button" style="--c:var(--analysis)" data-note="Production — draws down raw material by recipe, logs batch output, and is where most stock-count drift used to happen.">
+        <rect class="dg-box a" x="14" y="110" width="150" height="46" rx="2"/>
+        <text class="dg-t" x="89" y="132" text-anchor="middle">Production</text><text class="dg-s" x="89" y="147" text-anchor="middle">Raw material, batches</text>
+        </g>
+        <g class="node" tabindex="0" role="button" style="--c:var(--analysis)" data-note="Inventory — live stock by warehouse location, reconciled against physical opname counts each month.">
+        <rect class="dg-box a" x="14" y="174" width="150" height="46" rx="2"/>
+        <text class="dg-t" x="89" y="196" text-anchor="middle">Inventory</text><text class="dg-s" x="89" y="211" text-anchor="middle">Stock, locations, opname</text>
+        </g>
+
+        <g class="node" tabindex="0" role="button" style="--c:var(--fullstack)" data-note="ERP core — the 30+ table schema everything else reads and writes to. Normalised to 3NF, triggers fire on every receipt.">
+        <rect class="dg-box g" x="300" y="86" width="164" height="94" rx="2"/>
+        <text class="dg-t" x="382" y="120" text-anchor="middle">ERP core</text>
+        <text class="dg-s" x="382" y="139" text-anchor="middle">30+ tables, 3NF</text>
+        <text class="dg-s" x="382" y="154" text-anchor="middle">triggers on receipt</text>
+        </g>
+
+        <g class="node" tabindex="0" role="button" style="--c:var(--fullstack)" data-note="Sales B2C — the retail storefront. Reserves stock at checkout so the count on the shelf and the count on screen never disagree.">
+        <rect class="dg-box g" x="596" y="78" width="150" height="46" rx="2"/>
+        <text class="dg-t" x="671" y="100" text-anchor="middle">Sales B2C</text><text class="dg-s" x="671" y="115" text-anchor="middle">Storefront, shipment</text>
+        </g>
+        <g class="node" tabindex="0" role="button" style="--c:var(--fullstack)" data-note="Sales B2B — the wholesale portal. Over half of KSFOOD's revenue runs through here, which is why it stayed in scope.">
+        <rect class="dg-box g" x="596" y="142" width="150" height="46" rx="2"/>
+        <text class="dg-t" x="671" y="164" text-anchor="middle">Sales B2B</text><text class="dg-s" x="671" y="179" text-anchor="middle">Wholesale, bulk orders</text>
+        </g>
+
+        <path class="dg-l" d="M164 69 H232 V112 H300"/>
+        <path class="dg-l" d="M164 133 H300"/>
+        <path class="dg-l" d="M164 197 H232 V154 H300"/>
+        <path class="dg-l" d="M464 112 H530 V101 H596"/>
+        <path class="dg-l" d="M464 154 H530 V165 H596"/>
+        <circle cx="300" cy="112" r="2.6" fill="var(--graphite)"/><circle cx="300" cy="133" r="2.6" fill="var(--graphite)"/><circle cx="300" cy="154" r="2.6" fill="var(--graphite)"/>
+        <text class="dg-note" x="472" y="208">stock writes back on every order</text>
+        <path class="dg-l" stroke-dasharray="3 3" d="M596 165 V228 H382 V180"/>
+      </svg>
+    </div>
+    <figcaption><span>Fig 1 — System map, five domains on one schema</span><span>Sem 4, 2026</span></figcaption>
+    <p class="callout is-default" data-default="Hover or tab through a module to see what it does.">Hover or tab through a module to see what it does.</p>
+  </figure>
+
+  <div class="figs">
+    <div class="fig"><b class="stat-n">5</b><span>business domains on a single schema</span></div>
+    <div class="fig"><b class="stat-n">30+</b><span>normalised tables, 3NF</span></div>
+    <div class="fig"><b class="stat-n">2</b><span>semesters, analysis through build</span></div>
+    <div class="fig"><b class="stat-n">4</b><span>roles with distinct access paths</span></div>
+  </div>
+
+  <section class="spread">
+    <div class="rail"><h2>The problem</h2></div>
+    <div class="col">
+      <p>Stock counts lived in one spreadsheet, production batches in another, and wholesale orders in a WhatsApp thread. Nobody could answer "how much chilli paste do we have right now" without walking to the warehouse. Reorder decisions were made from memory.</p>
+      <p>The brief was not "build an app". It was to find out where the information actually breaks down, and only then decide what software could hold it.</p>
+    </div>
+  </section>
+
+  <section class="spread">
+    <div class="rail"><h2>Scope</h2><p class="note">B2B was almost cut. Kept it once interviews showed wholesale was over half of revenue.</p></div>
+    <div class="col">
+      <table>
+        <thead><tr><th>Domain</th><th>Modules</th></tr></thead>
+        <tbody>
+          <tr><td>Purchasing</td><td>Supplier records, purchase orders, goods receipt</td></tr>
+          <tr><td>Production</td><td>Raw material draw-down, production orders, output logging</td></tr>
+          <tr><td>Inventory</td><td>Stock levels, warehouse locations, stock opname</td></tr>
+          <tr><td>Sales B2C</td><td>Storefront catalogue, order management, shipment tracking</td></tr>
+          <tr><td>Sales B2B</td><td>Wholesale client portal, bulk order processing, tiered pricing</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="spread">
+    <div class="rail"><h2>Decisions</h2><p class="sub">And what they cost</p></div>
+    <div class="col">
+      <h3>Composite keys over surrogate IDs for junction tables</h3>
+      <p>Product-category and order-item relationships are genuinely many-to-many and never referenced from outside. Composite keys keep the constraint honest at the database level instead of relying on application code.</p>
+      <h3>Triggers for stock movement, views for reporting</h3>
+      <p>Stock updates fire on goods receipt and production output, so the count is never a derived guess. Monthly sales and low-stock alerts are views rather than scheduled jobs — the factory has no server to schedule anything on.</p>
+      <h3>Role-based navigation, not role-based pages</h3>
+      <p>Admin, warehouse staff and sales see the same pages with different actions available. One template to maintain, and permissions stay in one place.</p>
+    </div>
+  </section>
+
+  <section class="spread">
+    <div class="rail"><h2>Evidence</h2><p class="note">Twenty-three documents exist. These are the four worth your time — the rest are indexed by phase.</p></div>
+    <div class="col">
+      <ul class="docs" style="margin-bottom:22px">
+        <li><a href="#">Physical data model</a><span>The 30-table schema with indexes and constraints</span></li>
+        <li><a href="#">End-to-end business process</a><span>Raw material procurement through customer delivery</span></li>
+        <li><a href="#">CRUD matrix and RASCI chart</a><span>Who may touch which data, and who signs off</span></li>
+        <li><a href="#">Front-end prototype</a><span>Live Next.js storefront and ERP dashboard</span></li>
+      </ul>
+      <details><summary>Discover <span class="ph">6 documents</span></summary>
+        <ul class="docs"><li><a href="#">Company profile analysis</a><span>Factory structure and current operations</span></li>
+        <li><a href="#">Owner and staff interviews</a><span>Three rounds, weeks 1–6</span></li>
+        <li><a href="#">Knowledge audit and mapping</a><span>Where operational knowledge is held today</span></li></ul>
+      </details>
+      <details><summary>Model <span class="ph">9 documents</span></summary>
+        <ul class="docs"><li><a href="#">Use case diagrams</a><span>Actor interactions per module</span></li>
+        <li><a href="#">Activity diagrams</a><span>Step-by-step workflow, core processes</span></li>
+        <li><a href="#">Sequence diagrams</a><span>System interactions and API calls</span></li></ul>
+      </details>
+      <details><summary>Build <span class="ph">5 documents</span></summary>
+        <ul class="docs"><li><a href="#">Conceptual and logical data models</a><span>Entity relationships, normalised to 3NF</span></li>
+        <li><a href="#">Prototype walkthrough</a><span>Screens with role-based navigation</span></li></ul>
+      </details>
+      <details><summary>Report <span class="ph">3 documents</span></summary>
+        <ul class="docs"><li><a href="#">Final presentation</a><span>Delivered to the factory owner, Sem 4</span></li>
+        <li><a href="#">Business process and solution proposal</a><span>Recommended rollout sequence</span></li></ul>
+      </details>
+    </div>
+  </section>
+
+  <section class="spread">
+    <div class="rail"><h2>Next</h2></div>
+    <div class="col"><p><a href="#project">ClevaGO — field service division</a> — seven processes, four roles, one dispatch engine.</p></div>
+  </section>
+</main>
+
+<!-- ======================= COMPETITION DETAIL ======================= -->
+<main id="comp" class="wrap" hidden>
+  <div class="titleblock" style="--c:var(--fullstack)">
+    <div class="top">
+      <span class="crumb">← All recognition</span>
+      <div style="margin-bottom:12px"><span class="stamp">Semi-finalist</span></div>
+      <h1>Agilis at BPC Logicodix 2025</h1>
+      <p class="lede">Most health apps lose their users inside a month. We built a business model where staying active pays for itself, and took it to the semi-final against university teams from across Indonesia.</p>
+    </div>
+    <div class="fields">
+      <div class="field"><b>Team</b>Pioneering Strategists</div>
+      <div class="field"><b>Entry</b>Agilis, gamified health app</div>
+      <div class="field"><b>Stage reached</b>Semi-final</div>
+      <div class="field"><b>My part</b>Market research, BMC, financials</div>
+    </div>
+  </div>
+
+  <figure class="frame" style="margin-top:22px">
+    <div class="plate">
+      <svg viewBox="0 0 760 190" role="img" aria-label="Agilis reward loop: user activity earns points, points are redeemed with partner brands, partners fund the rewards">
+        <g class="node" tabindex="0" role="button" style="--c:var(--fullstack)" data-note="A user logs a training session inside the app — the only action that starts the loop.">
+        <rect class="dg-box g" x="20" y="54" width="142" height="52" rx="2"/><text class="dg-t" x="91" y="78" text-anchor="middle">User trains</text><text class="dg-s" x="91" y="93" text-anchor="middle">logs a session</text>
+        </g>
+        <g class="node" tabindex="0" role="button" style="--c:var(--fullstack)" data-note="XP, streaks and badges — the cheap part. Every fitness app has this; it's not what we pitched as the moat.">
+        <rect class="dg-box g" x="210" y="54" width="142" height="52" rx="2"/><text class="dg-t" x="281" y="78" text-anchor="middle">Earns XP</text><text class="dg-s" x="281" y="93" text-anchor="middle">streaks, badges</text>
+        </g>
+        <g class="node" tabindex="0" role="button" style="--c:var(--fullstack)" data-note="Points redeem for something real: gym sessions, healthy F&amp;B, supplements. This is the stake that keeps people training.">
+        <rect class="dg-box g" x="400" y="54" width="142" height="52" rx="2"/><text class="dg-t" x="471" y="78" text-anchor="middle">Redeems</text><text class="dg-s" x="471" y="93" text-anchor="middle">gym, F&amp;B, supplements</text>
+        </g>
+        <g class="node" tabindex="0" role="button" style="--c:var(--fullstack)" data-note="Partner pays per redemption — the revenue line that funds every reward above. Judges pushed hardest here.">
+        <rect class="dg-box g" x="590" y="54" width="150" height="52" rx="2"/><text class="dg-t" x="665" y="78" text-anchor="middle">Partner pays</text><text class="dg-s" x="665" y="93" text-anchor="middle">per redemption</text>
+        </g>
+        <path class="dg-l" d="M162 80 H210"/><path class="dg-l" d="M352 80 H400"/><path class="dg-l" d="M542 80 H590"/>
+        <path class="dg-l" stroke-dasharray="4 3" d="M665 106 V150 H91 V106"/>
+        <text class="dg-note" x="330" y="168">partner revenue funds the next reward — the loop closes</text>
+      </svg>
+    </div>
+    <figcaption><span>Fig 1 — The reward loop we pitched</span><span>Logicodix 2025</span></figcaption>
+    <p class="callout is-default" data-default="Hover a step in the loop.">Hover a step in the loop.</p>
+  </figure>
+
+  <section class="spread">
+    <div class="rail"><h2>The problem</h2><p class="note">This number came from our own survey of 84 students, not a market report.</p></div>
+    <div class="col">
+      <p>Fitness apps are downloaded in January and abandoned by February. Streak badges and confetti animations are cheap to build, and users see through them quickly, because nothing outside the app changes when you hit a goal.</p>
+      <p>Our argument was that adherence needs a stake that is real. Points had to buy something a person actually wanted.</p>
+    </div>
+  </section>
+
+  <section class="spread">
+    <div class="rail"><h2>The model</h2></div>
+    <div class="col">
+      <table>
+        <thead><tr><th>Layer</th><th>How it earns</th></tr></thead>
+        <tbody>
+          <tr><td>Free tier</td><td>Core gamification, community feeds, accountability groups</td></tr>
+          <tr><td>Premium</td><td>Adaptive training plans, nutrition guidance, advanced analytics</td></tr>
+          <tr><td>Partner revenue</td><td>Gyms and F&amp;B brands sponsor challenges and pay per redemption</td></tr>
+        </tbody>
+      </table>
+      <p>The third line is the one that decides whether the first two survive. We modelled partner acquisition cost against redemption rate to show the loop funds itself at roughly 4,000 monthly active users.</p>
+    </div>
+  </section>
+
+  <section class="spread">
+    <div class="rail"><h2>My part</h2><p class="sub">Four people, three months</p></div>
+    <div class="col">
+      <p>I ran the competitor teardown across six Indonesian and regional fitness apps, built the Business Model Canvas, and wrote the three-year financial projection the judges questioned us on. I also rehearsed the objection handling for the partner-revenue assumption, which is where the panel pushed hardest.</p>
+      <ul class="docs">
+        <li><a href="#">Business plan proposal</a><span>Full submission document</span></li>
+        <li><a href="#">Business Model Canvas</a><span>One page, the version we defended</span></li>
+        <li><a href="#">Pitch deck</a><span>Semi-final presentation</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="spread">
+    <div class="rail"><h2>What I'd change</h2><p class="note">Worth writing down. A team that can name its own gap reads stronger than one that can't.</p></div>
+    <div class="col">
+      <p>We validated demand from users but never signed a letter of intent from a single partner brand. The judges asked for one and we had nothing. In the GEM competition four months later we opened with three signed expressions of interest instead.</p>
+    </div>
+  </section>
+</main>
+
+<!-- ======================= EXPERIENCE DETAIL ======================= -->
+<main id="exp" class="wrap" hidden>
+  <div class="titleblock" style="--c:var(--frontend)">
+    <div class="top">
+      <span class="crumb">← All experience</span>
+      <h1>Cutting a week of manual outreach to one afternoon</h1>
+      <p class="lede">The campus promotion team followed up with hundreds of prospective students by typing WhatsApp messages one at a time. I built the tool that stopped that.</p>
+    </div>
+    <div class="fields">
+      <div class="field"><b>Role</b>Promotional strategist, implementer</div>
+      <div class="field"><b>Team</b>Campus Promotion, Satu University</div>
+      <div class="field"><b>From</b>Oct 2025, ongoing</div>
+      <div class="field"><b>Built with</b>Apps Script, Sheets, WhatsApp API</div>
+    </div>
+  </div>
+
+  <figure class="frame" style="margin-top:22px">
+    <div class="plate">
+      <svg viewBox="0 0 760 200" role="img" aria-label="Pipeline: Excel contact list converts to Google Sheets, Apps Script formats personalised messages, dashboard sends via WhatsApp and tracks who was contacted">
+        <text class="dg-s" x="14" y="16">Before — manual</text>
+        <rect class="dg-box" x="14" y="26" width="160" height="38" rx="2" stroke-dasharray="4 3"/>
+        <text class="dg-s" x="94" y="50" text-anchor="middle">read row, type message, send</text>
+        <text class="dg-note" x="190" y="50">× 100 students, every intake</text>
+
+        <line x1="14" y1="84" x2="746" y2="84" stroke="var(--rule)"/>
+        <text class="dg-s" x="14" y="104">After — automated</text>
+
+        <g class="node" tabindex="0" role="button" style="--c:var(--frontend)" data-note="An Excel file of high-school contacts, handed over by marketing each intake — names and phone numbers, nothing more.">
+        <rect class="dg-box f" x="14" y="118" width="122" height="46" rx="2"/><text class="dg-t" x="75" y="139" text-anchor="middle">Excel list</text><text class="dg-s" x="75" y="154" text-anchor="middle">from marketing</text>
+        </g>
+        <g class="node" tabindex="0" role="button" style="--c:var(--frontend)" data-note="One conversion turns the file into a live Google Sheet — the single source of truth the rest of the pipeline reads from.">
+        <rect class="dg-box f" x="172" y="118" width="122" height="46" rx="2"/><text class="dg-t" x="233" y="139" text-anchor="middle">Sheets</text><text class="dg-s" x="233" y="154" text-anchor="middle">one source of truth</text>
+        </g>
+        <g class="node" tabindex="0" role="button" style="--c:var(--frontend)" data-note="~40 lines of Apps Script normalise each phone number and drop the student's real name into the message template.">
+        <rect class="dg-box f" x="330" y="118" width="122" height="46" rx="2"/><text class="dg-t" x="391" y="139" text-anchor="middle">Apps Script</text><text class="dg-s" x="391" y="154" text-anchor="middle">builds each link</text>
+        </g>
+        <g class="node" tabindex="0" role="button" style="--c:var(--frontend)" data-note="A staffer sees every prospect in one list and clicks to open a pre-filled chat — a human still presses send.">
+        <rect class="dg-box f" x="488" y="118" width="122" height="46" rx="2"/><text class="dg-t" x="549" y="139" text-anchor="middle">Dashboard</text><text class="dg-s" x="549" y="154" text-anchor="middle">click to send</text>
+        </g>
+        <g class="node" tabindex="0" role="button" style="--c:var(--frontend)" data-note="The chat opens pre-filled in WhatsApp itself, so the outreach stays personal and inside WhatsApp's own terms.">
+        <rect class="dg-box f" x="646" y="118" width="100" height="46" rx="2"/><text class="dg-t" x="696" y="139" text-anchor="middle">WhatsApp</text><text class="dg-s" x="696" y="154" text-anchor="middle">chat opens</text>
+        </g>
+        <path class="dg-l" d="M136 141 H172"/><path class="dg-l" d="M294 141 H330"/><path class="dg-l" d="M452 141 H488"/><path class="dg-l" d="M610 141 H646"/>
+        <path class="dg-l" stroke-dasharray="3 3" d="M696 164 V184 H549 V164"/>
+        <text class="dg-note" x="556" y="180">contacted state written back</text>
+      </svg>
+    </div>
+    <figcaption><span>Fig 1 — The follow-up pipeline, before and after</span><span>Three intake batches</span></figcaption>
+    <p class="callout is-default" data-default="Hover a stage of the pipeline.">Hover a stage of the pipeline.</p>
+  </figure>
+
+  <div class="figs">
+    <div class="fig"><b class="stat-n">~100</b><span>students contacted per campaign</span></div>
+    <div class="fig"><b class="stat-n">hours → minutes</b><span>time to complete one batch</span></div>
+    <div class="fig"><b class="stat-n">3</b><span>intake batches run on it so far</span></div>
+    <div class="fig"><b class="stat-n">~0</b><span>name and number typos since</span></div>
+  </div>
+
+  <section class="spread">
+    <div class="rail"><h2>What was wrong</h2></div>
+    <div class="col">
+      <p>Marketing handed over an Excel file of high-school contacts each intake. A promotion staffer opened it, read a name, typed a greeting into WhatsApp, pasted a phone number, sent, then scrolled down one row. Repeat a hundred times. Names got misspelled, numbers got transposed, and nobody could say with confidence who had already been contacted.</p>
+    </div>
+  </section>
+
+  <section class="spread">
+    <div class="rail"><h2>How it works</h2><p class="note">Deliberately no send API. A human still presses send, which keeps the message personal and keeps us inside WhatsApp's terms.</p></div>
+    <div class="col">
+      <p>The spreadsheet stays the database. Apps Script reads each row, normalises the phone number to country format, drops the student's real name into the message template, and builds a wa.me link. The dashboard lists every prospect with a button and a checkbox — click to open the chat pre-filled, tick when done, and the state writes straight back to the sheet.</p>
+<pre>function generateWhatsAppLinks(sheetName) {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(sheetName);
+  const rows  = sheet.getDataRange().getValues().slice(1);   // skip header
+
+  return rows
+    .filter(([name, phone]) =&gt; name &amp;&amp; phone)
+    .map(([name, phone]) =&gt; {
+      const number  = '62' + String(phone).replace(/^0/, '');
+      const message = `Halo ${name}, kami dari Tim Promosi Satu University `
+                    + `ingin mengundangmu ke acara Open House minggu depan.`;
+      return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+    });
+}</pre>
+      <p>Around forty lines of Apps Script, no server, no hosting cost, and the team can edit the message template themselves without touching code.</p>
+    </div>
+  </section>
+
+  <section class="spread">
+    <div class="rail"><h2>Beyond the tool</h2><p class="sub">Content and coordination</p></div>
+    <div class="col">
+      <p>I also appear in and help produce the team's Instagram content — six reels across the 2025–26 intake covering campus life, internship pathways and student Q&amp;A. The automation handles the people who already raised their hand; the content is what makes them raise it.</p>
+      <ul class="docs">
+        <li><a href="#">Follow-up dashboard, batch 3</a><span>Live tool, most recent intake</span></li>
+        <li><a href="#">Instagram campaign</a><span>Six reels, Satu University official</span></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.tabs button'));
+  var views={};
+  ['guide','home','project','comp','exp'].forEach(function(id){views[id]=document.getElementById(id);});
+  function show(id){
+    if(!views[id])return;
+    Object.keys(views).forEach(function(k){views[k].hidden=(k!==id);});
+    tabs.forEach(function(t){t.setAttribute('aria-selected',String(t.dataset.v===id));});
+    window.scrollTo({top:0,behavior:'auto'});
+    if(id==='home'){
+      fillMatrix();
+      var svgU=views.home.querySelector('.und-wrap svg');
+      if(svgU && !reduceMotion){
+        var p=svgU.querySelector('path');
+        p.style.animation='none'; void p.offsetWidth; p.style.animation='';
+      }
+    }
+    observeFrames();
+  }
+  tabs.forEach(function(t){t.addEventListener('click',function(){show(t.dataset.v);});});
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('[data-go]');
+    if(a){e.preventDefault();show(a.dataset.go);}
+  });
+
+  var themeBtn=document.getElementById('theme');
+  themeBtn.addEventListener('click',function(){
+    var cur=document.documentElement.getAttribute('data-theme');
+    var isDark=cur?cur==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme',isDark?'light':'dark');
+    try{localStorage.setItem('rr-theme',isDark?'light':'dark');}catch(err){}
+  });
+  try{var saved=localStorage.getItem('rr-theme');if(saved)document.documentElement.setAttribute('data-theme',saved);}catch(err){}
+
+  var COLS=['Discover','Model','Design','Build','Ship'];
+  var ROWS=[
+    {n:'KSFOOD',c:['a','a','g','g','']},
+    {n:'ClevaGO',c:['a','a','a','','']},
+    {n:'Empact',c:['','','f','f','f']},
+    {n:'UrbanFresh',c:['g','g','g','g','g']},
+    {n:'Universal LMS',c:['','','f','f','f']}
+  ];
+  var hues={a:'var(--analysis)',f:'var(--frontend)',g:'var(--fullstack)'};
+  var built=false;
+  function fillMatrix(){
+    if(built)return;built=true;
+    var m=document.getElementById('matrix');
+    var cap=m.querySelector('figcaption');
+    var i=0;
+    ROWS.forEach(function(r){
+      var row=document.createElement('div');row.className='matrix-r';
+      var b=document.createElement('b');b.textContent=r.n;row.appendChild(b);
+      r.c.forEach(function(k){
+        var cell=document.createElement('div');
+        cell.className='cell '+(k?'on':'off');
+        if(k){cell.style.setProperty('--c',hues[k]);cell.style.setProperty('--d',(i*45)+'ms');i++;}
+        cell.appendChild(document.createElement('i'));
+        row.appendChild(cell);
+      });
+      m.insertBefore(row,cap);
+    });
+  }
+
+  /* ---------- ruler ---------- */
+  var ticksEl=document.getElementById('ticks'), cursorEl=document.getElementById('rulerCursor');
+  function buildTicks(){
+    if(!ticksEl)return;
+    ticksEl.innerHTML='';
+    var h=ticksEl.getBoundingClientRect().height;
+    for(var y=0;y<h;y+=20){
+      var i=document.createElement('i');
+      var major=(Math.round(y)%100<20);
+      if(major)i.className='maj';
+      i.style.top=y+'px';
+      ticksEl.appendChild(i);
+      if(major){
+        var s=document.createElement('span');
+        s.style.top=(y+3)+'px';
+        s.textContent=Math.round(y/20*5);
+        ticksEl.appendChild(s);
+      }
+    }
+  }
+  function updateCursor(){
+    if(!ticksEl||!cursorEl)return;
+    var doc=document.documentElement;
+    var max=doc.scrollHeight-window.innerHeight;
+    var pct=max>0?(window.scrollY/max):0;
+    var h=ticksEl.getBoundingClientRect().height;
+    cursorEl.style.top=(pct*h)+'px';
+  }
+  var tRaf=null;
+  window.addEventListener('scroll',function(){
+    if(tRaf)return;
+    tRaf=requestAnimationFrame(function(){updateCursor();tRaf=null;});
+  },{passive:true});
+  window.addEventListener('resize',function(){buildTicks();updateCursor();});
+  buildTicks();updateCursor();
+
+  /* ---------- diagrams draw themselves in, once ---------- */
+  var reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function primeFrame(frame){
+    if(frame.dataset.primed)return; frame.dataset.primed='1';
+    var boxes=frame.querySelectorAll('.dg-box');
+    boxes.forEach(function(b,i){b.style.setProperty('--bd',(i*70)+'ms');});
+    var lines=frame.querySelectorAll('.dg-l');
+    lines.forEach(function(ln,i){
+      try{
+        var len=ln.getTotalLength();
+        ln.style.strokeDasharray=len;
+        ln.style.strokeDashoffset=reduceMotion?0:len;
+        ln.style.setProperty('--ld',(220+i*90)+'ms');
+      }catch(e){}
+    });
+  }
+  var frameObserver=('IntersectionObserver' in window)?new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){
+        primeFrame(en.target);
+        requestAnimationFrame(function(){
+          en.target.classList.add('inview');
+          en.target.querySelectorAll('.dg-l').forEach(function(ln){ln.style.strokeDashoffset=0;});
+        });
+        frameObserver.unobserve(en.target);
+      }
+    });
+  },{threshold:.28}):null;
+  var figObserver=('IntersectionObserver' in window)?new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){countUp(en.target);en.target.classList.add('inview');figObserver.unobserve(en.target);}
+    });
+  },{threshold:.5}):null;
+  var framesWired=false;
+  function observeFrames(){
+    document.querySelectorAll('.frame').forEach(function(f){
+      primeFrame(f);
+      if(frameObserver)frameObserver.observe(f); else f.classList.add('inview');
+    });
+    document.querySelectorAll('.fig').forEach(function(f){
+      if(figObserver)figObserver.observe(f); else {countUp(f);f.classList.add('inview');}
+    });
+    framesWired=true;
+  }
+
+  /* ---------- count-up stat numerals ---------- */
+  function countUp(fig){
+    var n=fig.querySelector('.stat-n');
+    if(!n||n.dataset.done)return; n.dataset.done='1';
+    var raw=n.textContent.trim();
+    var m=raw.match(/^([~]?)(\d+)(\+?)(.*)$/);
+    if(!m||reduceMotion){return;}
+    var prefix=m[1],target=parseInt(m[2],10),suffix=m[3]+m[4];
+    var start=0,dur=750,t0=null;
+    n.textContent=prefix+'0'+suffix;
+    function step(t){
+      if(!t0)t0=t;
+      var p=Math.min(1,(t-t0)/dur);
+      var eased=1-Math.pow(1-p,3);
+      var v=Math.round(start+(target-start)*eased);
+      n.textContent=prefix+v+suffix;
+      if(p<1)requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  /* ---------- interactive diagram nodes ---------- */
+  document.querySelectorAll('.node[data-note]').forEach(function(node){
+    var frame=node.closest('.frame');
+    var callout=frame?frame.querySelector('.callout'):null;
+    function activate(){
+      if(!callout)return;
+      callout.textContent=node.getAttribute('data-note');
+      callout.classList.remove('is-default');
+    }
+    function reset(){
+      if(!callout)return;
+      callout.textContent=callout.getAttribute('data-default');
+      callout.classList.add('is-default');
+    }
+    node.addEventListener('mouseenter',activate);
+    node.addEventListener('focus',activate);
+    node.addEventListener('mouseleave',reset);
+    node.addEventListener('blur',reset);
+    node.addEventListener('click',function(){node.classList.toggle('active');});
+    node.addEventListener('keydown',function(e){
+      if(e.key==='Enter'||e.key===' '){e.preventDefault();node.classList.toggle('active');}
+    });
+  });
+
+  observeFrames();
+})();
+</script>
+</body>
+</html>

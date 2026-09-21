@@ -17,6 +17,9 @@ links:
   - label: 'Presentation'
     url: 'https://raflimaulanayh.github.io/ks-food/presentation'
     type: 'document'
+  - label: 'OneDrive'
+    url: 'https://binusianorg-my.sharepoint.com/personal/wn_binus_edu/Documents/--%20Teaching/2025-2026%201%20Ganjil/Advanced%20ISAD/Students%20Work%20-%20Adv%20ISAD/Group%202%20-%20Russell%20Rafli%20Dave?d=wf5af114fef88404aada5306e127b4cc6&csf=1&web=1&e=dE9KFC'
+    type: 'document'
 ---
 
 # KSFOOD — Manufacturing ERP & E-commerce

@@ -1,13 +1,19 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 @plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* ═══════════════════════════════════════════════════════
+   REDLINE DESIGN SYSTEM — Design tokens & utilities
+   ═══════════════════════════════════════════════════════ */
+
 @theme {
   --color-background: var(--bg-color);
   --color-foreground: var(--fg-color);
-  --color-primary: #8b5cf6; /* violet-500 */
-  --color-primary-hover: #7c3aed; /* violet-600 */
+  --color-primary: var(--frontend);
+  --color-primary-hover: color-mix(in srgb, var(--frontend) 80%, black);
   --color-secondary: var(--sec-color);
   --color-card: var(--card-bg);
   --color-card-hover: var(--card-hover);
@@ -15,70 +21,549 @@
   --color-glass-border: var(--glass-border);
   --color-glass-hover-bg: var(--glass-hover-bg);
   --color-glass-hover-border: var(--glass-hover-border);
+
+  /* Discipline colours as theme tokens */
+  --color-analysis: var(--analysis);
+  --color-frontend: var(--frontend);
+  --color-fullstack: var(--fullstack);
+  --color-sheet: var(--sheet);
+  --color-panel: var(--panel);
+  --color-ink: var(--ink);
+  --color-graphite: var(--graphite);
+  --color-rule: var(--rule);
 }
 
 @layer base {
   :root {
-    --bg-color: #fbfbfc;
-    --fg-color: #334155; 
-    --sec-color: #f1f5f9;
-    --card-bg: rgba(255, 255, 255, 0.7);
-    --card-hover: rgba(255, 255, 255, 0.9);
-    --glass-bg: rgba(255, 255, 255, 0.6);
-    --glass-border: rgba(226, 232, 240, 0.6);
-    --glass-hover-bg: rgba(255, 255, 255, 0.9);
-    --glass-hover-border: rgba(203, 213, 225, 0.8);
+    /* ── Redline palette (light) ─────────────── */
+    --sheet: #F1F3F2;
+    --panel: #E3E8E6;
+    --ink: #101C1F;
+    --graphite: #56656A;
+    --rule: #C6CFCD;
+    --shade: rgba(16, 28, 31, 0.045);
+
+    /* Discipline accents — each means the same thing everywhere */
+    --analysis: #1D4E5A;   /* System analysis work */
+    --frontend: #A32D22;   /* Front-end work, links, margin notes */
+    --fullstack: #2E6244;  /* Full-stack work and results */
+
+    /* Legacy compatibility mappings */
+    --bg-color: var(--sheet);
+    --fg-color: var(--ink);
+    --sec-color: var(--panel);
+    --card-bg: var(--panel);
+    --card-hover: color-mix(in srgb, var(--panel) 90%, white);
+    --glass-bg: rgba(241, 243, 242, 0.75);
+    --glass-border: var(--rule);
+    --glass-hover-bg: rgba(241, 243, 242, 0.92);
+    --glass-hover-border: color-mix(in srgb, var(--rule) 80%, var(--ink));
   }
 
   .dark {
-    --bg-color: #0a0a0a;
-    --fg-color: #ededed;
-    --sec-color: #1f2937;
-    --card-bg: rgba(255, 255, 255, 0.05);
-    --card-hover: rgba(255, 255, 255, 0.1);
-    --glass-bg: rgba(255, 255, 255, 0.03);
-    --glass-border: rgba(255, 255, 255, 0.05);
-    --glass-hover-bg: rgba(255, 255, 255, 0.08);
-    --glass-hover-border: rgba(255, 255, 255, 0.15);
+    --sheet: #0E1618;
+    --panel: #16201F;
+    --ink: #E8EDEA;
+    --graphite: #93A3A4;
+    --rule: #2A3739;
+    --shade: rgba(232, 237, 234, 0.05);
+
+    --analysis: #7FC3D1;
+    --frontend: #F08A72;
+    --fullstack: #7FC79C;
+
+    --bg-color: var(--sheet);
+    --fg-color: var(--ink);
+    --sec-color: var(--panel);
+    --card-bg: var(--panel);
+    --card-hover: color-mix(in srgb, var(--panel) 90%, var(--ink));
+    --glass-bg: rgba(14, 22, 24, 0.75);
+    --glass-border: var(--rule);
+    --glass-hover-bg: rgba(14, 22, 24, 0.92);
+    --glass-hover-border: color-mix(in srgb, var(--rule) 80%, var(--ink));
   }
 
   body {
-    background-color: var(--color-background);
-    color: var(--color-foreground);
+    background-color: var(--sheet);
+    color: var(--ink);
     font-family: var(--font-inter), 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    @apply bg-background text-foreground;
+  }
+
+  h1, h2, h3, h4, .ui-label, button, th {
+    font-family: var(--font-archivo), 'Archivo', 'Helvetica Neue', Arial, sans-serif;
   }
 
   ::selection, *::selection {
-    background-color: var(--color-primary);
+    background-color: var(--frontend);
     color: #ffffff !important;
+  }
+
+  a {
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+  }
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
   }
 }
 
 @layer utilities {
+  /* ── Keyframes ─────────────────────────────── */
   @keyframes rise-in {
     from { opacity: 0; transform: translateY(18px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
+  @keyframes draw {
+    to { stroke-dashoffset: 0; }
+  }
+
+  @keyframes pop {
+    to { transform: scale(1); }
+  }
+
+  @keyframes bar-grow {
+    from { transform: scaleY(0); }
+    to { transform: scaleY(1); }
+  }
+
+  @keyframes fade-up-stagger {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── Glass (legacy, still used in some places) ── */
   .glass {
-    background: var(--color-glass-bg);
+    background: var(--glass-bg);
     backdrop-filter: blur(10px);
-    border: 1px solid var(--color-glass-border);
+    border: 1px solid var(--glass-border);
   }
   .glass-hover {
     transition: all 0.3s ease;
   }
   .glass-hover:hover {
-    background: var(--color-glass-hover-bg);
-    border-color: var(--color-glass-hover-border);
+    background: var(--glass-hover-bg);
+    border-color: var(--glass-hover-border);
   }
+
+  /* ── Text gradient (legacy) ────────────────── */
   .text-gradient {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-image: linear-gradient(to right, #8b5cf6, #3b82f6);
+    background-image: linear-gradient(135deg, var(--analysis), var(--fullstack));
   }
 
+  /* ── Blueprint grid texture ────────────────── */
+  .blueprint-grid {
+    background-image:
+      linear-gradient(var(--shade) 1px, transparent 1px),
+      linear-gradient(90deg, var(--shade) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* ── Titleblock (detail page hero) ─────────── */
+  .titleblock {
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--c, var(--analysis));
+    background: var(--panel);
+    background-image:
+      linear-gradient(var(--shade) 1px, transparent 1px),
+      linear-gradient(90deg, var(--shade) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* ── Diagram frame ─────────────────────────── */
+  .diagram-frame {
+    border: 1px solid var(--rule);
+    background: var(--panel);
+    background-image:
+      linear-gradient(var(--shade) 1px, transparent 1px),
+      linear-gradient(90deg, var(--shade) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .diagram-frame .plate {
+    padding: 20px 14px;
+    overflow-x: auto;
+    cursor: crosshair;
+  }
+
+  .diagram-frame figcaption {
+    font-family: var(--font-archivo), 'Archivo', sans-serif;
+    font-size: 12px;
+    color: var(--graphite);
+    padding: 9px 14px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    gap: 14px;
+    justify-content: space-between;
+  }
+
+  /* ── Diagram SVG tokens ────────────────────── */
+  .dg-box {
+    fill: var(--sheet);
+    stroke: var(--ink);
+    stroke-width: 1.2;
+  }
+  .dg-box.a { stroke: var(--analysis); }
+  .dg-box.f { stroke: var(--frontend); }
+  .dg-box.g { stroke: var(--fullstack); }
+
+  .dg-t {
+    font-family: var(--font-archivo), 'Archivo', sans-serif;
+    font-size: 12.5px;
+    font-weight: 600;
+    fill: var(--ink);
+  }
+  .dg-s {
+    font-family: var(--font-archivo), 'Archivo', sans-serif;
+    font-size: 10.5px;
+    font-weight: 500;
+    fill: var(--graphite);
+  }
+  .dg-l {
+    stroke: var(--graphite);
+    stroke-width: 1.1;
+    fill: none;
+  }
+  .dg-note {
+    font-family: var(--font-inter), 'Inter', sans-serif;
+    font-style: italic;
+    font-size: 11.5px;
+    fill: var(--frontend);
+  }
+
+  /* ── Diagram draw-in animation ─────────────── */
+  .diagram-frame .dg-box {
+    opacity: 0;
+    transform: scale(0.9);
+    transform-origin: center;
+    transform-box: fill-box;
+    transition:
+      opacity 0.5s ease var(--bd, 0ms),
+      transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) var(--bd, 0ms),
+      stroke-width 0.18s ease,
+      fill 0.18s ease;
+  }
+  .diagram-frame.inview .dg-box {
+    opacity: 1;
+    transform: scale(1);
+  }
+  .diagram-frame .dg-l {
+    transition: stroke-dashoffset 0.8s cubic-bezier(0.3, 0.6, 0.2, 1);
+    transition-delay: var(--ld, 150ms);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .diagram-frame .dg-box {
+      transition: none;
+      opacity: 1;
+      transform: none;
+    }
+    .diagram-frame .dg-l {
+      transition: none;
+    }
+  }
+
+  /* ── Interactive diagram nodes ──────────────── */
+  .diagram-node {
+    cursor: pointer;
+  }
+  .diagram-node:hover .dg-box,
+  .diagram-node:focus-visible .dg-box,
+  .diagram-node.active .dg-box {
+    stroke-width: 2.2;
+    fill: color-mix(in srgb, var(--c, var(--frontend)) 12%, var(--sheet));
+    transform: scale(1.035);
+  }
+  .diagram-node:focus-visible {
+    outline: none;
+  }
+  .diagram-node:focus-visible .dg-box {
+    stroke: var(--frontend) !important;
+  }
+
+  /* ── Callout (below diagrams) ──────────────── */
+  .diagram-callout {
+    min-height: 1.4em;
+    margin: 0;
+    padding: 9px 14px;
+    font-style: italic;
+    font-size: 13.5px;
+    color: var(--frontend);
+    border-top: 1px solid var(--rule);
+    background: var(--sheet);
+  }
+  .diagram-callout.is-default {
+    color: var(--graphite);
+    font-style: normal;
+    font-family: var(--font-archivo), 'Archivo', sans-serif;
+    font-size: 12px;
+  }
+
+  /* ── Figures / stat strip ──────────────────── */
+  .stat-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+  .stat-fig {
+    background: var(--sheet);
+    padding: 14px 16px;
+    position: relative;
+    overflow: hidden;
+  }
+  .stat-fig::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--c, var(--fullstack));
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .stat-fig.inview::before {
+    transform: scaleY(1);
+  }
+  .stat-n {
+    font-family: var(--font-archivo), 'Archivo', sans-serif;
+    font-size: 27px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    display: block;
+  }
+  .stat-label {
+    font-family: var(--font-archivo), 'Archivo', sans-serif;
+    font-size: 12px;
+    color: var(--graphite);
+    line-height: 1.35;
+    display: block;
+    margin-top: 3px;
+  }
+
+  /* ── Tags (discipline-coloured) ────────────── */
+  .tag {
+    font-family: var(--font-archivo), 'Archivo', sans-serif;
+    font-size: 11.5px;
+    font-weight: 600;
+    border: 1px solid var(--rule);
+    padding: 3px 8px;
+    border-radius: 2px;
+    color: var(--graphite);
+    display: inline-block;
+  }
+  .tag-a {
+    color: var(--analysis);
+    border-color: color-mix(in srgb, var(--analysis) 45%, transparent);
+  }
+  .tag-f {
+    color: var(--frontend);
+    border-color: color-mix(in srgb, var(--frontend) 45%, transparent);
+  }
+  .tag-g {
+    color: var(--fullstack);
+    border-color: color-mix(in srgb, var(--fullstack) 45%, transparent);
+  }
+
+  /* ── Stamp badge ───────────────────────────── */
+  .stamp {
+    display: inline-block;
+    font-family: var(--font-archivo), 'Archivo', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    border: 1.5px solid var(--fullstack);
+    color: var(--fullstack);
+    padding: 4px 9px;
+    border-radius: 2px;
+    transform: rotate(-1.6deg);
+    transition: transform 0.25s cubic-bezier(0.3, 0.7, 0.3, 1), box-shadow 0.25s ease;
+  }
+  .stamp:hover {
+    transform: rotate(-1.6deg) scale(1.06);
+    box-shadow: 2px 3px 0 var(--shade);
+  }
+
+  /* ── Margin note (redline voice) ───────────── */
+  .margin-note {
+    font-style: italic;
+    color: var(--frontend);
+    font-size: 14.5px;
+    line-height: 1.5;
+    margin: 16px 0 0;
+    padding-left: 12px;
+    border-left: 2px solid var(--frontend);
+    max-width: 30ch;
+  }
+  @media (max-width: 880px) {
+    .margin-note {
+      max-width: none;
+    }
+  }
+
+  /* ── Headline squiggle ─────────────────────── */
+  .und-wrap {
+    position: relative;
+    display: inline-block;
+  }
+  .und-wrap svg {
+    position: absolute;
+    left: -2%;
+    right: -2%;
+    bottom: -0.06em;
+    width: 104%;
+    height: 0.3em;
+    overflow: visible;
+  }
+  .und-wrap path {
+    fill: none;
+    stroke: var(--frontend);
+    stroke-width: 5;
+    stroke-linecap: round;
+    stroke-dasharray: 340;
+    stroke-dashoffset: 340;
+    animation: draw 1s 700ms cubic-bezier(0.3, 0.7, 0.2, 1) forwards;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .und-wrap path {
+      animation: none;
+      stroke-dashoffset: 0;
+    }
+  }
+
+  /* ── Skill matrix (home page) ──────────────── */
+  .skill-matrix {
+    border: 1px solid var(--rule);
+    background: var(--panel);
+    font-family: var(--font-archivo), 'Archivo', sans-serif;
+    background-image:
+      linear-gradient(var(--shade) 1px, transparent 1px),
+      linear-gradient(90deg, var(--shade) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  .matrix-h, .matrix-r {
+    display: grid;
+    grid-template-columns: minmax(96px, 1.5fr) repeat(5, 1fr);
+  }
+  .matrix-h div {
+    font-size: 10.5px;
+    font-weight: 600;
+    color: var(--graphite);
+    padding: 10px 4px;
+    text-align: center;
+    line-height: 1.2;
+  }
+  .matrix-h div:first-child {
+    text-align: left;
+    padding-left: 14px;
+  }
+  .matrix-r {
+    border-top: 1px solid var(--rule);
+  }
+  .matrix-r > b {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 11px 8px 11px 14px;
+    align-self: center;
+    line-height: 1.2;
+  }
+  .matrix-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid var(--rule);
+  }
+  .matrix-cell i {
+    width: 13px;
+    height: 13px;
+    border-radius: 2px;
+    background: var(--c);
+    transform: scale(0);
+    transform-origin: center;
+  }
+  .matrix-cell.on i {
+    animation: pop 0.34s cubic-bezier(0.2, 0.9, 0.3, 1.2) forwards;
+    animation-delay: var(--d);
+  }
+  .matrix-cell.off i {
+    background: none;
+    border: 1px solid var(--rule);
+    transform: scale(1);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .matrix-cell i {
+      transform: scale(1) !important;
+      animation: none !important;
+    }
+  }
+
+  /* ── Scroll ruler ──────────────────────────── */
+  .scroll-ruler {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 26px;
+    z-index: 30;
+    border-right: 1px solid var(--rule);
+    background: var(--sheet);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 64px 0 0;
+  }
+  .scroll-ruler .ticks {
+    position: relative;
+    flex: 1;
+    width: 100%;
+  }
+  .scroll-ruler .ticks i {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--rule);
+  }
+  .scroll-ruler .ticks i.maj {
+    background: var(--graphite);
+  }
+  .scroll-ruler .ticks span {
+    position: absolute;
+    left: 8px;
+    font-family: var(--font-archivo), 'Archivo', sans-serif;
+    font-size: 9px;
+    color: var(--graphite);
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    letter-spacing: 0.04em;
+  }
+  .scroll-ruler .cursor-line {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--frontend);
+    top: 64px;
+    transition: top 0.08s linear;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--frontend) 18%, transparent);
+  }
+  @media (max-width: 1000px) {
+    .scroll-ruler { display: none; }
+  }
+
+  /* ── Prose overrides for Mermaid blocks ────── */
   .prose pre code.language-mermaid {
     display: block;
     color: #1e293b;
@@ -86,14 +571,124 @@
     white-space: pre-wrap;
     overflow-wrap: anywhere;
   }
-
   .dark .prose pre code.language-mermaid {
     color: #e2e8f0;
   }
-
   .prose .instagram-media {
     min-width: 0 !important;
     width: 100% !important;
     max-width: 540px !important;
   }
+}
+
+@theme inline {
+  --font-heading: var(--font-sans);
+  --font-sans: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
 }
