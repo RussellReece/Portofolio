@@ -42,11 +42,11 @@ export default function Awards({ dict, lang }: { dict: AwardsDictionary; lang: s
       opacity: 1,
       y: 0,
       transition: {
-        type: "spring",
+        type: 'spring' as const,
         stiffness: 100,
-        damping: 15
-      }
-    }
+        damping: 15,
+      },
+    },
   };
 
   return (
