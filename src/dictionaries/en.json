@@ -120,6 +120,45 @@
           "Hosted an international benchmarking session for cross-cultural academic discussions.",
           "Delivered a comprehensive presentation on 'Student organization & Leadership'."
         ]
+      },
+      {
+        "slug": "benchmark-up-manila",
+        "role": "Master of Ceremony (MC) & FGD Speaker",
+        "organization": "International Benchmarking and Cultural Exchange • UP Manila",
+        "year": "Feb 2026",
+        "description": [
+          "Hosted an international collaboration forum and spoke about student organizations and leadership.",
+          "Facilitated solution-focused discussions on academic balance, member motivation, and social media burnout."
+        ]
+      },
+      {
+        "slug": "kunjungan-agate-2024",
+        "role": "Industry Visit Participant",
+        "organization": "Agate Industry Visit • Satu University",
+        "year": "Nov 2024",
+        "description": [
+          "Studied professional workflows across game development, game porting, gamification, and Agate Academy."
+        ]
+      },
+      {
+        "slug": "pkm-himasif-2025",
+        "role": "Logistics Coordinator, Speaker & PR Support",
+        "organization": "PKM HIMASIF SATU University • Baros Village",
+        "year": "Aug 2025",
+        "description": [
+          "Managed equipment and participant operations throughout the community service program.",
+          "Delivered a digital-career session and supported coordination with village officials."
+        ]
+      },
+      {
+        "slug": "satu-technovation-2026",
+        "role": "Event Division, Technical Administrator & Fundraiser",
+        "organization": "Satu Technovation 2026 Seminar",
+        "year": "May 2026",
+        "description": [
+          "Built digital attendance and certificate validation workflows for seminar participants.",
+          "Automated certificate mail merge with VBA and prepared the event cue card."
+        ]
       }
     ]
   },

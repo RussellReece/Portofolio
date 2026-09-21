@@ -8,6 +8,7 @@ import Navbar from '@/components/Navbar';
 import { getSortedProjectsData } from '@/lib/markdown';
 import { getDictionary } from '@/lib/dictionaries';
 import ClientCosmosBackground from '@/components/ClientCosmosBackground';
+import CertificateGallery from '@/components/CertificateGallery';
 
 export default async function Home({ params }: { params: Promise<{ lang: 'en' | 'id' }> }) {
   const { lang } = await params;
@@ -24,6 +25,7 @@ export default async function Home({ params }: { params: Promise<{ lang: 'en' | 
       <ProjectsGallery projects={projects} dict={dict.projects} />
       <Awards dict={dict.awards} lang={lang} />
       <Experience dict={dict.experience} lang={lang} />
+      <CertificateGallery lang={lang} />
       <Contact dict={dict.contact} />
     </main>
   );

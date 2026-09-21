@@ -9,6 +9,9 @@ techStack: ['Figma', 'UML', 'System Analysis']
 image: '/assets/clevago-dashboard.png'
 link: '#'
 links:
+  - label: 'External Service A3 (PDF)'
+    url: '/assets/projects/clevago/ClevaGo%20External%20Service%20A3.pdf'
+    type: 'document'
   - label: 'Figma: Manajer'
     url: 'https://www.figma.com/proto/HREgR2Db2ynzLPd6sYMK1v/UI-UX-Design---SU?node-id=2360-8868&p=f&t=eeDoGcEQAJ3Hf4FA-1&scaling=contain&content-scaling=fixed&page-id=176%3A200&starting-point-node-id=2360%3A8868&show-proto-sidebar=1'
     type: 'prototype'

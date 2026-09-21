@@ -7,6 +7,10 @@ result: 'Semi-Finalist'
 team: 'Pioneering Strategists'
 product: 'CIS PDAM Surabaya — Brand Awareness Strategy'
 summary: 'Reached the semi-final stage of DIGICOFEST 2024 by presenting a digital strategy and new feature proposal to increase brand awareness for CIS PDAM Surabaya.'
+certificates:
+  - name: 'DIGICOFEST 2024'
+    url: '/assets/certificates/Digcofest%202024.pdf'
+    type: 'pdf'
 ---
 
 # Semi-Finalist | Business Case Competition DIGICOFEST 2024

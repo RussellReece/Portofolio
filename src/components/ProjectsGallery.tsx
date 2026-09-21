@@ -86,6 +86,7 @@ export default function ProjectsGallery({ projects, dict }: Props) {
                   )}
                 </div>
                 <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                {project.role && <p className="text-primary text-sm font-semibold mb-2">{project.role}</p>}
                 <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">{project.summary}</p>
                 <div className="flex flex-wrap gap-2">
                   {project.techStack.map(tech => (

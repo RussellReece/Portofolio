@@ -10,6 +10,7 @@ export interface ProjectData {
   id: string;
   title: string;
   category: string;
+  role?: string;
   year?: string;
   summary: string;
   techStack: string[];
@@ -33,6 +34,7 @@ export function getSortedProjectsData(): ProjectData[] {
       id,
       title: matterResult.data.title,
       category: matterResult.data.category,
+      role: matterResult.data.role || '',
       year: matterResult.data.year || '',
       summary: matterResult.data.summary,
       techStack: matterResult.data.techStack || [],

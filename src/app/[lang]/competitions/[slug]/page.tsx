@@ -43,6 +43,8 @@ export default async function CompetitionPage({
         product: frontmatter.product,
         links: frontmatter.links,
         link: frontmatter.link,
+        certificates: frontmatter.certificates,
+        assets: frontmatter.assets,
       }}
     >
       <MDXRemote

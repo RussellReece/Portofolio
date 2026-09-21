@@ -1,0 +1,93 @@
+Option Explicit
+
+Const FOLDER_SAVED As String = "C:\EVENT\SatuTechnovation 2026\sertifikat\sertifikat panitia-"  'sesuaikan direktorinya
+Const SOURCE_FILE_PATH As String = "C:\EVENT\SatuTechnovation 2026\sertifikat\draftserti.xlsx" 'sesuaikan direktorinya
+
+Sub MailMergeToIndPDF()
+    Dim MainDoc As Document, TargetDoc As Document
+    Dim dbPath As String
+    Dim recordNumber As Long, totalRecord As Long
+
+    Dim objOutlook As Object
+    Dim objMail As Object
+    Dim emailTo As String
+    Dim emailAttach As String
+    Dim emailDear As String
+
+    Set MainDoc = ActiveDocument
+    
+    '========================================================================
+    ' 1. INISIASI OUTLOOK DI LUAR LOOP
+    '========================================================================
+    On Error Resume Next
+    ' Cek apakah Outlook sudah terbuka
+    Set objOutlook = GetObject(, "Outlook.Application")
+    ' Jika belum terbuka, buat instance baru
+    If objOutlook Is Nothing Then
+        Set objOutlook = CreateObject("Outlook.Application")
+    End If
+    On Error GoTo 0
+    
+    ' Pastikan Outlook berhasil terpanggil
+    If objOutlook Is Nothing Then
+        MsgBox "Gagal membuka Outlook. Pastikan Microsoft Outlook versi Desktop/Classic terinstall dan sudah login.", vbCritical, "Error Outlook"
+        Exit Sub
+    End If
+
+    With MainDoc.MailMerge
+        '// if you want to specify your data, insert a WHERE clause in the SQL statement
+        .OpenDataSource Name:=SOURCE_FILE_PATH, sqlstatement:="SELECT * FROM [Sheet1$]"
+            
+        totalRecord = .DataSource.RecordCount
+
+        For recordNumber = 1 To totalRecord
+            With .DataSource
+                .ActiveRecord = recordNumber
+                .FirstRecord = recordNumber
+                .LastRecord = recordNumber
+            End With
+            
+            .Destination = wdSendToNewDocument
+            .Execute False
+            
+            Set TargetDoc = ActiveDocument
+
+            TargetDoc.SaveAs2 FOLDER_SAVED & .DataSource.DataFields("Nama").Value & ".docx", wdFormatDocumentDefault
+            TargetDoc.ExportAsFixedFormat FOLDER_SAVED & .DataSource.DataFields("Nama").Value & ".pdf", exportformat:=wdExportFormatPDF
+            TargetDoc.Close False
+            
+            '========================================================================
+            ' 2. CREATE EMAIL ITEM (Hanya Item-nya saja yang di dalam loop)
+            '========================================================================
+            Set objMail = objOutlook.CreateItem(0)
+            emailTo = .DataSource.DataFields("Email").Value
+            emailAttach = FOLDER_SAVED & .DataSource.DataFields("Nama").Value & ".pdf"
+            emailDear = .DataSource.DataFields("Nama").Value
+             
+            With objMail
+                .to = emailTo
+                .Subject = "Sertifikat Seminar Satu Technovation" ' Catatan: Subject disesuaikan karena sebelumnya "Surat Tugas Dinas"
+                .htmlbody = "Dear " & emailDear & "<br><br>Dengan ini diberikan Sertifikat Seminar Satu Technovation.<br>Mohon Cek Lampiran email ini<br><br><br> Best Regards,<br><br>Panitia Satu Technovation<br><br>"
+                .Attachments.Add emailAttach
+                .Send 'Instead of .Display, you can use .Send to send the email
+            End With
+            
+            ' Bersihkan object email untuk looping berikutnya
+            Set objMail = Nothing
+            Set TargetDoc = Nothing
+            
+        Next recordNumber
+    End With
+    
+    '========================================================================
+    ' 3. BERSIHKAN OBJECT OUTLOOK SETELAH LOOP SELESAI
+    '========================================================================
+    Set objOutlook = Nothing
+
+    On Error Resume Next
+    Kill FOLDER_SAVED & "*.docx"
+    On Error GoTo 0
+    
+    Set MainDoc = Nothing
+    MsgBox "Proses Generate dan Pengiriman Email Selesai!", vbInformation, "Status"
+End Sub

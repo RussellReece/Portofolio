@@ -48,6 +48,8 @@ export default async function ExperiencePage({
         techStack: frontmatter.techStack,
         links: frontmatter.links,
         link: frontmatter.link,
+        certificates: frontmatter.certificates,
+        assets: frontmatter.assets,
       }}
     >
       <MDXRemote

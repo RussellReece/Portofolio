@@ -25,7 +25,7 @@ export default async function ProjectPage({
   let source;
   try {
     source = getProjectBySlug(slug, lang);
-  } catch (error) {
+  } catch {
     notFound();
   }
 
@@ -45,9 +45,12 @@ export default async function ProjectPage({
         duration: frontmatter.duration,
         team: frontmatter.team,
         summary: frontmatter.summary,
+        image: frontmatter.image,
         techStack: frontmatter.techStack,
         links: frontmatter.links,
         link: frontmatter.link,
+        certificates: frontmatter.certificates,
+        assets: frontmatter.assets,
       }}
     >
       <MDXRemote

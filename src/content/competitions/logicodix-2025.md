@@ -7,6 +7,10 @@ result: 'Semi-Finalist'
 team: 'Pioneering Strategists'
 product: 'Agilis — Gamified Health App'
 summary: 'Reached the semi-final stage of the BPC Logicodix 2025 business plan competition with Agilis, a gamified health and fitness mobile application.'
+certificates:
+  - name: 'Logicodix 2025'
+    url: '/assets/certificates/Russell%20Reece%20Logicodix.png'
+    type: 'image'
 ---
 
 # Semi-Finalist | BPC Logicodix 2025

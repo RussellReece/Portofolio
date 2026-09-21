@@ -7,6 +7,13 @@ result: 'Participant (Submitted)'
 team: 'Russell Reece et al. — Universitas Satu'
 product: 'PKM-KC Research & Innovation Proposal'
 summary: 'Submitted a PKM-KC (Program Kreativitas Mahasiswa — Karsa Cipta) proposal to the national student creativity program organized by the Indonesian Ministry of Education.'
+certificates:
+  - name: 'PKM 2025 Competition'
+    url: '/assets/certificates/Sertifikast%20lomba%20PKM%20Russell%20Reece%20Satu%20University.png'
+    type: 'image'
+  - name: 'PKM 2025'
+    url: '/assets/certificates/Sertifkat%20PKM%20Russell%20Reece.pdf'
+    type: 'pdf'
 ---
 
 # Participant | PKM-KC 2025

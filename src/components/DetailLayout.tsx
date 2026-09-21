@@ -3,12 +3,26 @@ import { ThemeToggle } from './ThemeToggle';
 import { LangToggle } from './LangToggle';
 import InstagramEmbedLoader from './InstagramEmbedLoader';
 import { ProjectDetailView, ProjectDetailViewProps } from './ProjectDetailView';
+import PdfThumbnailModal from './PdfThumbnailModal';
+import Image from 'next/image';
 
 /* ─── Types ──────────────────────────────────── */
 interface DetailLink {
   label: string;
   url: string;
   type?: 'live' | 'prototype' | 'document' | 'github' | 'external';
+}
+
+interface CertificateAttachment {
+  name: string;
+  url: string;
+  type: 'image' | 'pdf';
+}
+
+interface DetailAsset {
+  name: string;
+  url: string;
+  type: 'image' | 'pdf' | 'document';
 }
 
 interface DetailLayoutProps {
@@ -29,8 +43,11 @@ interface DetailLayoutProps {
     event?: string;
     organizer?: string;
     product?: string;
+    image?: string;
     links?: DetailLink[];
     link?: string;          // legacy single link
+    certificates?: CertificateAttachment[];
+    assets?: DetailAsset[];
   };
   children: React.ReactNode;
 }
@@ -101,8 +118,18 @@ export default function DetailLayout({ lang, backHref, backLabel, kind, meta, ch
             {/* The new Shadcn-based ProjectDetailView component */}
             <ProjectDetailView {...projectDetailProps} />
 
-            {/* Image Placeholder Slot for hero */}
-            <div className="hidden lg:flex flex-col items-center justify-center w-full aspect-square rounded-3xl border-2 border-dashed border-gray-300 dark:border-gray-700 bg-gray-100/50 dark:bg-gray-900/50 text-gray-400 dark:text-gray-600 shadow-sm relative overflow-hidden">
+            {/* Project thumbnail */}
+            {meta.image ? (
+              <div className="hidden aspect-square w-full lg:block">
+                {meta.image.toLowerCase().endsWith('.pdf') ? (
+                  <PdfThumbnailModal title={meta.title} url={meta.image} />
+                ) : (
+                  <div className="relative h-full w-full overflow-hidden rounded-3xl border border-gray-200 bg-gray-100 shadow-sm dark:border-gray-700 dark:bg-gray-900">
+                    <Image src={meta.image} alt={meta.title} fill sizes="340px" className="object-cover" />
+                  </div>
+                )}
+              </div>
+            ) : <div className="hidden lg:flex flex-col items-center justify-center w-full aspect-square rounded-3xl border-2 border-dashed border-gray-300 dark:border-gray-700 bg-gray-100/50 dark:bg-gray-900/50 text-gray-400 dark:text-gray-600 shadow-sm relative overflow-hidden">
                <div className="text-center p-6 z-10">
                  <div className="bg-gray-200 dark:bg-gray-800 rounded-full w-16 h-16 mx-auto flex items-center justify-center mb-4">
                    <svg className="w-8 h-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -112,7 +139,7 @@ export default function DetailLayout({ lang, backHref, backLabel, kind, meta, ch
                  <p className="font-medium text-sm">Project Thumbnail</p>
                </div>
                <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 via-transparent to-transparent"></div>
-            </div>
+            </div>}
           </div>
 
         </div>
@@ -153,6 +180,43 @@ export default function DetailLayout({ lang, backHref, backLabel, kind, meta, ch
                           [&_.instagram-media]:!my-4 [&_.instagram-media]:!w-full [&_.instagram-media]:!min-w-0 [&_iframe]:max-w-full
                           bg-white dark:bg-zinc-950/50 p-8 md:p-12 rounded-3xl border border-gray-200 dark:border-gray-800 shadow-sm">
           {children}
+                    {meta.certificates && meta.certificates.length > 0 && (
+                      <section className="mt-12 border-t border-gray-200 pt-8 dark:border-gray-800">
+                        <h2 className="!mt-0">Certificates</h2>
+                        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                          {meta.certificates.map((certificate) => (
+                            <a key={certificate.url} href={certificate.url} target="_blank" rel="noreferrer" className="group block overflow-hidden rounded-xl border border-gray-200 dark:border-gray-800">
+                              {certificate.type === 'image' ? (
+                                <Image src={certificate.url} alt={certificate.name} width={800} height={560} className="aspect-[4/3] w-full object-cover transition-transform group-hover:scale-[1.02]" />
+                              ) : (
+                                <div className="flex aspect-[4/3] items-center justify-center bg-gray-100 p-6 text-center text-sm font-semibold dark:bg-gray-900">Open {certificate.name}</div>
+                              )}
+                              <div className="border-t border-gray-200 px-4 py-3 text-sm font-semibold dark:border-gray-800">{certificate.name}</div>
+                            </a>
+                          ))}
+                        </div>
+                      </section>
+                    )}
+                    {meta.assets && meta.assets.length > 0 && (
+                      <section className="mt-12 border-t border-gray-200 pt-8 dark:border-gray-800">
+                        <h2 className="!mt-0">Project Assets</h2>
+                        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                          {meta.assets.map((asset) => (
+                            <a key={asset.url} href={asset.url} target="_blank" rel="noreferrer" className="group block overflow-hidden rounded-xl border border-gray-200 dark:border-gray-800">
+                              {asset.type === 'image' ? (
+                                <Image src={asset.url} alt={asset.name} width={1000} height={750} className="aspect-[4/3] w-full object-cover transition-transform group-hover:scale-[1.02]" />
+                              ) : (
+                                <div className="flex aspect-[4/3] items-center justify-center bg-gray-100 p-6 text-center text-sm font-semibold dark:bg-gray-900">Open {asset.name}</div>
+                              )}
+                              <div className="flex items-center justify-between gap-3 border-t border-gray-200 px-4 py-3 dark:border-gray-800">
+                                <span className="text-sm font-semibold">{asset.name}</span>
+                                <span className="text-xs uppercase text-gray-500">{asset.type}</span>
+                              </div>
+                            </a>
+                          ))}
+                        </div>
+                      </section>
+                    )}
           <InstagramEmbedLoader />
         </article>
       </div>

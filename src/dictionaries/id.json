@@ -120,6 +120,45 @@
           "Menjadi pembawa acara sesi benchmarking internasional lintas budaya.",
           "Menyampaikan presentasi komprehensif bertema 'Student organization & Leadership'."
         ]
+      },
+      {
+        "slug": "benchmark-up-manila",
+        "role": "Master of Ceremony (MC) & FGD Speaker",
+        "organization": "International Benchmarking and Cultural Exchange • UP Manila",
+        "year": "Feb 2026",
+        "description": [
+          "Memandu forum kolaborasi internasional dan menjadi pembicara tentang organisasi mahasiswa serta kepemimpinan.",
+          "Memfasilitasi diskusi solusi untuk keseimbangan akademik, motivasi anggota, dan burnout media sosial."
+        ]
+      },
+      {
+        "slug": "kunjungan-agate-2024",
+        "role": "Industry Visit Participant",
+        "organization": "Kunjungan Industri Agate • Satu University",
+        "year": "Nov 2024",
+        "description": [
+          "Mempelajari alur kerja profesional game development, game porting, gamification, dan Agate Academy."
+        ]
+      },
+      {
+        "slug": "pkm-himasif-2025",
+        "role": "Koordinator Logistik, Pembicara & Pendukung Humas",
+        "organization": "PKM HIMASIF SATU University • Desa Baros",
+        "year": "Agu 2025",
+        "description": [
+          "Mengelola perlengkapan dan operasional peserta selama pengabdian masyarakat.",
+          "Membawakan sosialisasi peluang kerja digital dan membantu koordinasi dengan perangkat desa."
+        ]
+      },
+      {
+        "slug": "satu-technovation-2026",
+        "role": "Divisi Acara, Administrator Teknis & Penggalang Dana",
+        "organization": "Seminar Satu Technovation 2026",
+        "year": "Mei 2026",
+        "description": [
+          "Membangun alur presensi dan validasi sertifikat peserta menggunakan formulir digital.",
+          "Mengotomatisasi mail merge sertifikat dengan VBA dan menyusun cue card acara."
+        ]
       }
     ]
   },
