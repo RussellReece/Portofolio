@@ -34,21 +34,21 @@ assets:
 **Role:** Main Master of Ceremony (MC) & FGD Speaker (Student Organizations & Leadership)
 
 ## 📌 Overview
-Sebuah forum kolaborasi internasional yang mempertemukan mahasiswa dari SATU University dan University of the Philippines (UP) Manila[cite: 13]. Acara ini dirancang sebagai wadah pertukaran budaya dan tolok ukur (*benchmarking*) mengenai kehidupan kampus, manajemen organisasi mahasiswa, dan kepemimpinan di tingkat universitas[cite: 13].
+Sebuah forum kolaborasi internasional yang mempertemukan mahasiswa dari SATU University dan University of the Philippines (UP) Manila. Acara ini dirancang sebagai wadah pertukaran budaya dan tolok ukur (*benchmarking*) mengenai kehidupan kampus, manajemen organisasi mahasiswa, dan kepemimpinan di tingkat universitas.
 
 ## 🎯 Key Activities
 Dalam acara ini, saya dipercaya untuk memegang dua peran ganda yang krusial:
-*   **International MC:** Memandu jalannya acara kolaborasi lintas negara di *Main Room* secara interaktif bersama rekan pembawa acara dari Filipina, mulai dari sesi pembukaan, transisi *breakout room*, hingga sesi konklusi[cite: 13].
-*   **University Delegate & Speaker:** Menjadi representasi SATU University di Breakout Room 1. Saya mempresentasikan ekosistem organisasi mahasiswa (HIMA dan UKM), membedah alur kepemimpinan demokratis kampus (kampanye digital hingga pemilu), serta memamerkan portofolio proyek nyata mahasiswa[cite: 10, 11].
+*   **International MC:** Memandu jalannya acara kolaborasi lintas negara di *Main Room* secara interaktif bersama rekan pembawa acara dari Filipina, mulai dari sesi pembukaan, transisi *breakout room*, hingga sesi konklusi.
+*   **University Delegate & Speaker:** Menjadi representasi SATU University di Breakout Room 1. Saya mempresentasikan ekosistem organisasi mahasiswa (HIMA dan UKM), membedah alur kepemimpinan demokratis kampus (kampanye digital hingga pemilu), serta memamerkan portofolio proyek nyata mahasiswa.
 
 ## 💡 Problem Solving & Strategic Insights
 Bagian paling bernilai dari sesi ini adalah diskusi kelompok terarah (FGD) di mana kami membedah tantangan nyata yang dihadapi para pemimpin mahasiswa modern dan mencari solusinya bersama delegasi UP Manila:
 
 *   **Identifikasi Tantangan (The Problems):** 
-    Kami mengangkat tiga isu utama yang sering membuat organisasi mahasiswa tidak optimal: kesulitan menjaga keseimbangan akademik-organisasi (*Academic-Organization Balance*), turunnya motivasi anggota di tengah semester (*Hype Curve*), dan kelelahan mental akibat tuntutan digital (*Social Media Burnout*)[cite: 10, 11].
+    Kami mengangkat tiga isu utama yang sering membuat organisasi mahasiswa tidak optimal: kesulitan menjaga keseimbangan akademik-organisasi (*Academic-Organization Balance*), turunnya motivasi anggota di tengah semester (*Hype Curve*), dan kelelahan mental akibat tuntutan digital (*Social Media Burnout*).
 *   **Pendekatan Solusi (The Insights):** 
-    Melalui pertukaran ide, kami menemukan bahwa solusi untuk menjaga resiliensi tim bukanlah birokrasi yang lebih ketat, melainkan **koneksi manusia secara informal**. Kami membandingkan efektivitas kultur internal kami (bermain *board games* mingguan di SU) dengan tradisi delegasi Filipina (makan *street food* bersama pembina) sebagai penawar stres dan pengikat solidaritas[cite: 12].
+    Melalui pertukaran ide, kami menemukan bahwa solusi untuk menjaga resiliensi tim bukanlah birokrasi yang lebih ketat, melainkan **koneksi manusia secara informal**. Kami membandingkan efektivitas kultur internal kami (bermain *board games* mingguan di SU) dengan tradisi delegasi Filipina (makan *street food* bersama pembina) sebagai penawar stres dan pengikat solidaritas.
 *   **Tindak Lanjut Konkret (Action Points):**
-    Sebagai hasil dari pemecahan masalah tersebut, saya bersama tim merumuskan dua solusi kolaboratif untuk dijalankan ke depannya[cite: 12]:
-    1.  **Joint 'World Cafe' Leadership Bootcamp:** Menggabungkan kekuatan metode debat interaktif milik UP Manila dengan strategi kampanye digital milik SATU University untuk melatih calon pemimpin masa depan[cite: 12].
-    2.  **Media & Content Management Sharing Session:** Mengadaptasi kultur jurnalistik mapan dari UP Manila (seperti *The Manila Collegian*) guna mengajarkan manajemen media yang berkelanjutan (*sustainable*) kepada mahasiswa SU, sehingga dapat menekan angka *Social Media Burnout*[cite: 12].
+    Sebagai hasil dari pemecahan masalah tersebut, saya bersama tim merumuskan dua solusi kolaboratif untuk dijalankan ke depannya:
+    1.  **Joint 'World Cafe' Leadership Bootcamp:** Menggabungkan kekuatan metode debat interaktif milik UP Manila dengan strategi kampanye digital milik SATU University untuk melatih calon pemimpin masa depan.
+    2.  **Media & Content Management Sharing Session:** Mengadaptasi kultur jurnalistik mapan dari UP Manila (seperti *The Manila Collegian*) guna mengajarkan manajemen media yang berkelanjutan (*sustainable*) kepada mahasiswa SU, sehingga dapat menekan angka *Social Media Burnout*.

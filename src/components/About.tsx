@@ -88,6 +88,7 @@ export default function About({ dict }: { dict: AboutDictionary }) {
                 transition={{ duration: 0.8 }}
                 className="relative order-first flex w-full aspect-[4/3] items-center justify-center overflow-hidden rounded-3xl border-2 border-dashed border-gray-300 dark:border-gray-700 bg-gray-100/50 dark:bg-gray-900/50 text-gray-400 dark:text-gray-600 md:hidden"
               >
+                <Image src="/assets/russell-formal.jpeg" alt="Russell Reece" fill sizes="100vw" className="object-cover" />
                 <div className="text-center p-6">
                   <div className="bg-gray-200 dark:bg-gray-800 rounded-full w-16 h-16 mx-auto flex items-center justify-center mb-4">
                     <svg className="w-8 h-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -135,6 +136,7 @@ export default function About({ dict }: { dict: AboutDictionary }) {
                 transition={{ duration: 0.8 }}
                 className="relative mb-10 hidden w-full aspect-[4/3] items-center justify-center overflow-hidden rounded-3xl border-2 border-dashed border-gray-300 dark:border-gray-700 bg-gray-100/50 dark:bg-gray-900/50 text-gray-400 dark:text-gray-600 md:flex flex-col"
               >
+                <Image src="/assets/russell-formal.jpeg" alt="Russell Reece" fill sizes="(max-width: 1024px) 50vw, 420px" className="object-cover" />
                 <div className="text-center p-6">
                   <div className="bg-gray-200 dark:bg-gray-800 rounded-full w-20 h-20 mx-auto flex items-center justify-center mb-4">
                     <svg className="w-10 h-10 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">

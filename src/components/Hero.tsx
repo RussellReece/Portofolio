@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Download, MousePointer2 } from 'lucide-react';
+import Image from 'next/image';
 
 /* ─── Animation helpers ──────────────────────────────────── */
 const fadeUp = (delay = 0) => ({
@@ -53,10 +54,10 @@ export default function Hero({ dict }: { dict: HeroDictionary }) {
       <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px] pointer-events-none dark:bg-blue-500/15 opacity-50" />
 
       <div className="container mx-auto px-6 md:px-10 relative z-10 max-w-6xl">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-12 items-start">
 
           {/* ─── Left: Main content ───────────────────── */}
-          <div className="flex flex-col items-start pt-10 md:pt-0">
+          <div className="flex flex-col items-start">
             {/* Title block */}
             <motion.h1
               {...fadeUp(0.15)}
@@ -139,19 +140,10 @@ export default function Hero({ dict }: { dict: HeroDictionary }) {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="hidden md:flex justify-end items-center relative"
+            className="hidden md:flex justify-end items-start relative"
           >
-            {/* The placeholder box */}
-            <div className="relative w-full max-w-sm aspect-[4/5] rounded-3xl overflow-hidden border-2 border-dashed border-gray-300 dark:border-gray-700 bg-gray-100/50 dark:bg-gray-900/50 flex flex-col items-center justify-center text-gray-400 dark:text-gray-600">
-               <div className="text-center p-6">
-                 <div className="bg-gray-200 dark:bg-gray-800 rounded-full w-20 h-20 mx-auto flex items-center justify-center mb-4">
-                   <svg className="w-8 h-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                   </svg>
-                 </div>
-                 <p className="font-medium text-sm">Replace with your photo</p>
-                 <p className="text-xs mt-2 opacity-70">Recommended: Portrait image with transparent or clean background</p>
-               </div>
+            <div className="relative w-full max-w-sm aspect-[4/5] rounded-3xl overflow-hidden border-2 border-dashed border-gray-300 dark:border-gray-700 bg-gray-100/50 dark:bg-gray-900/50">
+              <Image src="/assets/russell-casual.png" alt="Russell Reece" fill sizes="(max-width: 1024px) 40vw, 384px" className="object-cover" />
             </div>
             
             {/* Decorative elements behind photo */}
