@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Template CV</title>
+<style>
+    /* Konfigurasi Dasar */
+    body { 
+        font-family: Arial, Helvetica, sans-serif; 
+        font-size: 10.5pt; 
+        color: #000; 
+        line-height: 1.4; 
+        margin: 0; 
+        padding: 20px; 
+        background-color: #f0f0f0; 
+    }
+    .cv-page { 
+        background-color: #fff; 
+        max-width: 210mm; /* A4 width */
+        min-height: 297mm; /* A4 height */
+        margin: 0 auto; 
+        padding: 15mm 20mm; 
+        box-shadow: 0 0 10px rgba(0,0,0,0.2); 
+        box-sizing: border-box;
+    }
+    
+    /* Area Header & Foto */
+    header { 
+        display: flex; 
+        align-items: center; 
+        justify-content: space-between; 
+        margin-bottom: 20px;
+    }
+    .header-text { 
+        flex: 1; 
+    }
+    h1 { 
+        font-size: 20pt; 
+        margin: 0 0 5px 0; 
+        text-transform: uppercase; 
+        letter-spacing: 1px; 
+    }
+    .contact-info { 
+        margin-bottom: 3px; 
+    }
+    
+    /* Box Placeholder Foto */
+    .photo-placeholder {
+        width: 3cm;
+        height: 4cm;
+        background-color: #eaeaea;
+        border: 1px dashed #999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 20px;
+        text-align: center;
+        font-size: 9pt;
+        color: #666;
+        /* Jika menggunakan img tag, aktifkan property ini: 
+        object-fit: cover; 
+        border: none; */
+    }
+
+    .summary { 
+        margin-top: 10px; 
+        text-align: justify; 
+        margin-bottom: 20px;
+    }
+
+    /* Style Bagian / Seksi */
+    h2 { 
+        font-size: 12pt; 
+        border-bottom: 1.5px solid #000; 
+        padding-bottom: 4px; 
+        margin-top: 15px; 
+        margin-bottom: 12px; 
+        text-transform: uppercase; 
+    }
+    .section-item { margin-bottom: 15px; }
+    .item-header { 
+        display: flex; 
+        justify-content: space-between; 
+        font-weight: bold; 
+    }
+    .item-subheader { 
+        display: flex; 
+        justify-content: space-between; 
+        font-style: italic; 
+        margin-bottom: 5px; 
+    }
+    
+    /* Style Daftar (Bullet) */
+    ul { 
+        margin: 0; 
+        padding-left: 18px; 
+    }
+    li { margin-bottom: 4px; text-align: justify; }
+
+    /* Pengaturan Khusus Cetak PDF */
+    @media print {
+        body { background-color: #fff; padding: 0; }
+        .cv-page { margin: 0; padding: 15mm; box-shadow: none; width: 100%; min-height: auto; }
+        @page { size: A4; margin: 0; }
+    }
+</style>
+</head>
+<body>
+    <div class="cv-page">
+        
+        <!-- HEADER DENGAN FOTO -->
+        <header>
+            <div class="header-text">
+                <h1>[NAMA LENGKAP ANDA]</h1>
+                <div class="contact-info">[Nomor Telepon] | [Alamat Email] | [Tautan LinkedIn / Portofolio]</div>
+                <div class="contact-info">[Alamat Lengkap Anda, Kota, Kode Pos]</div>
+            </div>
+            
+            <!-- Ganti div di bawah ini dengan: <img src="foto_anda.jpg" class="photo-placeholder" alt="Foto"> jika sudah ada file foto -->
+            <div class="photo-placeholder">
+                [Tempat<br>Foto<br>3x4 / 4x6]
+            </div>
+        </header>
+
+        <div class="summary">
+            [Tuliskan 2-3 kalimat ringkasan tentang profil profesional Anda. Sebutkan keahlian utama, minat industri, dan nilai tambah yang bisa Anda berikan kepada perusahaan.]
+        </div>
+
+        <!-- EDUCATION -->
+        <h2>Education Level</h2>
+        <div class="section-item">
+            <div class="item-header">
+                <span>[Nama Universitas / Institusi] - [Kota, Negara]</span>
+                <span>[Bulan Tahun Mulai] - [Bulan Tahun Lulus]</span>
+            </div>
+            <div class="item-subheader">
+                <span>[Gelar Akademik], [IPK / Nilai Akhir]</span>
+            </div>
+            <ul>
+                <li>[Pencapaian utama atau kegiatan organisasi tingkat kampus]</li>
+                <li>[Judul publikasi jurnal atau tugas akhir yang relevan]</li>
+                <li>[Mata Kuliah Relevan: Mata Kuliah A, Mata Kuliah B, Mata Kuliah C]</li>
+            </ul>
+        </div>
+
+        <!-- WORK EXPERIENCES -->
+        <h2>Work Experiences</h2>
+        <div class="section-item">
+            <div class="item-header">
+                <span>[Nama Perusahaan] - [Kota, Negara]</span>
+                <span>[Bulan Tahun Mulai] - [Bulan Tahun Selesai/Present]</span>
+            </div>
+            <div class="item-subheader">
+                <span>[Nama Jabatan / Posisi]</span>
+            </div>
+            <ul>
+                <li>[Deskripsi singkat peran atau kontribusi utama Anda]</li>
+                <li>[Pencapaian atau tanggung jawab harian 1 menggunakan metrik (angka/persentase)]</li>
+                <li>[Pencapaian atau tanggung jawab harian 2]</li>
+            </ul>
+        </div>
+        
+        <!-- Anda bisa meng-copy paste .section-item ini untuk menambah riwayat kerja -->
+        <div class="section-item">
+            <div class="item-header">
+                <span>[Nama Perusahaan Sebelumnya] - [Kota, Negara]</span>
+                <span>[Bulan Tahun Mulai] - [Bulan Tahun Selesai]</span>
+            </div>
+            <div class="item-subheader">
+                <span>[Nama Jabatan / Posisi]</span>
+            </div>
+            <ul>
+                <li>[Tanggung jawab utama atau tugas harian 1]</li>
+                <li>[Tanggung jawab utama atau tugas harian 2]</li>
+            </ul>
+        </div>
+
+        <!-- ORGANIZATIONAL EXPERIENCE -->
+        <h2>Organisational Experience</h2>
+        <div class="section-item">
+            <div class="item-header">
+                <span>[Nama Organisasi atau Kepanitiaan] - [Kota, Negara]</span>
+                <span>[Bulan Tahun Mulai] - [Bulan Tahun Selesai]</span>
+            </div>
+            <div class="item-subheader">
+                <span>[Nama Jabatan / Posisi]</span>
+            </div>
+            <ul>
+                <li>[Deskripsi program kerja atau tugas utama]</li>
+                <li>[Dampak atau hasil dari program kerja yang dikerjakan]</li>
+            </ul>
+        </div>
+
+        <!-- SKILLS & ACHIEVEMENTS -->
+        <h2>Skills, Achievements & Other Experience</h2>
+        <div class="section-item">
+            <ul>
+                <li><strong>Achievements ([Tahun]):</strong> [Sebutkan penghargaan / juara], [Penyelenggara]</li>
+                <li><strong>Projects ([Tahun]):</strong> [Sebutkan nama proyek atau acara yang relevan]</li>
+                <li><strong>Hard Skills:</strong> [Sebutkan kemampuan teknis, perangkat lunak, tools, dan bahasa]</li>
+                <li><strong>Soft Skills:</strong> [Sebutkan kemampuan kepribadian, kepemimpinan, dan komunikasi]</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

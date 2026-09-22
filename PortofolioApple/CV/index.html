@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Russell Reece - CV</title>
+    <style>
+        /* Konfigurasi Dasar */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 10.5pt;
+            color: #000;
+            line-height: 1.4;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        .cv-page {
+            background-color: #fff;
+            max-width: 210mm;
+            /* A4 width */
+            min-height: 297mm;
+            /* A4 height */
+            margin: 0 auto;
+            padding: 15mm 20mm;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            box-sizing: border-box;
+        }
+
+        /* Area Header & Foto */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .header-text {
+            flex: 1;
+        }
+
+        h1 {
+            font-size: 20pt;
+            margin: 0 0 5px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-info {
+            margin-bottom: 3px;
+        }
+
+        /* Box Placeholder Foto */
+        .photo-placeholder {
+            width: 3cm;
+            height: 4cm;
+            background-color: #eaeaea;
+            border: 1px dashed #999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 20px;
+            text-align: center;
+            font-size: 9pt;
+            color: #666;
+            /* Jika menggunakan img tag, aktifkan property ini: 
+        object-fit: cover; 
+        border: none; */
+        }
+
+        .summary {
+            margin-top: 10px;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+
+        /* Style Bagian / Seksi */
+        h2 {
+            font-size: 12pt;
+            border-bottom: 1.5px solid #000;
+            padding-bottom: 4px;
+            margin-top: 15px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .section-item {
+            margin-bottom: 15px;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+        }
+
+        .item-subheader {
+            display: flex;
+            justify-content: space-between;
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+
+        /* Style Daftar (Bullet) */
+        ul {
+            margin: 0;
+            padding-left: 18px;
+        }
+
+        li {
+            margin-bottom: 4px;
+            text-align: justify;
+        }
+
+        /* Pengaturan Khusus Cetak PDF */
+        @media print {
+            body {
+                background-color: #fff;
+                padding: 0;
+            }
+
+            .cv-page {
+                margin: 0;
+                padding: 10mm 15mm;
+                /* padding yang disesuaikan saat cetak */
+                box-shadow: none;
+                width: 100%;
+                min-height: auto;
+            }
+
+            @page {
+                size: A4;
+                margin: 20mm 15mm 20mm 15mm;
+                /* Margin bawah yang lebih besar untuk footer */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cv-page">
+
+        <!-- HEADER DENGAN FOTO -->
+        <header>
+            <div class="header-text">
+                <h1>RUSSELL REECE</h1>
+                <div class="contact-info"> <a href="https://wa.me/6288289387132">+62 882-8938-7132</a> | <a
+                        href="mailto:rafaelrussellreece12@gmail.com">rafaelrussellreece12@gmail.com</a> | <a
+                        href="https://www.linkedin.com/in/russell-reece-625650364">linkedin.com/in/russell-reece</a> |
+                    <a href="https://github.com/russellreece">github.com/russellreece</a> | <a
+                        href="https://russell-reece-portofolio.vercel.app">russell-reece-portofolio</a>
+                </div>
+                <div class="contact-info">Jl. Batununggal Indah III No 2B, RT. 008/RW.001 Kel. Batununggal Kec. Bandung
+                    Kidul Kota Bandung Jawa Barat 40266</div>
+            </div>
+
+            <!-- Ganti div di bawah ini dengan: <img src="foto_anda.jpg" class="photo-placeholder" alt="Foto"> jika sudah ada file foto -->
+            <div class="photo-placeholder">
+                [Tempat<br>Foto<br>3x4 / 4x6]
+            </div>
+        </header>
+
+        <div class="summary">
+            Information Systems student with a strong foundation in system analysis, front-end development, UI/UX
+            design, and community leadership. Proven track record in orchestrating organizational events, managing
+            multidisciplinary teams, and developing user-centric tech solutions (such as automated follow-up tools).
+            Eager to leverage analytical skills, cross-functional collaboration, and creative problem-solving through
+            Challenge-Based Learning (CBL) in the Apple Developer Academy to build impactful digital ecosystems.
+        </div>
+
+        <!-- EDUCATION -->
+        <h2>Education Level</h2>
+        <div class="section-item">
+            <div class="item-header">
+                <span>Satu University - Bandung, Indonesia</span>
+                <span>Aug 2024 - Present</span>
+            </div>
+            <div class="item-subheader">
+                <span>Bachelor of Information System, GPA: 3.91/4.00</span>
+            </div>
+            <ul>
+                <li><strong>Relevant Coursework:</strong> System Analysis and Design, Front-End Development, Database
+                    Management, UI/UX Principles.</li>
+            </ul>
+        </div>
+
+        <!-- WORK EXPERIENCES -->
+        <h2>Work Experiences</h2>
+        <div class="section-item">
+            <div class="item-header">
+                <span>Campus Promotion Team • Satu University - Bandung, Indonesia</span>
+                <span>Oct 2025 - Present</span>
+            </div>
+            <div class="item-subheader">
+                <span>Promotional Strategist & Technical Implementer</span>
+            </div>
+            <ul>
+                <li>Engineered an automated follow-up mini-website utilizing HTML, Google Apps Script, and AI
+                    integration, successfully accelerating communication response times with 200+ prospective high
+                    school students.</li>
+                <li>Streamlined a spreadsheet database of student contacts, reducing manual follow-up time by 40% and
+                    increasing engagement rates.
+                </li>
+            </ul>
+        </div>
+
+        <!-- ORGANIZATIONAL & CAMPUS EXPERIENCE -->
+        <h2>Organisational & Campus Experience</h2>
+
+        <div class="section-item">
+            <div class="item-header">
+                <span>Onelish English Club | Satu University - Bandung, Indonesia</span>
+                <span>Oct 2024 - Present</span>
+            </div>
+            <div class="item-subheader">
+                <span>President (Previously: Academic Division & Project Coordinator)</span>
+            </div>
+            <ul>
+                <li><strong>Operations Management:</strong> Trusted as the Person in Charge (PIC) for weekly
+                    club gatherings for over half a semester, orchestrating sessions for 50+ members and ensuring 100%
+                    punctual execution.</li>
+                <li><strong>Curriculum Innovation:</strong> Designed and facilitated interactive English games
+                    that successfully boosted members' enthusiasm, resulting in a 30% increase in active public speaking
+                    participation.</li>
+                <li><strong>Event Management:</strong> Spearheaded technical and logistical preparations for the
+                    "Introduction to English Job Interviews" Seminar, securing venue licensing and managing equipment
+                    for 100+ attendees.</li>
+            </ul>
+        </div>
+
+        <div class="section-item">
+            <div class="item-header">
+                <span>Information Systems Student Association (HIMASIF) | Satu University - Bandung, Indonesia</span>
+                <span>April 2026 - Present</span>
+            </div>
+            <div class="item-subheader">
+                <span>Head of Academic Division</span>
+            </div>
+            <ul>
+                <li>Directed academic-focused programs and bridged communication between students and 10+ faculty
+                    members to
+                    support student competence development.</li>
+                <li><strong>Community Service Program (PKM) | Desa Baros (Aug 2025):</strong> Led the Socialization
+                    Team, designing and delivering an impactful educational presentation on "Future Career
+                    Opportunities" to an audience of over 50 students at SMA KP Baros, driving 90% positive feedback.
+                </li>
+            </ul>
+        </div>
+
+        <div class="section-item">
+            <div class="item-header">
+                <span>One by Code - Bandung, Indonesia</span>
+                <span>2026 - Present</span>
+            </div>
+            <div class="item-subheader">
+                <span>Front-End Developer (Project: Empact)</span>
+            </div>
+            <ul>
+                <li>Collaborated in a multidisciplinary organizational team to slice UI/UX designs from Figma into a
+                    functional, hosted website using
+                    React.js for a real client over a 1-month period, achieving 100% client satisfaction.</li>
+            </ul>
+        </div>
+
+        <div class="section-item">
+            <div class="item-header">
+                <span>International Benchmarking & Cultural Exchange | UP Manila</span>
+                <span>Feb 2026 - Feb 2026</span>
+            </div>
+            <div class="item-subheader">
+                <span>Master of Ceremonies (MC) & Key Speaker</span>
+            </div>
+            <ul>
+                <li>Hosted an international benchmarking session, facilitating cross-cultural academic discussions
+                    between 50+ delegates.</li>
+                <li>Delivered a comprehensive presentation on “Student organization & Leadership” to an audience of 100+
+                    international students and delegates.</li>
+            </ul>
+        </div>
+
+        <div class="section-item">
+            <div class="item-header">
+                <span>Satu Technovation | Satu University - Bandung, Indonesia</span>
+                <span>May 2026 - May 2026</span>
+            </div>
+            <div class="item-subheader">
+                <span>Event Division Committee Member</span>
+            </div>
+            <ul>
+                <li><strong>Data & Admin Optimization:</strong> Designed digital registration forms and systematically
+                    processed data for 300+ participants to ensure seamless event operations.</li>
+                <li><strong>Workflow Automation:</strong> Automated the creation and delivery of certificates to
+                    hundreds of participants utilizing MS Word Mail Merge, cutting administrative processing time by
+                    80%.</li>
+                <li><strong>Cross-functional Support:</strong> Assisted the fundraising (dana usaha) team with
+                    logistical support to successfully exceed the event's budget goals by 15%.</li>
+            </ul>
+        </div>
+
+        <div class="section-item">
+            <div class="item-header">
+                <span>Cerita Caravan</span>
+                <span>Dec 2024 - Jan 2025</span>
+            </div>
+            <div class="item-subheader">
+                <span>Volunteer & Storytelling Trainee (Cross-Campus Collaboration)</span>
+            </div>
+            <ul>
+                <li><strong>Logistics Coordination:</strong> Assisted event instructors in managing coordination for 50+
+                    participants
+                    and securing necessary workshop equipment throughout the cross-campus training program.</li>
+                <li><strong>Communication Training:</strong> Actively engaged with mentors and participants to master
+                    advanced narrative communication and user-centric storytelling methodologies.</li>
+            </ul>
+        </div>
+
+        <!-- PROJECTS & ACHIEVEMENTS -->
+        <h2>Projects & Achievements</h2>
+        <div class="section-item">
+            <ul>
+                <li><strong>Projects (2025 - 2026):</strong> Manufacturing ERP & E-commerce Prototype: Acted as System
+                    Analyst and Front-End Developer to analyze business processes, design UML diagrams, structure MySQL
+                    databases, and build a web prototype using Next.js.</li>
+                <li><strong>Projects (2026):</strong> Universal Learning Management System (LMS): Currently developing a
+                    scalable LMS template using HTML, CSS, and JS, designed to accommodate multiple educational levels
+                    (Elementary to University) and user roles.</li>
+                <li><strong>Projects (2025):</strong> UrbanFresh - Automated Laundry Web App: Built a self-service
+                    ordering platform for B2C and B2B customers without needing active admin intervention using HTML,
+                    CSS, JS, and Google Apps Script.</li>
+                <li><strong>Projects (2025):</strong> ClevaGO - Laundry Service External Division: Generated
+                    comprehensive business process reports, UML diagrams, and a UI/UX prototype using Figma for a
+                    laundry's external service division.</li>
+                <li><strong>Achievements (Nov 2025):</strong> Semi-Finalist | BPC Logicodix 2025 – Project: Agilis
+                    (Gamified Health App)</li>
+                <li><strong>Achievements (Feb 2025):</strong> Semi-Finalist | BUSINESS PLAN COMPETITION GEM 2025 –
+                    Project: Eatventory (App for forecasting food stock needs)</li>
+                <li><strong>Achievements (Nov 2024):</strong> Semi-Finalist | BUSINESS CASE COMPETITION DIGCOFEST 2024 –
+                    STRATEGY AND ADDITIONAL FEATURES TO INCREASE CIS PDAM SURABAYA BRAND AWARENESS</li>
+                <li><strong>Achievements (2026):</strong> Participant | National Business Plan Competition (NBPC) 2 2026
+                    – Project: Agilis</li>
+                <li><strong>Achievements (2026):</strong> Participant | PKM-KC 2026 – Project: Expert System-Based Food
+                    Stock Management Application</li>
+                <li><strong>Achievements (2025):</strong> Participant | PKM-KC 2025</li>
+                <li><strong>Achievements (2025):</strong> Participant | ICT Recursion 2025</li>
+            </ul>
+        </div>
+
+        <!-- SKILLS & TOOLS -->
+        <h2>Skills & Tools</h2>
+        <div class="section-item">
+            <ul>
+                <li><strong>Technical Skills:</strong> Front-End (HTML, CSS, JavaScript, React.js, Swift / iOS Basics),
+                    UI/UX Design (Figma, User-Centric Design), Database (MySQL), Automation (Google Apps Script).</li>
+                <li><strong>System Analysis:</strong> Business Process Modeling, UML Diagrams.</li>
+                <li><strong>Soft Skills:</strong> Multidisciplinary Team Leadership, Cross-Functional Collaboration,
+                    Public Speaking, Cross-Cultural Communication, Challenge-Based Learning (CBL) Readiness.</li>
+                <li><strong>Languages:</strong> Indonesian (Native), English (Fluent).</li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

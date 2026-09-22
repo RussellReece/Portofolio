@@ -6,7 +6,7 @@ year: '2025'
 duration: 'Semester 1'
 summary: 'Merancang aplikasi stok makanan melalui riset pengguna, Value Proposition Canvas, dan prototype Figma untuk mengurangi food waste.'
 techStack: ['Design Thinking', 'UX Research', 'Figma']
-image: '/assets/ksfood-thumbnail.png'
+image: '' #thumbnail
 assets:
   - name: 'Design Thinking Group 6'
     url: '/assets/projects/design-thinking/design-thinking-group-6.pdf'

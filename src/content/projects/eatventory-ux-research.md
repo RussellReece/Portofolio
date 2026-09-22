@@ -7,7 +7,7 @@ duration: 'Semester 2'
 team: 'Russell Reece, Malya Maritza Rahadiani, Ari Okta Pratama'
 summary: 'Meneliti perilaku pemborosan makanan dan merancang solusi Eatventory dengan Expert System, notifikasi kedaluwarsa, serta alur belanja terintegrasi.'
 techStack: ['UX Research', 'User Journey', 'Figma', 'Expert System']
-image: '/assets/ksfood-thumbnail.png'
+image: '' #thumbnail
 certificates:
   - name: 'GEM 2025'
     url: '/assets/certificates/GEM%202025.jpg'
