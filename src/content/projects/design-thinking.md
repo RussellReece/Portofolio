@@ -1,7 +1,7 @@
 ---
 title: 'Design Thinking - Aplikasi Manajemen Stok Makanan'
 role: 'UX Researcher & Product Designer'
-category: 'System Analysis'
+category: 'Design Thinking'
 year: '2024-2025'
 duration: 'Semester 1'
 summary: 'Merancang aplikasi stok makanan melalui riset pengguna, Value Proposition Canvas, dan prototype Figma untuk mengurangi food waste.'

@@ -144,7 +144,6 @@ export default function About({ dict }: { dict: AboutDictionary }) {
                     </svg>
                   </div>
                   <p className="font-medium text-sm">Replace with your photo</p>
-                  <p className="text-xs mt-2 opacity-70">Professional or casual portrait</p>
                 </div>
               </motion.div>
               <motion.h3 

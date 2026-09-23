@@ -2,7 +2,7 @@
 title: 'KSFOOD - Manufacturing ERP & E-commerce'
 category: 'System Analysis'
 year: '2025 - 2026'
-role: 'System Analyst & Front-End Developer'
+role: 'Team Lead, System Analyst & Front-End Developer'
 duration: 'Semester 3 – Semester 4'
 summary: 'ERP and E-commerce prototype for a sauce manufacturer involving business process modeling, UML design, Next.js, and MySQL.'
 techStack: ['UML', 'Figma', 'System Analysis', 'Next.js', 'MySQL']
@@ -26,13 +26,13 @@ links:
 
 **Category:** System Analysis + Full-Stack Development  
 **Duration:** Semester 3 – Semester 4 (2025–2026)  
-**Role:** System Analyst & Front-End Developer
+**Role:** **Team Lead, System Analyst & Front-End Developer**
 
 ---
 
 ## Overview
 
-KSFOOD is a comprehensive case study project based on a real sauce manufacturing factory. The project spanned two academic semesters, evolving from business process analysis and UML modeling in Semester 3 into full database architecture design and an operational ERP prototype in Semester 4.
+KSFOOD is a comprehensive case study project based on a real sauce manufacturing factory. As the **team lead**, I coordinated the group across two academic semesters, evolving the work from business process analysis and UML modeling in Semester 3 into full database architecture design and an operational ERP prototype in Semester 4.
 
 The goal was to design a complete information system that manages the factory's production, inventory, purchasing, and e-commerce sales channels — all within a unified platform.
 

@@ -1,7 +1,7 @@
 ---
 title: 'Eatventory - UX Research Aplikasi Manajemen Stok Makanan'
 role: 'UX Researcher'
-category: 'System Analysis'
+category: 'UI / UX'
 year: '2025'
 duration: 'Semester 2'
 team: 'Russell Reece, Malya Maritza Rahadiani, Ari Okta Pratama'

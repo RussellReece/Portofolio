@@ -12,6 +12,13 @@ Information Systems student with a strong foundation in system analysis, front-e
 
 ## Work Experiences
 
+**Teaching Assistant, Basic Programming • Satu University** - Bandung, Indonesia
+*Teaching Assistant (Asisten Dosen) | Java* | *Sep 15, 2026 - Present*
+* Facilitate lecture and laboratory sessions for first-semester students in a 4/2 SKS Basic Programming course, reinforcing Java fundamentals through guided practice and problem-solving.
+* Mentor students through programming exercises, clarify technical concepts, and provide structured support across classroom and lab environments.
+* Complete the newly introduced Oracle Academy Java Foundation curriculum concurrently while teaching, rapidly adapting to unfamiliar material to provide accurate and up-to-date guidance.
+* Translate newly learned concepts into accessible explanations and practical examples while continuously strengthening technical adaptability.
+
 **Campus Promotion Team • Satu University** - Bandung, Indonesia
 *Promotional Strategist & Technical Implementer* | *Oct 2025 - Present*
 * Developed an automated follow-up mini-website using HTML, Google Apps Script, and AI integration to streamline communication with prospective high school students.
@@ -20,6 +27,16 @@ Information Systems student with a strong foundation in system analysis, front-e
 **Empact** - Bandung, Indonesia
 *Front-End Developer (Freelance/Client Work)* | *2026 - 2026*
 * Collaborated as a Front-End Developer to slice UI from Figma into a functional, hosted website using React.js for a real client over a 1-month period.
+
+**KSFOOD (2025 - 2026)** - Satu University
+*Team Lead, System Analyst and Front-End Developer*
+* Led the project team in delivering a Manufacturing ERP & E-commerce Prototype, coordinating analysis, design, and implementation across the group.
+* Analyzed business processes, designed UML diagrams, structured MySQL databases, and built a web prototype using Next.js.
+
+**ClevaGO (2025)** - Satu University
+*Team Lead and System Analyst*
+* Led the project group in analyzing ClevaGO's laundry service external division and coordinating business process, UML, and UI/UX deliverables.
+* Generated comprehensive business process reports, UML diagrams, and a Figma prototype for the external service division.
 
 ## Organisational Experience
 
@@ -64,7 +81,8 @@ Information Systems student with a strong foundation in system analysis, front-e
 * **Achievements (Nov 2025):** Semi-Finalist | BPC Logicodix 2025 – Project: Agilis (Gamified Health App)
 * **Achievements (Feb 2025):** Semi-Finalist | BUSINESS PLAN COMPETITION GEM 2025 – Project: Eatventory (App for forecasting food stock needs)
 * **Achievements (Nov 2024):** Semi-Finalist | BUSINESS CASE COMPETITION DIGCOFEST 2024 – STRATEGY AND ADDITIONAL FEATURES TO INCREASE CIS PDAM SURABAYA BRAND AWARENESS
-* **Achievements (2026):** Participant | National Business Plan Competition (NBPC) 2 2026 – Project: Agilis
+* **Achievements (2025):** Semi-Finalist | National Business Plan Competition (NBPC) 2025
+* **Achievements (2026):** Participant | National Business Plan Competition (NBPC) #2 2026 – Project: Agilis
 * **Achievements (2026):** Participant | PKM-KC 2026 – Project: Expert System-Based Food Stock Management Application
 * **Achievements (2025):** Participant | PKM-KC 2025
 * **Achievements (2025):** Participant | ICT Recursion 2025

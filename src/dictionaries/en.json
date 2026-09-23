@@ -53,8 +53,14 @@
         "year": "November 2024"
       },
       {
+        "slug": "nbpc-2025",
+        "title": "Semi-Finalist | National Business Plan Competition (NBPC) 2025",
+        "project": "National Business Plan Competition",
+        "year": "2025"
+      },
+      {
         "slug": "nbpc-2026",
-        "title": "Participant | National Business Plan Competition (NBPC) 2 2026",
+        "title": "Participant | National Business Plan Competition (NBPC) #2 2026",
         "project": "Pioneering Strategists - Agilis",
         "year": "2026"
       },
@@ -82,6 +88,17 @@
     "title": "Experience & Leadership",
     "details": "View Details",
     "items": [
+      {
+        "slug": "teaching-assistant-basic-programming",
+        "role": "Teaching Assistant - Basic Programming",
+        "organization": "Satu University",
+        "year": "Sep 2026 – Present",
+        "description": [
+          "Support lecture and laboratory sessions for first-semester students in a 4/2 SKS Java-based course.",
+          "Complete the Oracle Academy Java Foundation curriculum concurrently while teaching to adapt quickly to the university's updated curriculum.",
+          "Mentor students through Java fundamentals, programming exercises, and debugging."
+        ]
+      },
       {
         "slug": "tim-promosi",
         "role": "Promotional Strategist & Technical Implementer",

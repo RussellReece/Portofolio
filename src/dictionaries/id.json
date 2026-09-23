@@ -53,8 +53,14 @@
         "year": "November 2024"
       },
       {
+        "slug": "nbpc-2025",
+        "title": "Semi-Finalis | National Business Plan Competition (NBPC) 2025",
+        "project": "National Business Plan Competition",
+        "year": "2025"
+      },
+      {
         "slug": "nbpc-2026",
-        "title": "Peserta | National Business Plan Competition (NBPC) 2 2026",
+        "title": "Peserta | National Business Plan Competition (NBPC) #2 2026",
         "project": "Pioneering Strategists - Agilis",
         "year": "2026"
       },
@@ -82,6 +88,17 @@
     "title": "Pengalaman & Kepemimpinan",
     "details": "Lihat Detail",
     "items": [
+      {
+        "slug": "teaching-assistant-basic-programming",
+        "role": "Asisten Dosen - Pemrograman Dasar",
+        "organization": "Satu University",
+        "year": "Sep 2026 – Sekarang",
+        "description": [
+          "Mendampingi sesi perkuliahan dan praktikum mahasiswa semester pertama untuk mata kuliah 4/2 SKS berbasis Java.",
+          "Mempelajari Oracle Academy Java Foundation secara paralel saat mengajar untuk beradaptasi dengan kurikulum baru dan memberikan bimbingan yang relevan.",
+          "Membimbing mahasiswa memahami konsep dasar Java, latihan pemrograman, dan proses debugging."
+        ]
+      },
       {
         "slug": "tim-promosi",
         "role": "Promotional Strategist & Technical Implementer",

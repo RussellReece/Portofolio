@@ -2,7 +2,7 @@
 title: 'ClevaGO - Laundry Service External Division'
 category: 'System Analysis'
 year: '2025'
-role: 'System Analyst'
+role: 'Team Lead & System Analyst'
 duration: 'Semester 2'
 summary: 'System Analyst case study for a laundry external service division including business process reports, UML modeling, and Figma UI/UX designs.'
 techStack: ['Figma', 'UML', 'System Analysis']
@@ -27,13 +27,13 @@ links:
 
 **Category:** System Analysis  
 **Duration:** Semester 2 (2025)  
-**Role:** System Analyst
+**Role:** **Team Lead & System Analyst**
 
 ---
 
 ## Overview
 
-ClevaGO is a multi-service company offering home cleaning and pest control as external service divisions. This project involved acting as the **System Analyst** for ClevaGO's External Service Division, designing a complete information system to manage field teams, scheduling, outsourcing, customer complaints, and on-site payments.
+ClevaGO is a multi-service company offering home cleaning and pest control as external service divisions. As the **team lead and System Analyst**, I coordinated the project group while designing a complete information system to manage field teams, scheduling, outsourcing, customer complaints, and on-site payments.
 
 ---
 
