@@ -16,7 +16,11 @@
     "portfolioLabel": "Portofolio",
     "name": "Russell Reece",
     "scroll": "Gulir",
-    "metrics": { "projects": "Proyek", "competitions": "Kompetisi", "leadership": "Peran Kepemimpinan" }
+    "metrics": {
+      "projects": "Proyek",
+      "competitions": "Kompetisi",
+      "leadership": "Peran Kepemimpinan"
+    }
   },
   "about": {
     "title": "Tentang Saya",
@@ -27,7 +31,12 @@
   "projects": {
     "title": "Proyek Pilihan",
     "subtitle": "Pilihan dari pekerjaan terbaru saya di bidang system analysis dan front-end development.",
-    "filters": { "all": "Semua", "frontEnd": "Front-End", "systemAnalysis": "System Analysis", "fullStack": "Full-Stack" },
+    "filters": {
+      "all": "Semua",
+      "frontEnd": "Front-End",
+      "systemAnalysis": "System Analysis",
+      "fullStack": "Full-Stack"
+    },
     "viewProject": "Lihat Proyek"
   },
   "awards": {
@@ -130,22 +139,13 @@
         ]
       },
       {
-        "role": "Master of Ceremonies & Key Speaker",
+        "slug": "benchmark-up-manila",
+        "role": "Master of Ceremony (MC) & FGD Speaker",
         "organization": "International Benchmarking and Cultural Exchange dengan UP Manila",
         "year": "Feb 2026",
         "description": [
-          "Menjadi pembawa acara sesi benchmarking internasional lintas budaya.",
-          "Menyampaikan presentasi komprehensif bertema 'Student organization & Leadership'."
-        ]
-      },
-      {
-        "slug": "benchmark-up-manila",
-        "role": "Master of Ceremony (MC) & FGD Speaker",
-        "organization": "International Benchmarking and Cultural Exchange • UP Manila",
-        "year": "Feb 2026",
-        "description": [
-          "Memandu forum kolaborasi internasional dan menjadi pembicara tentang organisasi mahasiswa serta kepemimpinan.",
-          "Memfasilitasi diskusi solusi untuk keseimbangan akademik, motivasi anggota, dan burnout media sosial."
+          "Memandu sesi benchmarking internasional untuk diskusi akademik lintas budaya.",
+          "Menyampaikan presentasi komprehensif dan memfasilitasi diskusi terfokus tentang 'Organisasi & Kepemimpinan Mahasiswa'."
         ]
       },
       {

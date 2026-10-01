@@ -12,7 +12,7 @@ import CertificateGallery from '@/components/CertificateGallery';
 
 export default async function Home({ params }: { params: Promise<{ lang: 'en' | 'id' }> }) {
   const { lang } = await params;
-  const projects = getSortedProjectsData();
+  const projects = getSortedProjectsData(lang);
   const dict = await getDictionary(lang);
 
   return (

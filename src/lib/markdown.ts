@@ -19,19 +19,33 @@ export interface ProjectData {
   contentHtml?: string;
 }
 
-export function getSortedProjectsData(): ProjectData[] {
+export function getSortedProjectsData(lang: string = 'id'): ProjectData[] {
   if (!fs.existsSync(projectsDirectory)) return [];
   
   const fileNames = fs.readdirSync(projectsDirectory);
-  const allProjectsData = fileNames.map((fileName) => {
-    const id = fileName.replace(/\.md$/, '');
+  
+  // Deduplicate by slug
+  const slugs = new Set(fileNames.map(f => f.replace(/\.(en|id)\.mdx?$/, '').replace(/\.mdx?$/, '')));
+  
+  const allProjectsData = Array.from(slugs).map((slug) => {
+    let fileName = `${slug}.${lang}.md`;
+    if (!fs.existsSync(path.join(projectsDirectory, fileName))) {
+      fileName = `${slug}.${lang}.mdx`;
+    }
+    if (!fs.existsSync(path.join(projectsDirectory, fileName))) {
+      fileName = `${slug}.md`;
+    }
+    if (!fs.existsSync(path.join(projectsDirectory, fileName))) {
+      fileName = `${slug}.id.md`;
+    }
+    
     const fullPath = path.join(projectsDirectory, fileName);
     const fileContents = fs.readFileSync(fullPath, 'utf8');
 
     const matterResult = matter(fileContents);
 
     return {
-      id,
+      id: slug,
       title: matterResult.data.title,
       category: matterResult.data.category,
       role: matterResult.data.role || '',

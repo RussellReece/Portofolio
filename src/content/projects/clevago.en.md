@@ -25,67 +25,32 @@ links:
 
 # ClevaGO — Laundry Service External Division
 
-**Category:** System Analysis  
-**Duration:** Semester 2 (2025)  
-**Role:** **Team Lead & System Analyst**
+## 📌 Introduction
+ClevaGO is a multi-service company offering home cleaning and pest control as external service divisions. This project serves as a system analysis case study for that division.
+
+## 🎯 Objective
+To build a comprehensive information system design to efficiently manage field teams, scheduling, outsourcing, customer complaint resolution, and on-site payment processing.
+
+## 💡 Background / Why It Exists
+The External Service Division handles ClevaGO's direct field operations, where teams are dispatched to client locations. A structured system was needed to assign staff, track fleets and equipment, and manage dynamic on-field situations like ad-hoc service requests.
+
+## 🧑‍💼 My Role
+As the **Team Lead & System Analyst**, I was responsible for leading the project team while designing the entire system requirements analysis and information system modeling from start to finish.
+
+## ⚙️ Modules Created
+My team and I produced a series of system analysis documents that serve as the development blueprint, including:
+*   **End-to-End Business Process Mapping:** Identifying workflows from service booking to post-service evaluation.
+*   **UML Diagrams for 7 Core Business Processes:** Created Activity Diagrams for Shift Scheduling, Outsourcing, Employee/Logistics/Fleet Allocation, On-Site Payment, Customer Complaints, Ad-hoc Requests, and Performance Evaluation.
+*   **Use Case & Class Diagrams:** Mapped actor interactions with the system and designed the object-oriented database structure (entities, attributes, relationships).
+*   **System Sequence Diagrams:** Detailed the message flow between system components.
+*   **CRUD Matrix & RASCI Chart:** Defined data access rights per role (Manager, Staff, Client, Admin) and responsibility assignments.
+
+## 🚀 Impact
+This project produced a well-structured information system blueprint to facilitate the digitization of ClevaGO's field services. This design ensures that every business process has a standardized execution guideline, clear KPI tracking, and full control over outsourcing management and customer complaints.
 
 ---
 
-## Overview
-
-ClevaGO is a multi-service company offering home cleaning and pest control as external service divisions. As the **team lead and System Analyst**, I coordinated the project group while designing a complete information system to manage field teams, scheduling, outsourcing, customer complaints, and on-site payments.
-
----
-
-## Business Scope
-
-The External Service Division handles ClevaGO's field operations, where teams are dispatched to client locations to perform cleaning or pest control services. The system needed to support:
-
-1. **Field Team Scheduling** — assigning the right staff to the right jobs at the right time
-2. **Outsourcing Management** — handling third-party labor procurement and contracts
-3. **Employee & Fleet Allocation** — tracking which staff, vehicles, and equipment are deployed
-4. **On-Site Payment Processing** — enabling secure, documented payment collection at client locations
-5. **Customer Complaint Resolution** — structured workflow from complaint to resolution
-6. **Performance Evaluation** — systematic KPI tracking for field team members
-7. **Ad-hoc Request Handling** — managing scope changes or additional services requested at the client site
-
----
-
-## System Analysis Deliverables
-
-### End-to-End Business Process
-Mapped the complete operational flow from service booking through to post-service evaluation, identifying all system touchpoints and data flows.
-
-### UML Diagrams (7 Business Processes)
-Produced detailed Activity Diagrams for each core business process:
-
-| Process | Description |
-|---------|-------------|
-| Shift Scheduling | Automated assignment of field teams based on availability and skills |
-| Outsourcing Process | Procurement and contract management for external labor |
-| Employee/Logistics/Fleet Allocation | Resource allocation engine for each service job |
-| On-Site Payment | Payment collection with digital receipt generation |
-| Customer Complaint Resolution | Ticket-based complaint tracking and SLA management |
-| Additional Service Requests | Scope change approval and real-time billing adjustment |
-| Team Performance Evaluation | Quarterly KPI review with manager sign-off workflow |
-
-### Class Diagram
-Designed the object-oriented class structure showing all entities, their attributes, methods, and relationships across the system.
-
-### System Sequence Diagrams
-Detailed interaction diagrams showing message flows between actors, system components, and external services.
-
-### Use Case Diagram
-Comprehensive actor-system interaction map covering all 7 business processes with inclusion and extension relationships.
-
-### CRUD Matrix & RASCI Chart
-- **CRUD Matrix** — data access permissions per role (Manager, Field Staff, Client, Admin)
-- **RASCI Chart** — responsibility assignment for each business process step
-
----
-
-## Key Documents
-
+## 📂 Key Documents
 - 📄 [Project Brief (PDF)](/assets/projects/clevago/documents/ClevaGO-ExternalService_Project%20Brief.pdf)
 - 📄 [Use Case Diagram (PDF)](/assets/projects/clevago/documents/ClevaGO-ExternalService_FINAL%20Use%20Case%20External%20Service.pdf)
 - 📄 [Class Diagram (PDF)](/assets/projects/clevago/documents/ClevaGO-ExternalService_Class%20Diagram%20External%20Service.pdf)
@@ -102,6 +67,5 @@ Comprehensive actor-system interaction map covering all 7 business processes wit
 
 ---
 
-## Tech Stack
-
+## 🛠️ Tech Stack
 `UML` `Draw.io` `Figma` `Microsoft Visio`

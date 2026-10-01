@@ -6,49 +6,48 @@ year: '2026'
 duration: 'February 2026'
 summary: 'Memandu forum benchmarking internasional SATU University dan UP Manila serta mempresentasikan organisasi mahasiswa dan kepemimpinan.'
 techStack: ['Event Management', 'Public Speaking', 'Leadership']
-certificates:
-    - name: 'BNEC x HIMTI - From Campus to Career'
-        url: '/assets/certificates/BNEC%20X%20HIMTI%20%E2%80%94From%20Campus%20To%20Career%20A%20Journey%20Into%20The%20IT%20World.pdf'
-        type: 'pdf'
+
 assets:
-    - name: 'Student Organizations & Leadership Script'
-        url: '/assets/experience/benchmark-up-manila/student-organizations-leadership-script.pdf'
-        type: 'pdf'
-    - name: 'International Benchmarking MC Script'
-        url: '/assets/experience/benchmark-up-manila/international-benchmarking-mc-script.pdf'
-        type: 'pdf'
-    - name: 'Student Organizations & Leadership Presentation'
-        url: '/assets/experience/benchmark-up-manila/student-organizations-leadership.pdf'
-        type: 'pdf'
-    - name: 'Student Organizations Summary'
-        url: '/assets/experience/benchmark-up-manila/student-organizations-summary.pdf'
-        type: 'pdf'
-    - name: 'Benchmark Event Context'
-        url: '/assets/experience/benchmark-up-manila/benchmark-context.txt'
-        type: 'document'
+  - name: 'Student Organizations & Leadership Script'
+    url: '/assets/experience/benchmark-up-manila/student-organizations-leadership-script.pdf'
+    type: 'pdf'
+  - name: 'International Benchmarking MC Script'
+    url: '/assets/experience/benchmark-up-manila/international-benchmarking-mc-script.pdf'
+    type: 'pdf'
+  - name: 'Student Organizations & Leadership Presentation'
+    url: '/assets/experience/benchmark-up-manila/student-organizations-leadership.pdf'
+    type: 'pdf'
+  - name: 'Student Organizations Summary'
+    url: '/assets/experience/benchmark-up-manila/student-organizations-summary.pdf'
+    type: 'pdf'
+  - name: 'Benchmark Event Context'
+    url: '/assets/experience/benchmark-up-manila/benchmark-context.txt'
+    type: 'document'
 ---
 
 # International Benchmarking & Cultural Exchange
 **SATU University (Indonesia) x University of the Philippines Manila**
 
-**Role:** Main Master of Ceremony (MC) & FGD Speaker (Student Organizations & Leadership)
+## 📌 Introduction
+An international collaboration forum bringing together students from SATU University and the University of the Philippines (UP) Manila. This event serves as a platform for cultural exchange and benchmarking on campus life, student organization management, and university-level leadership.
 
-## 📌 Overview
-Sebuah forum kolaborasi internasional yang mempertemukan mahasiswa dari SATU University dan University of the Philippines (UP) Manila. Acara ini dirancang sebagai wadah pertukaran budaya dan tolok ukur (*benchmarking*) mengenai kehidupan kampus, manajemen organisasi mahasiswa, dan kepemimpinan di tingkat universitas.
+## 🎯 Objective
+The primary objective of this event is to facilitate knowledge sharing between universities from different countries, align on best practices for student organizations, and establish a cross-cultural network among student leaders to foster collaborative growth.
 
-## 🎯 Key Activities
-Dalam acara ini, saya dipercaya untuk memegang dua peran ganda yang krusial:
-*   **International MC:** Memandu jalannya acara kolaborasi lintas negara di *Main Room* secara interaktif bersama rekan pembawa acara dari Filipina, mulai dari sesi pembukaan, transisi *breakout room*, hingga sesi konklusi.
-*   **University Delegate & Speaker:** Menjadi representasi SATU University di Breakout Room 1. Saya mempresentasikan ekosistem organisasi mahasiswa (HIMA dan UKM), membedah alur kepemimpinan demokratis kampus (kampanye digital hingga pemilu), serta memamerkan portofolio proyek nyata mahasiswa.
+## 💡 Background / Why It Exists
+Student organizations often face universal challenges such as maintaining academic-organization balance and managing digital burnout. This benchmarking initiative was created to bridge the gap between different university cultures, allowing student leaders to share unique perspectives, evaluate their current internal systems, and find innovative solutions to these shared challenges.
 
-## 💡 Problem Solving & Strategic Insights
-Bagian paling bernilai dari sesi ini adalah diskusi kelompok terarah (FGD) di mana kami membedah tantangan nyata yang dihadapi para pemimpin mahasiswa modern dan mencari solusinya bersama delegasi UP Manila:
+## 🧑‍💼 My Role
+I was entrusted with two crucial dual roles in this event:
+*   **International MC:** Guided the cross-border collaboration event interactively in the Main Room alongside a co-host from the Philippines, managing the opening session, breakout room transitions, and the conclusion.
+*   **University Delegate & Speaker:** Served as the representative of SATU University in Breakout Room 1. I presented our student organization ecosystem, detailed the campus democratic leadership flow (from digital campaigns to elections), and showcased real student project portfolios.
 
-*   **Identifikasi Tantangan (The Problems):** 
-    Kami mengangkat tiga isu utama yang sering membuat organisasi mahasiswa tidak optimal: kesulitan menjaga keseimbangan akademik-organisasi (*Academic-Organization Balance*), turunnya motivasi anggota di tengah semester (*Hype Curve*), dan kelelahan mental akibat tuntutan digital (*Social Media Burnout*).
-*   **Pendekatan Solusi (The Insights):** 
-    Melalui pertukaran ide, kami menemukan bahwa solusi untuk menjaga resiliensi tim bukanlah birokrasi yang lebih ketat, melainkan **koneksi manusia secara informal**. Kami membandingkan efektivitas kultur internal kami (bermain *board games* mingguan di SU) dengan tradisi delegasi Filipina (makan *street food* bersama pembina) sebagai penawar stres dan pengikat solidaritas.
-*   **Tindak Lanjut Konkret (Action Points):**
-    Sebagai hasil dari pemecahan masalah tersebut, saya bersama tim merumuskan dua solusi kolaboratif untuk dijalankan ke depannya:
-    1.  **Joint 'World Cafe' Leadership Bootcamp:** Menggabungkan kekuatan metode debat interaktif milik UP Manila dengan strategi kampanye digital milik SATU University untuk melatih calon pemimpin masa depan.
-    2.  **Media & Content Management Sharing Session:** Mengadaptasi kultur jurnalistik mapan dari UP Manila (seperti *The Manila Collegian*) guna mengajarkan manajemen media yang berkelanjutan (*sustainable*) kepada mahasiswa SU, sehingga dapat menekan angka *Social Media Burnout*.
+## ⚙️ Modules / Key Activities Created
+During the Focus Group Discussion (FGD), I contributed to formulating strategic modules and action plans to address leadership challenges:
+*   **Problem Identification Framework:** Structured discussions to pinpoint three main issues: Academic-Organization Balance, mid-semester motivation drops (Hype Curve), and Social Media Burnout.
+*   **Informal Connection Strategy:** Developed an approach highlighting human connection over strict bureaucracy, comparing SU's weekly board games culture with UP Manila's street food tradition to build resilience and solidarity.
+*   **Joint 'World Cafe' Leadership Bootcamp Concept:** A collaborative module combining UP Manila's interactive debate methods with SATU University's digital campaign strategies to train future leaders.
+*   **Media & Content Management Sharing Module:** Adapted UP Manila's established journalistic culture (e.g., *The Manila Collegian*) to teach sustainable media management, aiming to reduce Social Media Burnout among SU students.
+
+## 🚀 Impact
+The event successfully strengthened bilateral relations between the student bodies of both universities. It produced actionable insights and collaborative frameworks that can be integrated into our student organization systems, fostering a more resilient, well-balanced, and globally-minded student leadership culture.

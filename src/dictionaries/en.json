@@ -16,7 +16,11 @@
     "portfolioLabel": "Portfolio",
     "name": "Russell Reece",
     "scroll": "Scroll",
-    "metrics": { "projects": "Projects", "competitions": "Competitions", "leadership": "Leadership Roles" }
+    "metrics": {
+      "projects": "Projects",
+      "competitions": "Competitions",
+      "leadership": "Leadership Roles"
+    }
   },
   "about": {
     "title": "About Me",
@@ -27,7 +31,12 @@
   "projects": {
     "title": "Featured Projects",
     "subtitle": "A selection of my recent work across system analysis and front-end development.",
-    "filters": { "all": "All", "frontEnd": "Front-End", "systemAnalysis": "System Analysis", "fullStack": "Full-Stack" },
+    "filters": {
+      "all": "All",
+      "frontEnd": "Front-End",
+      "systemAnalysis": "System Analysis",
+      "fullStack": "Full-Stack"
+    },
     "viewProject": "View Project"
   },
   "awards": {
@@ -130,22 +139,13 @@
         ]
       },
       {
-        "role": "Master of Ceremonies & Key Speaker",
+        "slug": "benchmark-up-manila",
+        "role": "Master of Ceremony (MC) & FGD Speaker",
         "organization": "International Benchmarking and Cultural Exchange with UP Manila",
         "year": "Feb 2026",
         "description": [
           "Hosted an international benchmarking session for cross-cultural academic discussions.",
-          "Delivered a comprehensive presentation on 'Student organization & Leadership'."
-        ]
-      },
-      {
-        "slug": "benchmark-up-manila",
-        "role": "Master of Ceremony (MC) & FGD Speaker",
-        "organization": "International Benchmarking and Cultural Exchange • UP Manila",
-        "year": "Feb 2026",
-        "description": [
-          "Hosted an international collaboration forum and spoke about student organizations and leadership.",
-          "Facilitated solution-focused discussions on academic balance, member motivation, and social media burnout."
+          "Delivered a comprehensive presentation and Facilitated solution-focused discussions on 'Student organization & Leadership'."
         ]
       },
       {
