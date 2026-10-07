@@ -96,7 +96,8 @@ export default function Hero({ dict }: { dict: HeroDictionary }) {
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
               </a>
               <a
-                href="#"
+                href="/assets/Russell_Reece_CV.pdf"
+                download="Russell_Reece_CV.pdf"
                 className="group flex items-center justify-center gap-2.5 px-8 py-4
                          glass glass-hover font-semibold rounded-full
                          text-gray-800 dark:text-white border border-gray-200 dark:border-white/10
