@@ -55,7 +55,7 @@ export default function Hero({ dict }: { dict: HeroDictionary }) {
       <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px] pointer-events-none dark:bg-blue-500/15 opacity-50" />
 
       <div className="container mx-auto px-6 md:px-10 relative z-10 max-w-6xl">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-12 items-start">
 
           {/* ─── Left: Main content ───────────────────── */}
           <div className="flex flex-col items-start">
@@ -142,7 +142,7 @@ export default function Hero({ dict }: { dict: HeroDictionary }) {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex justify-center md:justify-end items-center relative w-full mt-10 md:mt-0"
+            className="flex justify-center md:justify-end items-start relative w-full pt-1"
           >
             <KineticPhotoStack />
             {/* Decorative glow behind photo */}
@@ -151,23 +151,23 @@ export default function Hero({ dict }: { dict: HeroDictionary }) {
 
         </div>
       </div>
-      
+
       {/* Scroll Indicator */}
-      <motion.div 
+      {/* <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 1 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        aria-label={dict.scroll}
       >
-        <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400">{dict.scroll}</span>
         <div className="w-6 h-10 border-2 border-gray-300 dark:border-gray-600 rounded-full flex justify-center p-1">
-          <motion.div 
-            animate={{ y: [0, 12, 0] }} 
+          <motion.div
+            animate={{ y: [0, 12, 0] }}
             transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
             className="w-1.5 h-1.5 bg-primary rounded-full"
           />
         </div>
-      </motion.div>
+      </motion.div> */}
     </section>
   );
 }

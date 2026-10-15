@@ -31,14 +31,14 @@ const INITIAL_PHOTOS: Photo[] = [
   {
     id: 3,
     title: "Campus & Research",
-    place: "Binus University",
+    place: "SATU University",
     year: "03",
     src: "/assets/russell-almet3.JPG",
     tone: "#8f799d",
   },
   {
     id: 4,
-    title: "Pioneering",
+    title: "Pioneering Strategists",
     place: "Competitions & Projects",
     year: "04",
     src: "/assets/russell-almet2.JPG",
@@ -91,19 +91,9 @@ export function KineticPhotoStack() {
   const [mode, setMode] = useState<"stack" | "fan">("stack");
   const [drag, setDrag] = useState({ x: 0, y: 0, active: false });
   const [thrown, setThrown] = useState<"left" | "right" | null>(null);
-  const [focus, setFocus] = useState<Photo | null>(null);
   const [shufflePulse, setShufflePulse] = useState(false);
   const start = useRef({ x: 0, y: 0 });
-  const moved = useRef(false);
   const top = photos[0];
-
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setFocus(null);
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
 
   const rotateDeck = (direction: "left" | "right") => {
     if (thrown || mode === "fan") return;
@@ -115,19 +105,17 @@ export function KineticPhotoStack() {
     }, 340);
   };
 
-  const pointerDown = (event: ReactPointerEvent<HTMLButtonElement>) => {
+  const pointerDown = (event: ReactPointerEvent<HTMLDivElement>) => {
     if (mode !== "stack" || thrown) return;
     event.currentTarget.setPointerCapture(event.pointerId);
     start.current = { x: event.clientX, y: event.clientY };
-    moved.current = false;
     setDrag({ x: 0, y: 0, active: true });
   };
 
-  const pointerMove = (event: ReactPointerEvent<HTMLButtonElement>) => {
+  const pointerMove = (event: ReactPointerEvent<HTMLDivElement>) => {
     if (!drag.active || mode !== "stack") return;
     const x = event.clientX - start.current.x;
     const y = event.clientY - start.current.y;
-    if (Math.abs(x) + Math.abs(y) > 7) moved.current = true;
     setDrag({ x, y, active: true });
   };
 
@@ -136,7 +124,6 @@ export function KineticPhotoStack() {
     if (Math.abs(drag.x) > 80) rotateDeck(drag.x > 0 ? "right" : "left");
     else {
       setDrag({ x: 0, y: 0, active: false });
-      if (!moved.current) setFocus(top);
     }
   };
 
@@ -167,7 +154,7 @@ export function KineticPhotoStack() {
   return (
     <div className="kps-wrapper">
       <style>{STYLES}</style>
-      <section className="kps-shell" aria-label="Draggable kinetic photo stack">
+      <div className="kps-shell" aria-label="Draggable kinetic photo stack">
         <div className={`kps-stage ${mode} ${shufflePulse ? "shuffling" : ""}`}>
           <div className="kps-grain" />
           <div className="kps-controls">
@@ -207,7 +194,7 @@ export function KineticPhotoStack() {
               const stackRotates = [-2.8, 2.4, -1.6, 3.2, -2.5];
               const stackRotate = stackRotates[index % stackRotates.length];
               const offset = index - mid;
-              const fanX = offset * (mode === "fan" ? 72 : 95);
+              const fanX = offset * (mode === "fan" ? 95 : 95);
               const fanY = Math.abs(offset) * 16;
               const fanRotate = offset * 6.5;
               const topTransform =
@@ -227,17 +214,16 @@ export function KineticPhotoStack() {
               } as CSSProperties;
 
               return (
-                <button
-                  aria-label={`Open ${photo.title}`}
+                <div
                   className={`kps-card ${isTop ? "top" : ""} ${isTop && thrown ? `thrown-${thrown}` : ""}`}
                   key={photo.id}
-                  onClick={() => mode === "fan" && setFocus(photo)}
                   onPointerCancel={pointerUp}
                   onPointerDown={isTop ? pointerDown : undefined}
                   onPointerMove={isTop ? pointerMove : undefined}
                   onPointerUp={isTop ? pointerUp : undefined}
                   style={style}
-                  type="button"
+                  role="img"
+                  aria-label={photo.title}
                 >
                   <span className="kps-photo">
                     <img alt={photo.title} draggable="false" src={photo.src} />
@@ -250,10 +236,7 @@ export function KineticPhotoStack() {
                     </span>
                     <em>{photo.year}</em>
                   </span>
-                  <span className="kps-open">
-                    <Icon name="expand" size={13} />
-                  </span>
-                </button>
+                </div>
               );
             })}
           </div>
@@ -269,31 +252,7 @@ export function KineticPhotoStack() {
             </div>
           )}
         </div>
-
-        {focus && (
-          <div
-            className="kps-lightbox"
-            role="dialog"
-            aria-modal="true"
-            aria-label={focus.title}
-            onClick={() => setFocus(null)}
-          >
-            <button aria-label="Close" className="kps-close" onClick={() => setFocus(null)} type="button">
-              <Icon name="close" />
-            </button>
-            <figure onClick={(event) => event.stopPropagation()}>
-              <img alt={focus.title} src={focus.src} />
-              <figcaption>
-                <div>
-                  <b>{focus.title}</b>
-                  <span>{focus.place}</span>
-                </div>
-                <em>{focus.year}</em>
-              </figcaption>
-            </figure>
-          </div>
-        )}
-      </section>
+      </div>
     </div>
   );
 }
@@ -308,7 +267,7 @@ const STYLES = `
   --soft: rgba(0, 0, 0, 0.05);
   --card: #fcfbf9;
   width: 100%;
-  max-width: 440px;
+  max-width: 520px;
   position: relative;
   display: flex;
   justify-content: center;
@@ -327,24 +286,14 @@ const STYLES = `
 
 .kps-shell {
   width: 100%;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 24px;
-  background: var(--panel);
-  box-shadow: 0 24px 70px rgba(30, 28, 22, 0.08);
-  backdrop-filter: blur(12px);
   position: relative;
-}
-
-.dark .kps-shell {
-  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.55);
 }
 
 .kps-controls {
   position: absolute;
   z-index: 25;
-  top: 18px;
-  right: 18px;
+  top: -20px;
+  right: 12px;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -356,12 +305,12 @@ const STYLES = `
   border: 1px solid var(--line);
   border-radius: 9px;
   background: var(--soft);
+  backdrop-filter: blur(8px);
 }
 
 .kps-switch button,
 .kps-shuffle,
-.kps-nav button,
-.kps-close {
+.kps-nav button {
   border: 0;
   color: var(--muted);
   cursor: pointer;
@@ -395,6 +344,7 @@ const STYLES = `
   color: var(--ink);
   font-size: 12px;
   font-weight: 500;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .kps-shuffle:hover:not(:disabled) {
@@ -413,42 +363,19 @@ const STYLES = `
 }
 
 .kps-stage {
-  height: 520px;
+  height: 440px;
   position: relative;
-  overflow: hidden;
   isolation: isolate;
-  background: var(--panel);
-}
-
-.kps-stage:before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 50% 50%, transparent 0 24%, rgba(0, 0, 0, 0.02) 70%),
-    linear-gradient(var(--line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--line) 1px, transparent 1px);
-  background-size: auto, 40px 40px, 40px 40px;
-  opacity: 0.38;
-  mask-image: radial-gradient(circle at 50% 50%, #000, transparent 76%);
-}
-
-.dark .kps-stage:before {
-  opacity: 0.22;
 }
 
 .kps-grain {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 10;
-  opacity: 0.035;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  display: none;
 }
 
 .kps-deck {
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 48%;
   width: 275px;
   height: 380px;
   transform: translate(-50%, -50%);
@@ -501,12 +428,7 @@ const STYLES = `
   object-fit: cover;
   pointer-events: none;
   filter: saturate(0.96) contrast(1);
-  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.3s;
-}
-
-.kps-card:hover .kps-photo img {
-  transform: scale(1.025);
-  filter: saturate(1.04) contrast(1.02);
+  transition: filter 0.3s;
 }
 
 .kps-shine {
@@ -554,28 +476,6 @@ const STYLES = `
   font-weight: 600;
 }
 
-.kps-open {
-  position: absolute;
-  top: 18px;
-  right: 18px;
-  width: 28px;
-  height: 28px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: rgba(248, 246, 239, 0.86);
-  color: #24231f;
-  opacity: 0;
-  transform: scale(0.8);
-  backdrop-filter: blur(9px);
-  transition: opacity 0.2s, transform 0.2s;
-}
-
-.kps-card:hover .kps-open {
-  opacity: 1;
-  transform: none;
-}
-
 .kps-card.thrown-right {
   animation: kps-throw-right 0.34s ease-in forwards;
 }
@@ -590,11 +490,11 @@ const STYLES = `
 
 .kps-stage.fan .kps-card {
   transform: translate3d(var(--fan-x), var(--fan-y), 0) rotate(var(--fan-r));
-  cursor: pointer;
+  cursor: default;
 }
 
 .kps-stage.fan .kps-card:hover {
-  transform: translate3d(var(--fan-x), calc(var(--fan-y) - 18px), 0) rotate(var(--fan-r));
+  transform: translate3d(var(--fan-x), calc(var(--fan-y) - 14px), 0) rotate(var(--fan-r));
   z-index: 30 !important;
   box-shadow: 0 28px 65px rgba(29, 26, 19, 0.28);
 }
@@ -602,8 +502,8 @@ const STYLES = `
 .kps-nav {
   position: absolute;
   z-index: 25;
-  right: 18px;
-  bottom: 18px;
+  right: 12px;
+  bottom: 6px;
   display: flex;
   gap: 6px;
 }
@@ -617,6 +517,7 @@ const STYLES = `
   border-radius: 50%;
   background: var(--panel);
   color: var(--ink);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .kps-nav button:first-child {
@@ -631,84 +532,7 @@ const STYLES = `
   background: var(--soft);
 }
 
-.kps-lightbox {
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  display: grid;
-  place-items: center;
-  padding: 40px;
-  background: rgba(12, 12, 11, 0.86);
-  backdrop-filter: blur(16px);
-  animation: kps-fade 0.25s;
-}
 
-.kps-lightbox figure {
-  width: min(720px, 88vw);
-  margin: 0;
-  animation: kps-focus 0.36s cubic-bezier(0.2, 0.8, 0.2, 1);
-  overflow: hidden;
-  border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 32px 90px rgba(0, 0, 0, 0.6);
-}
-
-.kps-lightbox figure > img {
-  width: 100%;
-  height: min(68vh, 580px);
-  display: block;
-  object-fit: cover;
-}
-
-.kps-lightbox figcaption {
-  height: 68px;
-  padding: 0 22px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #f2efe7;
-  color: #171714;
-}
-
-.kps-lightbox figcaption div {
-  display: grid;
-  gap: 2px;
-}
-
-.kps-lightbox figcaption b {
-  font-size: 14px;
-}
-
-.kps-lightbox figcaption span {
-  font-size: 11px;
-  color: #737068;
-}
-
-.kps-lightbox figcaption em {
-  font: 11px ui-monospace, monospace;
-  font-style: normal;
-  font-weight: 600;
-}
-
-.kps-close {
-  position: fixed;
-  top: 24px;
-  right: 24px;
-  width: 40px;
-  height: 40px;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
-  cursor: pointer;
-  z-index: 1010;
-}
-
-.kps-close:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
 
 @keyframes kps-throw-right {
   0% { transform: translate3d(0, 0, 0) rotate(-2.5deg); opacity: 1; }
@@ -720,16 +544,6 @@ const STYLES = `
   0% { transform: translate3d(0, 0, 0) rotate(-2.5deg); opacity: 1; }
   45% { transform: translate3d(-58%, 2px, 0) rotate(-11deg); opacity: 1; }
   100% { transform: translate3d(-18%, 20px, 0) rotate(-3deg) scale(0.97); opacity: 0; }
-}
-
-@keyframes kps-fade {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes kps-focus {
-  from { opacity: 0; transform: scale(0.93) translateY(16px); }
-  to { opacity: 1; transform: scale(1) translateY(0); }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -768,9 +582,6 @@ const STYLES = `
   .kps-nav {
     right: 14px;
     bottom: 14px;
-  }
-  .kps-lightbox {
-    padding: 16px;
   }
 }
 `;
