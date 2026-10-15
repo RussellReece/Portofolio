@@ -9,6 +9,7 @@ import { getSortedProjectsData } from '@/lib/markdown';
 import { getDictionary } from '@/lib/dictionaries';
 import ClientCosmosBackground from '@/components/ClientCosmosBackground';
 import CertificateGallery from '@/components/CertificateGallery';
+import CoverageMatrix from '@/components/CoverageMatrix';
 
 export default async function Home({ params }: { params: Promise<{ lang: 'en' | 'id' }> }) {
   const { lang } = await params;
@@ -22,6 +23,18 @@ export default async function Home({ params }: { params: Promise<{ lang: 'en' | 
 
       <Hero dict={dict.hero} />
       <About dict={dict.about} />
+
+      {/* ── Coverage Matrix: lifecycle × project grid (Redline) ── */}
+      <section className="py-16 relative">
+        <div className="container mx-auto px-6 max-w-6xl">
+          <div className="mb-6">
+            <h2 className="text-sm font-semibold uppercase tracking-widest text-graphite mb-1">Coverage</h2>
+            <p className="text-graphite text-sm">{dict.hero.matrixCaption}</p>
+          </div>
+          <CoverageMatrix />
+        </div>
+      </section>
+
       <ProjectsGallery projects={projects} dict={dict.projects} />
       <Awards dict={dict.awards} lang={lang} />
       <Experience dict={dict.experience} lang={lang} />

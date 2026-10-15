@@ -5,6 +5,7 @@ import InstagramEmbedLoader from './InstagramEmbedLoader';
 import { ProjectDetailView, ProjectDetailViewProps } from './ProjectDetailView';
 import PdfThumbnailModal from './PdfThumbnailModal';
 import Image from 'next/image';
+import DetailTableOfContents from './DetailTableOfContents';
 
 /* ─── Types ──────────────────────────────────── */
 interface DetailLink {
@@ -52,6 +53,8 @@ interface DetailLayoutProps {
   children: React.ReactNode;
 }
 
+const isPdfUrl = (url: string) => url.split(/[?#]/, 1)[0].toLowerCase().endsWith('.pdf');
+
 /* ─── Component ──────────────────────────────── */
 export default function DetailLayout({ lang, backHref, backLabel, kind, meta, children }: DetailLayoutProps) {
   const isCompetition = kind === 'competition';
@@ -91,7 +94,11 @@ export default function DetailLayout({ lang, backHref, backLabel, kind, meta, ch
       name: link.label,
       url: link.url,
       size: 'External Link',
-      type: link.type === 'document' ? 'pdf' : link.type === 'prototype' ? 'figma' : 'pdf',
+      type: link.type === 'prototype'
+        ? 'figma'
+        : isPdfUrl(link.url)
+          ? 'pdf'
+          : 'external',
     })),
     subTasks: [], // We can leave this empty or populate from MDX later if needed
   };
@@ -148,23 +155,20 @@ export default function DetailLayout({ lang, backHref, backLabel, kind, meta, ch
       {/* ── MDX article body ─────────────────────── */}
       <div className="mx-auto grid min-w-0 max-w-6xl gap-8 px-4 py-10 sm:px-6 md:gap-10 md:py-16 lg:grid-cols-[220px_minmax(0,1fr)] items-start">
         
-        {/* Sticky Table of Contents (TOC) */}
-        <aside className="hidden lg:block sticky top-28 bg-white/50 dark:bg-gray-900/30 backdrop-blur-md rounded-2xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm">
-          <div className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">{lang === 'id' ? 'Daftar Isi' : 'Table of Contents'}</div>
-          <nav className="flex flex-col gap-3 text-sm font-medium text-gray-600 dark:text-gray-400">
-            {/* The TOC items would ideally be generated from the MDX headings, but for now we provide placeholders that match typical structure */}
-            <a href="#" className="hover:text-primary transition-colors">Overview</a>
-            <a href="#" className="hover:text-primary transition-colors">Process & Methodology</a>
-            <a href="#" className="hover:text-primary transition-colors">Key Features</a>
-            <a href="#" className="hover:text-primary transition-colors">Technical Stack</a>
-            <a href="#" className="hover:text-primary transition-colors">Results & Impact</a>
-          </nav>
+        {/* Sticky Table of Contents (TOC) with scroll support */}
+        <aside className="hidden lg:flex flex-col sticky top-28 max-h-[calc(100vh-8.5rem)] bg-white/50 dark:bg-gray-900/30 backdrop-blur-md rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm overflow-hidden">
+          <div className="p-5 pb-3 border-b border-gray-100 dark:border-gray-800/60 shrink-0">
+            <span className="text-xs font-bold uppercase tracking-widest text-gray-500">{lang === 'id' ? 'Daftar Isi' : 'Table of Contents'}</span>
+          </div>
+          <div className="flex-1 overflow-y-auto p-5 pt-3 custom-scrollbar min-h-0">
+            <DetailTableOfContents articleId="detail-article" lang={lang} />
+          </div>
         </aside>
 
-        <article className="min-w-0 max-w-none overflow-hidden prose prose-slate prose-lg dark:prose-invert
+        <article id="detail-article" className="min-w-0 max-w-none overflow-hidden prose prose-slate prose-lg dark:prose-invert
                           prose-headings:font-bold prose-headings:tracking-tight
-                          prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4 prose-h2:pb-3 prose-h2:border-b prose-h2:border-gray-200 prose-h2:dark:border-gray-800
-                          prose-h3:text-xl prose-h3:mt-8
+                          prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4 prose-h2:pb-3 prose-h2:border-b prose-h2:border-gray-200 prose-h2:dark:border-gray-800 prose-h2:scroll-mt-28
+                          prose-h3:text-xl prose-h3:mt-8 prose-h3:scroll-mt-28
                           prose-p:leading-relaxed prose-p:text-gray-600 prose-p:dark:text-gray-300
                           prose-li:text-gray-600 prose-li:dark:text-gray-300
                           prose-strong:text-gray-900 prose-strong:dark:text-white
@@ -184,13 +188,16 @@ export default function DetailLayout({ lang, backHref, backLabel, kind, meta, ch
                       <section className="mt-12 border-t border-gray-200 pt-8 dark:border-gray-800">
                         <h2 className="!mt-0">Certificates</h2>
                         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                          {meta.certificates.map((certificate) => (
+                          {meta.certificates.map((certificate) => certificate.type === 'pdf' ? (
+                            <div key={certificate.url} className="overflow-hidden rounded-xl border border-gray-200 dark:border-gray-800">
+                              <div className="aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-900">
+                                <PdfThumbnailModal title={certificate.name} url={certificate.url} />
+                              </div>
+                              <div className="border-t border-gray-200 px-4 py-3 text-sm font-semibold dark:border-gray-800">{certificate.name}</div>
+                            </div>
+                          ) : (
                             <a key={certificate.url} href={certificate.url} target="_blank" rel="noreferrer" className="group block overflow-hidden rounded-xl border border-gray-200 dark:border-gray-800">
-                              {certificate.type === 'image' ? (
-                                <Image src={certificate.url} alt={certificate.name} width={800} height={560} className="aspect-[4/3] w-full object-cover transition-transform group-hover:scale-[1.02]" />
-                              ) : (
-                                <div className="flex aspect-[4/3] items-center justify-center bg-gray-100 p-6 text-center text-sm font-semibold dark:bg-gray-900">Open {certificate.name}</div>
-                              )}
+                              <Image src={certificate.url} alt={certificate.name} width={800} height={560} className="aspect-[4/3] w-full object-cover transition-transform group-hover:scale-[1.02]" />
                               <div className="border-t border-gray-200 px-4 py-3 text-sm font-semibold dark:border-gray-800">{certificate.name}</div>
                             </a>
                           ))}
@@ -201,7 +208,17 @@ export default function DetailLayout({ lang, backHref, backLabel, kind, meta, ch
                       <section className="mt-12 border-t border-gray-200 pt-8 dark:border-gray-800">
                         <h2 className="!mt-0">Project Assets</h2>
                         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                          {meta.assets.map((asset) => (
+                          {meta.assets.map((asset) => asset.type === 'pdf' || isPdfUrl(asset.url) ? (
+                            <div key={asset.url} className="overflow-hidden rounded-xl border border-gray-200 dark:border-gray-800">
+                              <div className="aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-900">
+                                <PdfThumbnailModal title={asset.name} url={asset.url} />
+                              </div>
+                              <div className="flex items-center justify-between gap-3 border-t border-gray-200 px-4 py-3 dark:border-gray-800">
+                                <span className="text-sm font-semibold">{asset.name}</span>
+                                <span className="text-xs uppercase text-gray-500">{asset.type}</span>
+                              </div>
+                            </div>
+                          ) : (
                             <a key={asset.url} href={asset.url} target="_blank" rel="noreferrer" className="group block overflow-hidden rounded-xl border border-gray-200 dark:border-gray-800">
                               {asset.type === 'image' ? (
                                 <Image src={asset.url} alt={asset.name} width={1000} height={750} className="aspect-[4/3] w-full object-cover transition-transform group-hover:scale-[1.02]" />

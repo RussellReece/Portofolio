@@ -4,16 +4,18 @@ import * as React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import {
+  ArrowRight,
+  ArrowSquareOut,
+  CalendarBlank,
+  DotsThree,
+  FilePdf,
   FileText,
   Palette,
-  Calendar,
   Tag,
   Paperclip,
   Users,
-  MoreHorizontal,
-  ArrowRight,
-  Share2
-} from "lucide-react";
+  ShareNetwork,
+} from "@phosphor-icons/react";
 
 import { cn } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -47,7 +49,7 @@ type Attachment = {
   name: string;
   url: string;
   size: string;
-  type: "pdf" | "figma";
+  type: "pdf" | "figma" | "external";
 };
 
 type SubTask = {
@@ -83,9 +85,9 @@ const StatusBadge = ({ status }: { status: SubTask["status"] }) => {
 };
 
 const FileIcon = ({ type }: { type: Attachment["type"] }) => {
-  if (type === "pdf") return <FileText className="h-6 w-6 text-red-500" />;
+  if (type === "pdf") return <FilePdf className="h-6 w-6 text-red-500" />;
   if (type === "figma") return <Palette className="h-6 w-6 text-purple-500" />;
-  return <Paperclip className="h-6 w-6 text-muted-foreground" />;
+  return <ArrowSquareOut className="h-6 w-6 text-muted-foreground" />;
 };
 
 export function ProjectDetailView({
@@ -143,7 +145,7 @@ export function ProjectDetailView({
               ))}
             </div>
             <div className="flex items-center gap-2 hidden md:flex">
-                <Button variant="ghost" size="icon"><Share2 className="h-4 w-4" /></Button>
+                <Button variant="ghost" size="icon"><ShareNetwork className="h-4 w-4" /></Button>
             </div>
           </motion.div>
         </CardHeader>
@@ -155,7 +157,7 @@ export function ProjectDetailView({
             {/* Meta Info Grid */}
             <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-sm bg-gray-50/50 dark:bg-white/5 p-6 rounded-2xl border border-gray-100 dark:border-white/10">
                 <div className="flex items-start gap-3">
-                    <MoreHorizontal className="h-5 w-5 mt-0.5 text-muted-foreground" />
+                    <DotsThree className="h-5 w-5 mt-0.5 text-muted-foreground" />
                     <div>
                         <p className="text-muted-foreground mb-1">Status</p>
                         <Badge variant="outline" className="font-semibold bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-400 border-green-200 dark:border-green-700/60 shadow-sm">
@@ -182,7 +184,7 @@ export function ProjectDetailView({
                     </div>
                 </div>
                 <div className="flex items-start gap-3">
-                    <Calendar className="h-5 w-5 mt-0.5 text-muted-foreground" />
+                    <CalendarBlank className="h-5 w-5 mt-0.5 text-muted-foreground" />
                     <div>
                         <p className="text-muted-foreground mb-1">Date / Duration</p>
                         <p className="font-medium flex items-center gap-2 text-foreground/90">
@@ -216,19 +218,19 @@ export function ProjectDetailView({
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                       {attachments.map(file => (
-                      <a
-                        key={file.name}
-                        href={file.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-3 p-3 border rounded-xl bg-white/50 dark:bg-white/5 hover:bg-muted/80 transition-colors cursor-pointer shadow-sm"
-                      >
-                              <FileIcon type={file.type} />
-                              <div className="flex-1">
-                                  <p className="font-medium text-sm truncate">{file.name}</p>
-                                  <p className="text-xs text-muted-foreground">{file.size}</p>
-                              </div>
-                      </a>
+                        <a
+                          key={file.name}
+                          href={file.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-3 rounded-xl border bg-white/50 p-3 shadow-sm transition-colors hover:bg-muted/80 dark:bg-white/5"
+                        >
+                          <FileIcon type={file.type} />
+                          <div className="flex-1">
+                            <p className="truncate text-sm font-medium">{file.name}</p>
+                            <p className="text-xs text-muted-foreground">{file.size}</p>
+                          </div>
+                        </a>
                       ))}
                   </div>
               </motion.div>

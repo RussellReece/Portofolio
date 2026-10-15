@@ -48,7 +48,6 @@ Proyek ini berhasil meluncurkan platform *laundry* siap pakai dengan biaya opera
 ## 📂 Dokumen Desain Sistem
 Proyek ini diawali dengan analisis sistem yang matang sebelum tahap *coding* dimulai:
 - 📄 [Software Requirements Specification — SRS UrbanFresh (PDF)](/assets/projects/urbanfresh/documents/UrbanFreshLaundry_SRS%20UrbanFresh.pdf)
-- 📄 [Business Process Flow (PDF)](/assets/projects/urbanfresh/documents/UrbanFreshLaundry_Alur%20Proses%20Bisnis%20ClevaGo%20Home%20Cleaning%20%26%20ClevaGo%20Pest%20Control.pdf)
 
 ---
 

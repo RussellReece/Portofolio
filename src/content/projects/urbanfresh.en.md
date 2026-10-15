@@ -48,7 +48,6 @@ The project successfully launched a production-ready laundry platform with zero 
 ## 📂 System Design Documents
 The project began with a thorough system analysis before any code was written:
 - 📄 [Software Requirements Specification — SRS UrbanFresh (PDF)](/assets/projects/urbanfresh/documents/UrbanFreshLaundry_SRS%20UrbanFresh.pdf)
-- 📄 [Business Process Flow (PDF)](/assets/projects/urbanfresh/documents/UrbanFreshLaundry_Alur%20Proses%20Bisnis%20ClevaGo%20Home%20Cleaning%20%26%20ClevaGo%20Pest%20Control.pdf)
 
 ---
 

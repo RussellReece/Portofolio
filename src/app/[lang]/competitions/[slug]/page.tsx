@@ -1,9 +1,14 @@
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { getCompetitionBySlug, getCompetitionSlugs } from '@/lib/mdx';
 import DetailLayout from '@/components/DetailLayout';
+import DetailArticleLink from '@/components/DetailArticleLink';
 import { notFound } from 'next/navigation';
 import remarkGfm from 'remark-gfm';
 import matter from 'gray-matter';
+
+const components = {
+  a: DetailArticleLink,
+};
 
 export async function generateStaticParams() {
   const slugs = getCompetitionSlugs();
@@ -49,6 +54,7 @@ export default async function CompetitionPage({
     >
       <MDXRemote
         source={content}
+        components={components}
         options={{
           mdxOptions: {
             remarkPlugins: [remarkGfm],

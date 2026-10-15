@@ -2,12 +2,14 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import { getProjectBySlug, getProjectSlugs } from '@/lib/mdx';
 import VideoEmbed from '@/components/VideoEmbed';
 import DetailLayout from '@/components/DetailLayout';
+import DetailArticleLink from '@/components/DetailArticleLink';
 import { notFound } from 'next/navigation';
 import remarkGfm from 'remark-gfm';
 import matter from 'gray-matter';
 
 const components = {
   VideoEmbed,
+  a: DetailArticleLink,
 };
 
 export async function generateStaticParams() {

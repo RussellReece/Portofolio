@@ -16,6 +16,7 @@
     "portfolioLabel": "Portofolio",
     "name": "Russell Reece",
     "scroll": "Gulir",
+    "matrixCaption": "Posisi tiap proyek dalam siklus pengiriman. Warna isi menandakan disiplin.",
     "metrics": {
       "projects": "Proyek",
       "competitions": "Kompetisi",
@@ -35,9 +36,12 @@
       "all": "Semua",
       "frontEnd": "Front-End",
       "systemAnalysis": "System Analysis",
-      "fullStack": "Full-Stack"
+      "fullStack": "Full-Stack",
+      "uiUx": "UI / UX"
     },
-    "viewProject": "Lihat Proyek"
+    "viewProject": "Lihat Proyek",
+    "alsoBuiltTitle": "Juga dikerjakan",
+    "alsoBuiltSubtitle": "Diindeks, tidak di-card"
   },
   "awards": {
     "title": "Kompetisi & Hackathon",

@@ -16,6 +16,7 @@
     "portfolioLabel": "Portfolio",
     "name": "Russell Reece",
     "scroll": "Scroll",
+    "matrixCaption": "Where each project sat in the delivery lifecycle. Fill colour marks the discipline.",
     "metrics": {
       "projects": "Projects",
       "competitions": "Competitions",
@@ -35,9 +36,12 @@
       "all": "All",
       "frontEnd": "Front-End",
       "systemAnalysis": "System Analysis",
-      "fullStack": "Full-Stack"
+      "fullStack": "Full-Stack",
+      "uiUx": "UI / UX"
     },
-    "viewProject": "View Project"
+    "viewProject": "View Project",
+    "alsoBuiltTitle": "Also built",
+    "alsoBuiltSubtitle": "Indexed, not carded"
   },
   "awards": {
     "title": "Competitions & Hackathons",

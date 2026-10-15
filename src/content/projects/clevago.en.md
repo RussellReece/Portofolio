@@ -12,6 +12,9 @@ links:
   - label: 'External Service A3 (PDF)'
     url: '/assets/projects/clevago/ClevaGo%20External%20Service%20A3.pdf'
     type: 'document'
+  - label: 'Style Guide (PDF)'
+    url: '/assets/projects/clevago/clevago%20style%20guide.pdf'
+    type: 'document'
   - label: 'Figma: Manajer'
     url: 'https://www.figma.com/proto/HREgR2Db2ynzLPd6sYMK1v/UI-UX-Design---SU?node-id=2360-8868&p=f&t=eeDoGcEQAJ3Hf4FA-1&scaling=contain&content-scaling=fixed&page-id=176%3A200&starting-point-node-id=2360%3A8868&show-proto-sidebar=1'
     type: 'prototype'
@@ -21,6 +24,19 @@ links:
   - label: 'Laporan & UML'
     url: 'https://binusianorg-my.sharepoint.com/personal/wn_binus_edu/_layouts/15/guestaccess.aspx?share=IgCzMap9ER1oT46GpSMHvynvAZc4XW-b6fW2bqv2Ovlw8Uc&e=6DpxXU'
     type: 'document'
+assets:
+  - name: 'ClevaGO External Service A3 Poster'
+    url: '/assets/projects/clevago/ClevaGo%20External%20Service%20A3.pdf'
+    type: 'pdf'
+  - name: 'ClevaGO Style Guide'
+    url: '/assets/projects/clevago/clevago%20style%20guide.pdf'
+    type: 'pdf'
+  - name: 'Final Project Report Submission'
+    url: '/assets/projects/clevago/documents/TugasMinggu12FinalProjectReportSubmissionClevaGO.pdf'
+    type: 'pdf'
+  - name: 'End-to-End External Service Process'
+    url: '/assets/projects/clevago/documents/ClevaGO-ExternalService_Final%20End-to-end%20External%20Service.pdf'
+    type: 'pdf'
 ---
 
 # ClevaGO — Laundry Service External Division
@@ -52,10 +68,14 @@ This project produced a well-structured information system blueprint to facilita
 
 ## 📂 Key Documents
 - 📄 [Project Brief (PDF)](/assets/projects/clevago/documents/ClevaGO-ExternalService_Project%20Brief.pdf)
+- 📄 [ClevaGO Style Guide (PDF)](/assets/projects/clevago/clevago%20style%20guide.pdf)
+- 📄 [External Service A3 Summary Poster (PDF)](/assets/projects/clevago/ClevaGo%20External%20Service%20A3.pdf)
+- 📄 [Final Project Report Submission (PDF)](/assets/projects/clevago/documents/TugasMinggu12FinalProjectReportSubmissionClevaGO.pdf)
+- 📄 [Business Process Flow: Home Cleaning & Pest Control (PDF)](/assets/projects/clevago/documents/ProsesBisnisClevaGoHomeCleaning%26ClevaGoPestControl.pdf)
+- 📄 [End-to-End Process (PDF)](/assets/projects/clevago/documents/ClevaGO-ExternalService_Final%20End-to-end%20External%20Service.pdf)
 - 📄 [Use Case Diagram (PDF)](/assets/projects/clevago/documents/ClevaGO-ExternalService_FINAL%20Use%20Case%20External%20Service.pdf)
 - 📄 [Class Diagram (PDF)](/assets/projects/clevago/documents/ClevaGO-ExternalService_Class%20Diagram%20External%20Service.pdf)
-- 📄 [End-to-End Process (PDF)](/assets/projects/clevago/documents/ClevaGO-ExternalService_Final%20End-to-end%20External%20Service.pdf)
-- 📄 [CRUD & RASCI (PDF)](/assets/projects/clevago/documents/ClevaGO-ExternalService_FINAL%20CRUD%20%26%20RASCI%20External%20Service.pdf)
+- 📄 [CRUD & RASCI Matrix (PDF)](/assets/projects/clevago/documents/ClevaGO-ExternalService_FINAL%20CRUD%20%26%20RASCI%20External%20Service.pdf)
 - 📄 [System Sequence Diagram (PDF)](/assets/projects/clevago/documents/ClevaGO-ExternalService_System%20Sequence%20Diagram%20External%20Service.pdf)
 - 📄 [Activity: Shift Scheduling (PDF)](/assets/projects/clevago/documents/ClevaGO-ExternalService_Activity%20Diagram%20Final%20Penjadwalan%20Shift%20Tim%20Lapangan.pdf)
 - 📄 [Activity: Outsourcing Process (PDF)](/assets/projects/clevago/documents/ClevaGO-ExternalService_Activity%20Diagram%20Final%20Pengelolaan%20dan%20Proses%20Outsourcing.pdf)

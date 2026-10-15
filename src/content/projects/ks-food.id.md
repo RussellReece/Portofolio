@@ -20,6 +20,28 @@ links:
   - label: 'OneDrive'
     url: 'https://binusianorg-my.sharepoint.com/personal/wn_binus_edu/Documents/--%20Teaching/2025-2026%201%20Ganjil/Advanced%20ISAD/Students%20Work%20-%20Adv%20ISAD/Group%202%20-%20Russell%20Rafli%20Dave?d=wf5af114fef88404aada5306e127b4cc6&csf=1&web=1&e=dE9KFC'
     type: 'document'
+assets:
+  - name: 'Diagram Proses Bisnis End-to-End'
+    url: '/assets/projects/ksfood/source-materials/analysis/KS%20Food%20-%20UML-End-to-End%20Diagram.drawio.pdf'
+    type: 'pdf'
+  - name: 'UML Use Case Diagram'
+    url: '/assets/projects/ksfood/source-materials/analysis/KS%20Food%20-%20UML-Use%20Case%20Diagram.drawio.pdf'
+    type: 'pdf'
+  - name: 'UML Activity Diagram'
+    url: '/assets/projects/ksfood/source-materials/analysis/UML%20-%20KS%20FOOD-Activity%20Diagram.pdf'
+    type: 'pdf'
+  - name: 'Diagram ERD Konseptual'
+    url: '/assets/projects/ksfood/source-materials/analysis/KS%20Food%20-%20UML-Conceptual%20-%20ERD%20Diagram.drawio.pdf'
+    type: 'pdf'
+  - name: 'Diagram ERD Logikal'
+    url: '/assets/projects/ksfood/source-materials/analysis/KS%20Food%20-%20UML-Logical%20-%20ERD%20Diagram.drawio.pdf'
+    type: 'pdf'
+  - name: 'Analisis Profil Perusahaan (Company Profile)'
+    url: '/assets/projects/ksfood/source-materials/analysis/Adv_ISAD_Company_Profile.pdf'
+    type: 'pdf'
+  - name: 'Arsitektur Jaringan & Sistem'
+    url: '/assets/projects/ksfood/source-materials/analysis/network%20diagram.jpeg'
+    type: 'image'
 ---
 
 # KSFOOD — Manufacturing ERP & E-commerce
@@ -47,28 +69,51 @@ Proyek ini sukses merumuskan cetak biru (*blueprint*) sistem yang kuat dan membe
 
 ---
 
-## 📂 Dokumen Proyek
-Berikut adalah kumpulan dokumen proyek, diurutkan dari penemuan bisnis, pemodelan UML, hingga laporan akhir.
+## 📂 Analisis Sistem & Dokumen Sumber
+Berikut adalah katalog lengkap dokumen artefak analisis sistem, panduan wawancara *stakeholder*, model arsitektur UML, desain *database*, dan berkas proyek dari `public/assets/projects/ksfood/source-materials/analysis` serta dokumen terkait lainnya.
 
-### Ringkasan & Konteks Bisnis
+### 🔍 1. Penemuan Kebutuhan & Wawancara Stakeholder
+- 📄 [Pertanyaan Wawancara Stakeholder - Eksplorasi Awal (PDF)](/assets/projects/ksfood/source-materials/analysis/Pertanyaan%20Wawancara%201.pdf)
+- 📄 [Pertanyaan Wawancara Stakeholder - Minggu 2 s.d. 4 (PDF)](/assets/projects/ksfood/source-materials/analysis/Pertanyaan%20Wawancara%20Week%202%20-%204.pdf)
+- 📄 [Pertanyaan Wawancara Stakeholder - Minggu 5 & 6 (PDF)](/assets/projects/ksfood/source-materials/analysis/Pertanyaan%20Wawancara%20Week%205%20%26%206.pdf)
+- 📄 [Panduan Wawancara Komprehensif Stakeholder (PDF)](/assets/projects/ksfood/source-materials/analysis/Pertanyaan%20Wawancara.pdf)
+- 📄 [Daftar Ringkasan Dokumen Sumber Terkumpul (PDF)](/assets/projects/ksfood/source-materials/analysis/Dokumen%20yang%20dikumpulkan.pdf)
+
+### 🏢 2. Analisis Bisnis & Proposal Solusi
+- 📄 [Analisis Profil Perusahaan - CV Kertasari Sejahtera (PDF)](/assets/projects/ksfood/source-materials/analysis/Adv_ISAD_Company_Profile.pdf)
+- 📄 [Usulan Solusi & Proses Bisnis Baru (PDF)](/assets/projects/ksfood/source-materials/analysis/Adv_ISAD_Propose_of_Business_Process_and_Solution.pdf)
+
+### 🧠 3. Analisis Knowledge Management (KM)
+- 📄 [KM Knowledge Audit & Mapping (PDF)](/assets/projects/ksfood/source-materials/analysis/KM%20Knowledge%20Audit%20%26%20Mapping.pdf)
+- 📄 [KM Knowledge Needs Analysis (PDF)](/assets/projects/ksfood/source-materials/analysis/KM%20Knowledge%20Needs%20Analysis.pdf)
+- 📄 [Proposal Strategi Knowledge Management (PDF)](/assets/projects/ksfood/source-materials/analysis/KM_Strategy_Proposal.pdf)
+- 📄 [Laporan Akhir: Knowledge Management (PDF)](/assets/projects/ksfood/source-materials/Laporan%20Akhir%20Knowledge%20Management.pdf)
+
+### 📐 4. Pemodelan UML & Arsitektur Sistem
+- 📄 [Diagram Alur Proses Bisnis End-to-End (PDF)](/assets/projects/ksfood/source-materials/analysis/KS%20Food%20-%20UML-End-to-End%20Diagram.drawio.pdf)
+- 📄 [UML Use Case Diagram (PDF)](/assets/projects/ksfood/source-materials/analysis/KS%20Food%20-%20UML-Use%20Case%20Diagram.drawio.pdf)
+- 📊 [Deskripsi Detail Use Case (Excel)](/assets/projects/ksfood/source-materials/analysis/Use%20Case%20Description.xlsx)
+- 📄 [UML Activity Diagrams (PDF)](/assets/projects/ksfood/source-materials/analysis/UML%20-%20KS%20FOOD-Activity%20Diagram.pdf)
+- 📄 [UML Domain Class Diagram (PDF)](/assets/projects/ksfood/source-materials/analysis/KS%20Food%20-%20UML-Domain%20-%20Class%20Diagram.drawio.pdf)
+- 📄 [UML First-Cut Class Diagram (PDF)](/assets/projects/ksfood/source-materials/analysis/KS%20Food%20-%20UML-First%20Cut%20-%20Class%20Diagram.drawio.pdf)
+- 📄 [UML First-Cut Sequence Diagram (PDF)](/assets/projects/ksfood/source-materials/analysis/KS%20Food%20-%20UML-First%20Cut%20Sequence%20Diagram.drawio%20(1).pdf)
+- 📄 [UML Communication Diagram (PDF)](/assets/projects/ksfood/source-materials/analysis/KS%20Food%20-%20UML-Communication%20Diagram.drawio.pdf)
+- 🖼️ [Diagram Arsitektur Jaringan & Perangkat Keras (JPEG)](/assets/projects/ksfood/source-materials/analysis/network%20diagram.jpeg)
+
+### 🗄️ 5. Perancangan Basis Data & Pemodelan Data
+- 📄 [Diagram ERD Konseptual (PDF)](/assets/projects/ksfood/source-materials/analysis/KS%20Food%20-%20UML-Conceptual%20-%20ERD%20Diagram.drawio.pdf)
+- 📄 [Diagram ERD Logikal (PDF)](/assets/projects/ksfood/source-materials/analysis/KS%20Food%20-%20UML-Logical%20-%20ERD%20Diagram.drawio.pdf)
+- 📄 [Perancangan Basis Data Fisikal (PDF)](/assets/projects/ksfood/deliverables/KSFOOD_KSFOOD%20Phisical%20Database.pdf)
+- 🗄️ [Sumber Skrip Database MySQL KSFOOD (SQL)](/assets/projects/ksfood/source-materials/ksfood.sql)
+
+### 📑 6. Brief Proyek, Deliverables & Laporan Akhir
 - 📄 [Project Brief: Data and Information (PDF)](/assets/projects/ksfood/briefs/Project%20Brief%20Data%20and%20Information.pdf)
 - 📄 [Project Brief: Advanced IS Analysis & Design (PDF)](/assets/projects/ksfood/briefs/Project%20Brief%20-%20Adv%20IS%20Analysis%20%26%20Design.pdf)
 - 📄 [Project Brief: Knowledge Management (PDF)](/assets/projects/ksfood/briefs/Project%20Brief%20-%20Knowledge%20Management.pdf)
-- 📄 [Company Profile Analysis (PDF)](/assets/projects/ksfood/source-materials/analysis/Adv_ISAD_Company_Profile.pdf)
-- 📄 [Business Process and Solution Proposal (PDF)](/assets/projects/ksfood/source-materials/analysis/Adv_ISAD_Propose_of_Business_Process_and_Solution.pdf)
-
-### Pemodelan UML
-- 📄 [End-to-End UML Diagram (PDF)](/assets/projects/ksfood/deliverables/KSFOOD_KS%20Food%20-%20UML-End-to-End%20Diagram.drawio.pdf)
-- 📄 [Activity Diagram (PDF)](/assets/projects/ksfood/source-materials/analysis/UML%20-%20KS%20FOOD-Activity%20Diagram.pdf)
-- 📄 [UML Use Case Diagram (PDF)](/assets/projects/ksfood/source-materials/analysis/KS%20Food%20-%20UML-Use%20Case%20Diagram.drawio.pdf)
-- 📄 [UML Domain Class Diagram (PDF)](/assets/projects/ksfood/source-materials/analysis/KS%20Food%20-%20UML-Domain%20-%20Class%20Diagram.drawio.pdf)
-- 📄 [UML Communication Diagram (PDF)](/assets/projects/ksfood/source-materials/analysis/KS%20Food%20-%20UML-Communication%20Diagram.drawio.pdf)
-
-### Laporan Akhir & Basis Data
-- 📄 [Physical Database Design (PDF)](/assets/projects/ksfood/deliverables/KSFOOD_KSFOOD%20Phisical%20Database.pdf)
-- 🗄️ [KSFOOD Database Source (SQL)](/assets/projects/ksfood/source-materials/ksfood.sql)
-- 📄 [Advanced IS Analysis & Design Final Report (PDF)](/assets/projects/ksfood/source-materials/Laporan%20Akhir%20Advanced%20IS%20Analysis%20%26%20Design.pdf)
-- 📄 [Full Project Report (PDF)](/assets/projects/ksfood/deliverables/KSFOOD_KS%20FOOD.pdf)
+- 📄 [Laporan Akhir Advanced ISAD (PDF)](/assets/projects/ksfood/source-materials/Laporan%20Akhir%20Advanced%20IS%20Analysis%20%26%20Design.pdf)
+- 📄 [Dokumen Laporan Komprehensif Deliverable (PDF)](/assets/projects/ksfood/deliverables/KSFOOD_KS%20FOOD.pdf)
+- 📄 [UI Design Style Guide (PDF)](/assets/projects/ksfood/source-materials/Design%20-%20Style%20Guide.pdf)
+- 📄 [Surat Undangan Presentasi Proyek Mahasiswa - CV Kertasari Sejahtera (PDF)](/assets/projects/ksfood/source-materials/107%20Surat%20Undangan%20Presentasi%20Proyek%20Mahasiswa%20-%20CV%20Kertasari%20Sejahtera.pdf)
 
 ---
 

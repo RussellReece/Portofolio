@@ -2,8 +2,8 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Download, MousePointer2 } from 'lucide-react';
-import Image from 'next/image';
+import { ArrowRight, Download } from 'lucide-react';
+import { KineticPhotoStack } from '@/components/ui/draggable-photo-stack';
 
 /* ─── Animation helpers ──────────────────────────────────── */
 const fadeUp = (delay = 0) => ({
@@ -42,6 +42,7 @@ type HeroDictionary = {
   viewProjects: string;
   downloadCv: string;
   scroll: string;
+  matrixCaption?: string;
   metrics: { projects: string; competitions: string; leadership: string };
 };
 
@@ -54,7 +55,7 @@ export default function Hero({ dict }: { dict: HeroDictionary }) {
       <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px] pointer-events-none dark:bg-blue-500/15 opacity-50" />
 
       <div className="container mx-auto px-6 md:px-10 relative z-10 max-w-6xl">
-        <div className="grid md:grid-cols-2 gap-12 items-start">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
 
           {/* ─── Left: Main content ───────────────────── */}
           <div className="flex flex-col items-start">
@@ -136,19 +137,16 @@ export default function Hero({ dict }: { dict: HeroDictionary }) {
             </motion.div>
           </div>
 
-          {/* ─── Right: Photo Slot ───────────────────── */}
-          <motion.div 
+          {/* ─── Right: Kinetic Photo Stack ─────────── */}
+          <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="hidden md:flex justify-end items-start relative"
+            className="flex justify-center md:justify-end items-center relative w-full mt-10 md:mt-0"
           >
-            <div className="relative w-full max-w-sm aspect-[4/5] rounded-3xl overflow-hidden border-2 border-dashed border-gray-300 dark:border-gray-700 bg-gray-100/50 dark:bg-gray-900/50">
-              <Image src="/assets/russell-casual.png" alt="Russell Reece" fill sizes="(max-width: 1024px) 40vw, 384px" className="object-cover" />
-            </div>
-            
-            {/* Decorative elements behind photo */}
-            <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-primary/20 via-blue-400/10 to-transparent rounded-full blur-3xl opacity-60"></div>
+            <KineticPhotoStack />
+            {/* Decorative glow behind photo */}
+            <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-primary/15 via-blue-400/10 to-transparent rounded-full blur-3xl opacity-60 pointer-events-none" />
           </motion.div>
 
         </div>

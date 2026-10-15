@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { FileText, ExternalLink } from 'lucide-react';
+import { ArrowSquareOut } from '@phosphor-icons/react';
 
 const certificates = [
   { name: 'BNEC x HIMTI - From Campus to Career', file: 'BNEC X HIMTI —From Campus To Career A Journey Into The IT World.pdf', type: 'pdf' },
@@ -34,19 +34,41 @@ export default function CertificateGallery({ lang }: { lang: string }) {
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {certificates.map((certificate) => {
             const url = assetUrl(certificate.file);
+            const cardClassName = 'group overflow-hidden rounded-2xl border border-gray-200/70 bg-white/70 shadow-sm transition hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg dark:border-white/10 dark:bg-white/[0.04]';
+
+            if (certificate.type === 'pdf') {
+              return (
+                <a key={certificate.file} href={url} target="_blank" rel="noreferrer" className={cardClassName}>
+                  <div className="relative aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-900">
+                    <iframe
+                      src={`${url}#toolbar=0&navpanes=0&scrollbar=0&view=Fit`}
+                      title={`${certificate.name} PDF preview`}
+                      loading="lazy"
+                      tabIndex={-1}
+                      aria-hidden="true"
+                      className="pointer-events-none h-full w-full bg-white"
+                    />
+                    <span className="absolute right-3 top-3 rounded-full bg-black/60 p-2 text-white">
+                      <ArrowSquareOut className="h-3.5 w-3.5" aria-hidden="true" />
+                    </span>
+                  </div>
+                  <div className="flex min-h-16 items-center justify-between gap-3 p-4">
+                    <span className="text-sm font-semibold leading-tight">{certificate.name}</span>
+                    <span className="text-xs text-gray-500">PDF</span>
+                  </div>
+                </a>
+              );
+            }
+
             return (
-              <a key={certificate.file} href={url} target="_blank" rel="noreferrer" className="group overflow-hidden rounded-2xl border border-gray-200/70 bg-white/70 shadow-sm transition hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg dark:border-white/10 dark:bg-white/[0.04]">
+              <a key={certificate.file} href={url} target="_blank" rel="noreferrer" className={cardClassName}>
                 <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden bg-gray-100 dark:bg-gray-900">
-                  {certificate.type === 'image' ? (
-                    <Image src={url} alt={certificate.name} fill sizes="(max-width: 640px) 50vw, (max-width: 1280px) 25vw, 240px" className="object-cover transition-transform duration-500 group-hover:scale-105" />
-                  ) : (
-                    <FileText className="h-12 w-12 text-primary/70" aria-hidden="true" />
-                  )}
-                  <span className="absolute right-3 top-3 rounded-full bg-black/60 p-2 text-white"><ExternalLink className="h-3.5 w-3.5" /></span>
+                  <Image src={url} alt={certificate.name} fill sizes="(max-width: 640px) 50vw, (max-width: 1280px) 25vw, 240px" className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                  <span className="absolute right-3 top-3 rounded-full bg-black/60 p-2 text-white"><ArrowSquareOut className="h-3.5 w-3.5" /></span>
                 </div>
                 <div className="flex min-h-16 items-center justify-between gap-3 p-4">
                   <span className="text-sm font-semibold leading-tight">{certificate.name}</span>
-                  <span className="text-xs text-gray-500">{certificate.type.toUpperCase()}</span>
+                  <span className="text-xs text-gray-500">IMAGE</span>
                 </div>
               </a>
             );

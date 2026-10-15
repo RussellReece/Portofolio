@@ -16,6 +16,7 @@ export interface ProjectData {
   techStack: string[];
   image: string;
   link: string;
+  featured?: boolean;
   contentHtml?: string;
 }
 
@@ -54,6 +55,7 @@ export function getSortedProjectsData(lang: string = 'id'): ProjectData[] {
       techStack: matterResult.data.techStack || [],
       image: matterResult.data.image || '',
       link: matterResult.data.link || '#',
+      featured: matterResult.data.featured !== false, // default true for backwards compat
     } as ProjectData;
   });
 
