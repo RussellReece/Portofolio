@@ -6,12 +6,12 @@ import { useEffect, useRef, useState } from 'react';
 const COLS = ['Discover', 'Model', 'Design', 'Build', 'Ship'];
 
 const ROWS: { name: string; phases: ('' | 'a' | 'f' | 'g')[] }[] = [
-  { name: 'KSFOOD',          phases: ['a', 'a', 'g', 'g', ''] },
-  { name: 'ClevaGO',         phases: ['a', 'a', 'a', '', ''] },
-  { name: 'Empact',          phases: ['', '', 'f', 'f', 'f'] },
-  { name: 'UrbanFresh',      phases: ['g', 'g', 'g', 'g', 'g'] },
-  { name: 'Universal LMS',   phases: ['', '', 'f', 'f', 'f'] },
-  { name: 'Eatventory',      phases: ['f', 'f', 'f', '', ''] },
+  { name: 'KSFOOD', phases: ['a', 'a', 'g', 'g', 'g'] },
+  { name: 'ClevaGO', phases: ['a', 'a', 'a', '', ''] },
+  { name: 'Empact', phases: ['', '', 'f', 'f', 'f'] },
+  { name: 'UrbanFresh', phases: ['g', 'g', 'g', 'g', 'g'] },
+  { name: 'Universal LMS', phases: ['', '', 'f', 'f', 'f'] },
+  { name: 'Eatventory', phases: ['f', 'f', 'f', '', ''] },
   { name: 'Design Thinking', phases: ['f', 'f', 'f', '', ''] },
 ];
 
